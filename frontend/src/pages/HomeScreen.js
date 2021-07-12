@@ -70,8 +70,8 @@ const HomePageStyled = styled.header`
 .backgroundImage{
   img{
   width:100%;
-  height:100%;
-  object-fit:contain;
+  height:100vh;
+  object-fit:cover;
   opacity:0.5;
       }
       
@@ -82,6 +82,9 @@ const HomePageStyled = styled.header`
       }
   p{
   font-size:1.2rem;
+  @media screen and (max-width: 700px){
+         font-size: .8rem;
+        }
       }
   position:absolute;
   top:20%;
