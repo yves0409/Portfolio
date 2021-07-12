@@ -1,4 +1,4 @@
-import React ,{ useState,useEffect }from 'react'
+import React ,{ useState}from 'react'
 import styled from "styled-components"
 import {MainLayout,InnerLayout} from "../styles/Layout"
 import Title from '../components/Title'
@@ -9,6 +9,18 @@ import 'react-toastify/dist/ReactToastify.min.css'
 import emailjs from 'emailjs-com';
 import{ init } from 'emailjs-com';
 import SendIcon from '@material-ui/icons/Send';
+// import pinterest from "../images/pinterest.png"
+// import snapchat from "../images/snapchat.png"
+// import messenger from "../images/messenger.png"
+// import twitter from "../images/twitter.png"
+// import whatsapp from "../images/whatsapp.png"
+// import youtube from "../images/youtube.png"
+// import tiktok from "../images/tiktok.png"
+//import axios from 'axios'
+
+
+
+
 
 init("user_dvXegxEb11cRFMAuFpf6J");
 
@@ -17,11 +29,21 @@ const ContactScreen = () => {
     const [subject, setSubject] = useState('');
     const [emailsender, setEmailsender] = useState('');
     const [question, setQuestion] = useState('');
+    //const [contactInfo,setContactInfo] = useState([])
 
-   
-  //const contactinfo = info[0].contact 
-    
-  const templateParams = {
+    // useEffect(()=> {
+    //     axios.get(`${process.env.REACT_APP_API}/contact`)
+    //       .then(response => {
+    //         const {data} = response;
+    //         console.log(data);
+    //         setContactInfo(data)
+    //       }).catch((error) => {
+    //         console.log(error);
+    //       })
+    //  },[])
+  
+
+const templateParams = {
           from_name: emailsender,
           name: name,
           to_name:"Yves",
@@ -63,6 +85,7 @@ return (
                 <div className="left-content">
                     <div className="contact-title">
                         <h4>Get in touch  </h4>
+                        
                     </div>
                         <form className="form" id="contactform"   >
                                 <div className="form-field">
@@ -89,23 +112,48 @@ return (
                          </form>
                 </div>
                 <div className="right-content">
-                   
+                
                     {info.map(item => <ContactItem 
                     key={item.id} 
                     icon={item.icon} 
                     title={item.title} 
                     contact1={item.contact1} 
-                    contact2={item.contact2}
+                    contact2={item.contact2} 
                     />)}
                       
                 </div>
             </InnerLayout>
-            </ContactPageStyled>      
+            {/* <div className="footer">
+                <img src={whatsapp} alt="" />
+                <img src={twitter} alt="" />
+                <img src={youtube} alt="" />
+                <img src={pinterest} alt="" />
+                <img src={tiktok} alt="" />
+                <img src={messenger} alt="" />
+                <img src={snapchat} alt=""/> 
+            </div>   */}
+            </ContactPageStyled>  
+              
         </MainLayout>
     )
 }
 
 const ContactPageStyled = styled.section`
+.footer{
+    background-color:white;
+    padding:1rem;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items: center;
+    border-radius:4px;
+    background-color:var(--border-color);
+    img{
+        height:60px;
+        width:60px;
+    }
+}
 .contact-section{
    display:grid;
    grid-template-columns:repeat(2,1fr);
@@ -117,6 +165,8 @@ const ContactPageStyled = styled.section`
    display:grid;
    grid-template-columns:repeat(1,1fr);
    padding-top:3rem;
+   width:100%;
+   
    }
 .contact-title{
      h4{
@@ -126,7 +176,7 @@ const ContactPageStyled = styled.section`
        }
    }
 .form{
-   width:100%;
+   width:90%;
 .form-field{
    margin-top:.2rem;
    position:relative;
@@ -170,4 +220,6 @@ textarea{
 }
 `
 export default ContactScreen
+
+
 
