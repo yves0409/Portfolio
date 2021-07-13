@@ -5,7 +5,7 @@
   function Particle(){
       return (
         
-            <Particles width="100%" height="50vh" color="#fff"
+            <Particles width="100%" height="50vh"
              params={{
                  particles:{
                      number:{

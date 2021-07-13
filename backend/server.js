@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose')
 const morgan = require('morgan');
+const path = require('path')
 
 
 require('dotenv').config();
@@ -38,13 +39,23 @@ const portfolioRouter = require('./routes/portfolio.js');
 app.use('/portfolio',portfolioRouter)
 
 const trendingRouter = require('./routes/trending.js');
-app.use('/trending',trendingRouter)
+app.use('/trending',trendingRouter)  
 
 const infoRouter = require('./routes/info.js');
 app.use('/info',infoRouter)
 
 const contactRouter = require('./routes/contact.js');
 app.use('/contact',contactRouter)
+
+
+
+if (process.env.NODE_ENV === 'production'){
+  const __dirname = path.resolve();
+  app.use(express.static(path.join(__dirname,'/frontend/build')))
+  
+  app.get('*',(req,res) => 
+  res.sendFile(path.resolve(__dirname,'frontend','build','index.html')))
+}
 
 app.listen(port, ()=> {
     console.log(`Server is running on port : ${port}`);
