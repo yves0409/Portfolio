@@ -26,6 +26,10 @@ connection.once('open', ()=> {
   console.log("MongoDB database connection success");
 })
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+}
+
 
 const backgroundRouter = require('./routes/background.js');
 app.use('/background',backgroundRouter)

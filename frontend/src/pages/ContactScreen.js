@@ -1,13 +1,13 @@
 import React ,{ useState}from 'react'
 import styled from "styled-components"
 import {MainLayout,InnerLayout} from "../styles/Layout"
+import { init } from 'emailjs-com';
+import {ToastContainer,toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
 import Title from '../components/Title'
 import ContactItem from '../components/ContactItem'
 import info from "../data/info"
-import {ToastContainer,toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.min.css'
 import emailjs from 'emailjs-com';
-import{ init } from 'emailjs-com';
 import SendIcon from '@material-ui/icons/Send';
 // import pinterest from "../images/pinterest.png"
 // import snapchat from "../images/snapchat.png"
@@ -16,10 +16,6 @@ import SendIcon from '@material-ui/icons/Send';
 // import whatsapp from "../images/whatsapp.png"
 // import youtube from "../images/youtube.png"
 // import tiktok from "../images/tiktok.png"
-//import axios from 'axios'
-
-
-
 
 
 init("user_dvXegxEb11cRFMAuFpf6J");
@@ -29,20 +25,7 @@ const ContactScreen = () => {
     const [subject, setSubject] = useState('');
     const [emailsender, setEmailsender] = useState('');
     const [question, setQuestion] = useState('');
-    //const [contactInfo,setContactInfo] = useState([])
-
-    // useEffect(()=> {
-    //     axios.get(`${process.env.REACT_APP_API}/contact`)
-    //       .then(response => {
-    //         const {data} = response;
-    //         console.log(data);
-    //         setContactInfo(data)
-    //       }).catch((error) => {
-    //         console.log(error);
-    //       })
-    //  },[])
-  
-
+ 
 const templateParams = {
           from_name: emailsender,
           name: name,
@@ -50,7 +33,7 @@ const templateParams = {
           subject: subject,
           message: question
         };
-console.log(templateParams);
+
 
 ////SEND FORM TO EMAIL => 'emailjs'////  
 const sendMessage = (e) => {
