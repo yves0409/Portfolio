@@ -14,7 +14,8 @@ const ImageSection = () => {
   
     useEffect(()=> {
         async function getResults(){
-            const results = await axios.get(`${process.env.REACT_APP_API}/info`)
+           // const results = await axios.get(`${process.env.REACT_APP_API}/info`)
+            const results = await axios.get('https://yvesloeysportfolio.herokuapp.com/info`')
             setAboutInfo(results.data[0])
            }
         getResults()

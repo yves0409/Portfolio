@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "node": "15.8.0",
+  "npm": "7.8.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
