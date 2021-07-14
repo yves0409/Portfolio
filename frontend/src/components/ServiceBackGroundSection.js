@@ -15,7 +15,8 @@ const ServiceBackGroundSection = () => {
   
   
   useEffect(()=> {
-      axios.get(`${process.env.REACT_APP_API}/background`)
+      //axios.get(`${process.env.REACT_APP_API}/background`)
+      axios.get('https://yvesloeysportfolio.herokuapp.com/background')
         .then(response => {
           const {data} = response;
           setBackgroundInfo(data)
