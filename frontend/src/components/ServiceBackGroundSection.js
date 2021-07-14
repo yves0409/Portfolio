@@ -24,7 +24,7 @@ const ServiceBackGroundSection = () => {
         })
    },[])
   
-    console.log(backgroundInfo);
+    
   return (
     <BackGroundSectionStyled>
          <Title title={"background"} span={"background"}/>
