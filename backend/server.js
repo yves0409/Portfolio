@@ -1,4 +1,3 @@
-import sslRedirect from 'heroku-ssl-redirect';
 const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -9,7 +8,6 @@ const path = require('path')
 require('dotenv').config();
 
 const app = express();
-app.use(sslRedirect());
 const port = process.env.PORT || 5000
 
 app.use(cors())
@@ -22,7 +20,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
-
 
 const uri = process.env.MONGO_URI;
 mongoose.connect(uri , {useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology: true });
