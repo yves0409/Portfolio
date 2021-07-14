@@ -1,3 +1,4 @@
+import sslRedirect from 'heroku-ssl-redirect';
 const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -8,19 +9,13 @@ const path = require('path')
 require('dotenv').config();
 
 const app = express();
+app.use(sslRedirect());
 const port = process.env.PORT || 5000
 
 app.use(cors())
 app.use(express.json());
 
-if(process.env.NODE_ENV === 'production') {
-  app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https')
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    else
-      next()
-  })
-}
+
 
 
 //Gives you a log of the endpoints you hit
