@@ -18,7 +18,7 @@ const ImageSection = () => {
             setAboutInfo(results.data[0])
            }
         getResults()
-        console.log("useEffct");
+        
        },[])
 
 
