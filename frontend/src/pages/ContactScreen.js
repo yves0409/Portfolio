@@ -18,6 +18,7 @@ import SendIcon from '@material-ui/icons/Send';
 // import tiktok from "../images/tiktok.png"
 
 
+
 init("user_dvXegxEb11cRFMAuFpf6J");
 
 const ContactScreen = () => {
@@ -25,6 +26,8 @@ const ContactScreen = () => {
     const [subject, setSubject] = useState('');
     const [emailsender, setEmailsender] = useState('');
     const [question, setQuestion] = useState('');
+
+  
  
 const templateParams = {
           from_name: emailsender,
@@ -35,7 +38,7 @@ const templateParams = {
         };
 
 
-////SEND FORM TO EMAIL => 'emailjs'////  
+//SEND FORM TO EMAIL => 'emailjs'////  
 const sendMessage = (e) => {
     e.preventDefault();
         setName("");
@@ -51,6 +54,7 @@ const sendMessage = (e) => {
                   pauseOnHover: true
                })
                   console.log("SUCCESS!", response.status, response.text);
+                  console.log(process.env.REACT_APP_SERVICE_ID);
               },
               function(err) {
                   toast.error("Your message was not able to be sent");
