@@ -35,19 +35,19 @@ if (process.env.NODE_ENV === 'production') {
 
 
 const backgroundRouter = require('./routes/background.js');
-app.use('/api/background',backgroundRouter)
+app.use('/background',backgroundRouter)
 
 const portfolioRouter = require('./routes/portfolio.js');
-app.use('/api/portfolio',portfolioRouter)
+app.use('/portfolio',portfolioRouter)
 
 const trendingRouter = require('./routes/trending.js');
-app.use('/api/trending',trendingRouter)  
+app.use('/trending',trendingRouter)  
 
 const infoRouter = require('./routes/info.js');
-app.use('/api/info',infoRouter)
+app.use('/info',infoRouter)
 
 const contactRouter = require('./routes/contact.js');
-app.use('/api/contact',contactRouter)
+app.use('/contact',contactRouter)
 
 
 
