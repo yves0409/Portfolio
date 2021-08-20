@@ -38,7 +38,7 @@ const backgroundRouter = require('./routes/background.js');
 app.use('/background',backgroundRouter)
 
 const portfolioRouter = require('./routes/portfolio.js');
-app.use('/api/portfolio',portfolioRouter)
+app.use('/portfolio',portfolioRouter)
 
 const trendingRouter = require('./routes/trending.js');
 app.use('/trending',trendingRouter)  
