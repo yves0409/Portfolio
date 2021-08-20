@@ -50,7 +50,7 @@ return (
                     <p className="downloadResumeText">Resume</p>
                   
           </div>
-          </ImageSectionStyled>): (<LinearProgress color="primary" /> )
+          </ImageSectionStyled>): (<LinearProgress color="primary"/> )
          
        
 
