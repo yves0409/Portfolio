@@ -18,8 +18,8 @@ const PortfolioScreen = () => {
   
 
     useEffect(()=> {
-       axios.get(`${process.env.REACT_APP_API}/portfolio`)
-       //axios.get('https://yvesloeysportfolio.herokuapp.com/portfolio')
+       //axios.get(`${process.env.REACT_APP_API}/portfolio`)
+       axios.get('https://www.yvesloeys.com/portfolio')
          .then(response => {
           const {data} = response;
           setPortfolios(data)

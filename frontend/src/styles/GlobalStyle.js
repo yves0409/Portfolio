@@ -1,26 +1,6 @@
 import {createGlobalStyle} from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
-/* :root {
-    --primary-color:#007bff;
-    --primary-color-light:#057bff;
-    --secondary-color:#6c757d;
-    --background-dark-color:#10121a;
-    --background-dark-color-2:#191d2b;
-    --border-color:#2e344e;
-    --background-light-color:#f1f1f1;
-    --background-light-color-2:rgba(3,127,255,.3);
-    --background-light-color-3:#0b48854a;
-    --white-color:#fff;
-    --font-light-color:#a4acc4;
-    --font-dark-color:#313131;
-    --font-dark-color-2:#151515;
-    --sidebar-dark-color:#191d2b;
-    --scrollbar-bg-color:#383838;
-    --scrollbar-thump-color:#6b6b6b ; 
-    --scrollbar-track-color:#383838;
-} */
-
 .light-theme{
     --primary-color:#007bff;
     --primary-color-light:#057bff;
@@ -125,9 +105,10 @@ const GlobalStyle = createGlobalStyle`
 
  //Floating toggler
  .light-dark-mode{
-      position:fixed;  
+      position:absolute;  
       right:0;
       top:10%;
+      transition: top 0.3s;
       background-color:transparent;
       width:6rem;
       height:2rem;
@@ -135,17 +116,15 @@ const GlobalStyle = createGlobalStyle`
       display: flex;
       align-items:center;
       justify-content:center;
-     
-      svg{
+ svg{
         display: flex;
         align-items:center;
         font-size:1.6rem;
         color:var(--white-color);
-    
-      }
+       }
     }
 
-    //navtoggler
+ //navtoggler
     .hamburgerMenu{
         position: absolute;
         display: none;

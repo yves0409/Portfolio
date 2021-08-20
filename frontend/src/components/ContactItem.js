@@ -2,14 +2,9 @@ import React from 'react'
 import styled from "styled-components"
 
 
-
-
 const ContactItem = ({icon,title,contact1,contact2}) => {
  
-
- 
-
-  return (
+ return (
         <ContactItemStyled>
             <div className="left-content">
                 {icon}

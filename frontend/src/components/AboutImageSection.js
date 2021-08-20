@@ -34,16 +34,10 @@ return (
                 <p className="about-paragraph">{aboutInfo.bio}</p>
                   <div className="about-info">
                     <div className="info-title">
-                        <p>Full Name</p>
-                        <p>Languages</p>
-                        <p>Location</p>
-                        <p>Service</p>
-                    </div>
-                    <div className="info">
-                        <p>: {aboutInfo.first_name} {aboutInfo.last_name}</p>
-                        <p>: {aboutInfo.languages}</p>
-                        <p>: {aboutInfo.location}</p>
-                        <p>: {aboutInfo.services}</p>
+                        <p>Full Name : <span>{aboutInfo.first_name} {aboutInfo.last_name}</span></p>
+                        <p>Languages : <span>{aboutInfo.languages}</span></p>
+                        <p>Location : <span>{aboutInfo.location}</span></p>
+                        <p>Service : <span>{aboutInfo.services}</span></p>
                     </div>
                   </div>
                     <Link to={cv} target="_blank" download><img src={downloadCV} alt="Freepic" /></Link>
@@ -107,19 +101,20 @@ const ImageSectionStyled = styled.div`
  .about-info{
      display: flex;
      padding-bottom:1.4rem;
+
+ }
  .info-title{
      padding-right:3rem;
  p{
      font-size:1rem;
      font-weight:200;
+    
     }
- }
- .info-title,.info{
- p{
+    span {
     font-size:1rem;
     padding:.3rem 0;
-   }
-  }
+    color:grey;
+    }
  }
 }
 `

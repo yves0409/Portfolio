@@ -14,20 +14,20 @@ const info = [
         icon:phone,
         title:"Phone",
         contact1:"+1(424)431 7550",
-        contact2:"+1(424)431 7550"
+        contact2:"+32(478)531 692"
     },
     {
         id:2,
         icon:email,
         title:"Email",
         contact1:"yves.loeys@gmail.com",
-        contact2:"loeys.yves@gmail.com"
+        contact2:".yloeys@gmail.com"
     },
     {
         id:3,
         icon:location,
         title:"Address",
-        contact1:"405 W Sycamore Av, Los Angeles California",
+        contact1:"Los Angeles California",
         contact2:"USA"
     },
             
