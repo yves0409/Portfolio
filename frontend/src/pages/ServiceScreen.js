@@ -4,8 +4,6 @@ import SkillsSection from '../components/ServiceSkillsSection'
 import { MainLayout } from '../styles/Layout'
 import ServiceSection from '../components/ServiceSection'
 
-
-
 const ServiceScreen = () => {
     return (
        <MainLayout>
@@ -13,10 +11,7 @@ const ServiceScreen = () => {
          <SkillsSection/>
          <BackGroundSection/>
        </MainLayout>
-        
-        
-        
-    )
+      )
 }
 
 export default ServiceScreen

@@ -125,7 +125,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
  //navtoggler
-    .hamburgerMenu{
+.hamburgerMenu{
         position: absolute;
         display: none;
         right:5%;
@@ -136,29 +136,17 @@ const GlobalStyle = createGlobalStyle`
             color:white;
         }
     }
-
-    
-
-    .burger-toggle{
+.burger-toggle{
         transform:translateX(0);
         z-index:20;
     }
 
-    /* .nav-toggle{
-        transform:translateX(0);
-        z-index:20;
-        display:none;
-    } */
-
-    //Global mediaQueries
-    @media screen and (max-width:1000px){
-        .hamburgerMenu{
-            display: block;
+//Global mediaQueries
+ @media screen and (max-width:1000px){
+.hamburgerMenu{
+        display: block;
         }
     };
-
-    
-
 `
 
 export default GlobalStyle;

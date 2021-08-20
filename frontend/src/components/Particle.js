@@ -34,7 +34,6 @@
                          width:1,
                          shadow:{
                              enable:true,
-                             /* color:'white', */
                              blur:5
                          }
                      },

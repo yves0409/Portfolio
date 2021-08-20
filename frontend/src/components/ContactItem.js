@@ -33,8 +33,7 @@ const ContactItemStyled = styled.div`
       align-items:center;
       justify-content:center;
       margin-right:1.2rem;
-      
-      svg{
+    svg{
         font-size:2rem;
       }
   }

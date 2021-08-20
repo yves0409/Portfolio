@@ -36,10 +36,6 @@ const PortfolioCardStyled = styled.div`
         border:2px solid var(--icon-green-color);
         border-radius:6px;
         padding:.8rem;
-       
-            
-        
-        
     .portfolio-content{
         display: block;
         position: relative;

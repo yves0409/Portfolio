@@ -1,36 +1,22 @@
 import React from 'react'
 import styled from "styled-components"
 import {NavLink} from "react-router-dom"
-import avatar from "../images/avatar.jpg"
-// import FacebookIcon from "@material-ui/icons/Facebook"
-// import GithubIcon from "@material-ui/icons/GitHub"
-// import InstagramIcon from "@material-ui/icons/Instagram"
-import facebook from "../images/facebook.png"
-import instagram from "../images/instagram.png"
-import linkedin from "../images/linkedin.png"
-import github from "../images/Github-icon.png"
+import avatar from "../images/avatarResize.jpg"
+import facebook from "../images/facebookResize.png"
+import instagram from "../images/instagramResize.png"
+import linkedin from "../images/linkedinResize.png"
+
 
 const Navigation = ({hideSidebarOnItemClick}) => {
-
-   
     return (
           <NavigationStyled >
            <div className="avatar">
                <img src={avatar} alt="avatar" />
                <h2>Yves Loeys</h2>
-               
-               {/* <div className="icons">
-               
-                    <a href="https://www.facebook.com" className="icon i-facebook"><FacebookIcon/></a>
-                    <a href="https://www.github.com" className="icon i-github"><GithubIcon/></a>
-                    <a href="https://www.instagram.com"  className="icon i-instagram"><InstagramIcon/></a>
-                </div> */}
-               
-               </div> 
+           </div> 
                <div className="social">
                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src={facebook} alt="facebookicon"/></a>
                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagramicon"  /></a> 
-               {/* <a href="https://www.github.com" target="_blank" rel="noopener noreferrer"><img src={github} alt="githubicon"/></a> */}
                <a href="https://www.linkedin.com/in/yves-loeys-461b66171" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="linkedinicon"/></a>
                 </div>
                <ul className="nav-items" onClick={()=> hideSidebarOnItemClick()}>
@@ -52,9 +38,7 @@ const Navigation = ({hideSidebarOnItemClick}) => {
                    <li className="nav-item">
                        <NavLink to="/contact" activeClassName="active-class" exact >Contact</NavLink>
                    </li>
-
-                  
-               </ul>
+                </ul>
                <footer className="footer">
                    <p>@2021 Yves Loeys</p>
                </footer>

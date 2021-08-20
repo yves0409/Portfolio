@@ -1,12 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import coding from "../images/coding.png"
+import coding from "../images/codingresize.jpeg"
 import downloadCV from "../images/download.png"
 import cv from "../../src/data/cv.pdf";
 import axios from "axios"
 import LinearProgress from '@material-ui/core/LinearProgress';
-
 
 
 const ImageSection = () => { 
@@ -45,12 +44,7 @@ return (
                   
           </div>
           </ImageSectionStyled>): (<LinearProgress color="primary"/> )
-         
-       
-
-        
-       
-    )
+         )
 }
 
 const ImageSectionStyled = styled.div`
@@ -101,14 +95,12 @@ const ImageSectionStyled = styled.div`
  .about-info{
      display: flex;
      padding-bottom:1.4rem;
-
  }
  .info-title{
      padding-right:3rem;
  p{
      font-size:1rem;
      font-weight:200;
-    
     }
     span {
     font-size:1rem;

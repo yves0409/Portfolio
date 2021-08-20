@@ -11,8 +11,8 @@ const AboutReviewSection = () => {
             <Title title={"Reviews"} span={"Reviews"}/>
             <InnerLayout>
                 <div className="reviews">
-                    <ReviewItem text={"Some random text here that i will change"}/>
-                    <ReviewItem text={"Some random text here that i will change,and some more text to be changed"}/>
+                    <ReviewItem text={"Yves is fantastic to work with. I highly recommended him and will be send him more work when needed."}/>
+                    <ReviewItem text={"Great work!, will always be my go-to hire if available. His work is exceptional and communication is always open and clear, which makes him an all around pleasure to work with. Stop looking as you have found the right person!"}/>
                 </div>
             </InnerLayout>
         </AboutReviewSectionStyled>

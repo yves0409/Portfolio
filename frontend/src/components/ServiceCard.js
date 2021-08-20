@@ -51,11 +51,7 @@ transition:all .4s ease-in-out;
       img{
           width:100px;
           height:100px;
-          
-          
-         
-          
-      }
+          }
   }
 `
 export default ServiceCard

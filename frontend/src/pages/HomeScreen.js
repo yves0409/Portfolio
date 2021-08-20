@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from "styled-components"
 //import Particle from '../components/Particle'
-import img from "../images/HomeScreenImage.JPG"
+import img from "../images/HomeScreenImageresize.jpeg"
+
 
 
 const HomeScreen = () => {
@@ -12,13 +13,14 @@ const HomeScreen = () => {
                 <Particle/>
             </div> */}
             <div className="backgroundImage">
-                <img src={img} alt="" />
+                <img src={img} alt="Landingpage desert" />
+       
             </div>
          </div>
           
         <div className="HomeScreenTypography">
             <h1>{'<'}Front-End Web Development{'/>'}</h1>
-            <p>Where Every Pixel Matters</p>
+            <p>Every Pixel Matters</p>
         </div>
     </HomePageStyled>
     )
@@ -69,13 +71,13 @@ const HomePageStyled = styled.header`
 }
 .backgroundImage{
   img{
-  width:100%;
+  width:100vw;
   height:100vh;
   object-fit:cover;
   opacity:0.5;
       }
-      
-  }
+    }
+ 
 .HomeScreenTypography{
   h1{
   font-family: 'Source Serif Pro', serif;

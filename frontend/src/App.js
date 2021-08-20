@@ -20,25 +20,25 @@ function App() {
   const [burgerToggle,setBurgerToggle]=useState(false)
 
 
-  
-
-  useEffect(() => {
+useEffect(() => {
    document.documentElement.className= theme
   }, [theme])
 
 const ThemeTogglerHandler = ()=>{
-if(theme === "light-theme"){
-  setTheme("dark-theme")
-  setChecked(false)
-}else{
-  setTheme("light-theme")
-  setChecked(true)  
-}
-}
-  return (
+      if(theme === "light-theme"){
+         setTheme("dark-theme")
+         setChecked(false)
+      }else{
+        setTheme("light-theme")
+       setChecked(true)  
+      }
+      }
+  
+return (
 <div className="App">
-        <Sidebar burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle}/>
-        <div className="theme">
+    <Sidebar burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle}/>
+        
+    <div className="theme">
               <div className="light-dark-mode">
                 <div className="left-content">
                     <Brightness4Icon/>
@@ -52,16 +52,16 @@ if(theme === "light-theme"){
                   />
                 </div>
               </div>
-        </div>
+    </div>
 
-<div className="hamburgerMenu">
-        <IconButton onClick={()=> setBurgerToggle(!burgerToggle)}>
-          <MenuIcon />
-        </IconButton>
-</div>
+    <div className="hamburgerMenu">
+          <IconButton onClick={()=> setBurgerToggle(!burgerToggle)}>
+            <MenuIcon />
+          </IconButton>
+    </div>
     
 
-<MainContentStyled>
+    <MainContentStyled>
         <div className="lines">
           <div className="line-1"></div>
           <div className="line-2"></div>
@@ -77,8 +77,7 @@ if(theme === "light-theme"){
           <Route path="/portfolio" exact component={PortfolioScreen}></Route>
           <Route path="/services" exact component={ServiceScreen}></Route>
         </Switching>
-   
-</MainContentStyled>
+    </MainContentStyled>
 </div>
   );
 }
