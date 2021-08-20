@@ -38,16 +38,16 @@ const backgroundRouter = require('./routes/background.js');
 app.use('/background',backgroundRouter)
 
 const portfolioRouter = require('./routes/portfolio.js');
-app.use('/portfolio',portfolioRouter)
+app.use('/port',portfolioRouter)
 
 const trendingRouter = require('./routes/trending.js');
-app.use('/trending',trendingRouter)  
+app.use('/trend',trendingRouter)  
 
 const infoRouter = require('./routes/info.js');
 app.use('/info',infoRouter)
 
 const contactRouter = require('./routes/contact.js');
-app.use('/contact',contactRouter)
+app.use('/cont',contactRouter)
 
 
 
