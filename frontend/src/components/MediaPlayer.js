@@ -10,7 +10,8 @@ const MediaPlayer = () => {
 
     useEffect(()=> {
         async function getResults(){
-            const results = await axios.get(`${process.env.REACT_APP_API}/trending`)
+            //const results = await axios.get(`${process.env.REACT_APP_API}/trending`)
+            const results = await axios.get("/api/trending")
             //const results = await axios.get('https://yvesloeysportfolio.herokuapp.com/trending')
             setTrending(results.data)
         }
