@@ -9,15 +9,6 @@ import ContactItem from '../components/ContactItem'
 import info from "../data/info"
 import emailjs from 'emailjs-com';
 import SendIcon from '@material-ui/icons/Send';
-// import pinterest from "../images/pinterest.png"
-// import snapchat from "../images/snapchat.png"
-// import messenger from "../images/messenger.png"
-// import twitter from "../images/twitter.png"
-// import whatsapp from "../images/whatsapp.png"
-// import youtube from "../images/youtube.png"
-// import tiktok from "../images/tiktok.png"
-
-
 
 init("user_dvXegxEb11cRFMAuFpf6J");
 
@@ -28,8 +19,7 @@ const ContactScreen = () => {
     const [question, setQuestion] = useState('');
 
   
- 
-const templateParams = {
+ const templateParams = {
           from_name: emailsender,
           name: name,
           to_name:"Yves",
@@ -110,18 +100,8 @@ return (
                       
                 </div>
             </InnerLayout>
-            {/* <div className="footer">
-                <img src={whatsapp} alt="" />
-                <img src={twitter} alt="" />
-                <img src={youtube} alt="" />
-                <img src={pinterest} alt="" />
-                <img src={tiktok} alt="" />
-                <img src={messenger} alt="" />
-                <img src={snapchat} alt=""/> 
-            </div>   */}
-            </ContactPageStyled>  
-              
-        </MainLayout>
+           </ContactPageStyled>  
+         </MainLayout>
     )
 }
 

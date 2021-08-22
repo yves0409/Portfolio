@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-//import Particle from '../components/Particle'
+import Particle from '../components/Particle'
 import img from "../images/HomeScreenImageresize.jpeg"
 
 
@@ -9,13 +9,12 @@ const HomeScreen = () => {
     return (
     <HomePageStyled>
         <div id="cf3">
-            {/* <div className="particles-con">
+            <div className="particles-con">
                 <Particle/>
-            </div> */}
+            </div>
             <div className="backgroundImage">
                 <img src={img} alt="Landingpage desert" />
-       
-            </div>
+           </div>
          </div>
           
         <div className="HomeScreenTypography">

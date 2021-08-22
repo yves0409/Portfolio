@@ -38,7 +38,7 @@ const backgroundRouter = require('./routes/background.js');
 app.use('/background',backgroundRouter)
 
 const portfolioRouter = require('./routes/portfolio.js');
-app.use('/portfolio',portfolioRouter)
+app.use('/api/portfolio',portfolioRouter)
 
 const trendingRouter = require('./routes/trending.js');
 app.use('/trending',trendingRouter)  
@@ -61,6 +61,6 @@ if (process.env.NODE_ENV === 'production'){
 
 
 
-app.listen(port, '0.0.0.0', ()=> {
+app.listen(port , ()=> {
     console.log(`Server is running on port : ${port}`);
 })

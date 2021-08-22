@@ -11,17 +11,37 @@ import ContactScreen from "./pages/ContactScreen"
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Switch from '@material-ui/core/Switch';
 import MenuIcon from '@material-ui/icons/Menu';
-import { IconButton } from "@material-ui/core"
+import { IconButton } from "@material-ui/core";
+import arrow from "./images/arrowUp.png"
 
 
 function App() {
   const [theme,setTheme]=useState('dark-theme')
   const [checked,setChecked]=useState(false)
   const [burgerToggle,setBurgerToggle]=useState(false)
+  const [isVisible, setIsVisible] = useState(false);
+
+  console.log(window.pageYOffset);
+
+  const toggleVisibility = () => {
+    if (window.pageYOffset > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
 
 useEffect(() => {
    document.documentElement.className= theme
+   window.addEventListener("scroll", toggleVisibility);
   }, [theme])
 
 const ThemeTogglerHandler = ()=>{
@@ -77,6 +97,11 @@ return (
           <Route path="/portfolio" exact component={PortfolioScreen}></Route>
           <Route path="/services" exact component={ServiceScreen}></Route>
         </Switching>
+
+        {isVisible && 
+        <div onClick={scrollToTop} className="scrollToTopBtn">
+          <img src={arrow} alt="arrowup by icons8"/>
+        </div>}
     </MainContentStyled>
 </div>
   );
@@ -87,11 +112,10 @@ const MainContentStyled = styled.main`
     position:relative;
     margin-left:16rem;
     min-height:100vh;
-    @media screen and (max-width:1000px){
+  @media screen and (max-width:1000px){
       margin-left:0px;
  };
-   
-.lines{
+  .lines{
     position:absolute;
     width:100%;
     min-height:100%;
@@ -99,12 +123,16 @@ const MainContentStyled = styled.main`
     justify-content:space-evenly;
     opacity:0.4;
     z-index: -1;
-.line-1,.line-2,.line-3,.line-4{
+  .line-1,.line-2,.line-3,.line-4{
     width:1px;
     min-height:100vh;
     background-color: var(--border-color);
   }
 }
+.scrollToTopBtn img{
+    float:right;
+    margin:1rem; 
+  }
 `
 
 export default App;
