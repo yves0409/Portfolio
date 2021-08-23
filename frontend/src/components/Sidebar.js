@@ -14,7 +14,7 @@ const Sidebar = ({burgerToggle,setBurgerToggle}) => {
 const SideBarStyled = styled.div`
  @media screen and (max-width:414px){
     width:100vw;
-    height:100%
+    height:100vh;
  };
  position:fixed;
  height:100vh;

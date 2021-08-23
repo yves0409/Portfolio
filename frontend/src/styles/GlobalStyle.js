@@ -108,7 +108,7 @@ const GlobalStyle = createGlobalStyle`
  .light-dark-mode{
       position:absolute;  
       right:0;
-      top:12%;
+      top:13%;
       transition: top 0.3s;
       background-color:transparent;
       width:6rem;

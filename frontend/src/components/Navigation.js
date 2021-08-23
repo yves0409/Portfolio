@@ -65,8 +65,10 @@ const NavigationStyled = styled.nav`
 
 @media screen and (max-width:900px) and (orientation:landscape){
  .avatar{
-    display:none;
-    }
+    display: none;
+}
+
+    
    };
 
 @media screen and (min-width:850px) {
@@ -91,8 +93,8 @@ const NavigationStyled = styled.nav`
      color:var(--white-color); 
      }
  img{
-    width:80%;
-    height:60%;
+    width:150px;
+    height:150px;
     object-fit:cover;
     border-radius:50%;
     border:8px solid var(--border-color);
