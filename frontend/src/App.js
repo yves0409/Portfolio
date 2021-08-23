@@ -15,12 +15,13 @@ import { IconButton } from "@material-ui/core";
 import arrow from "./images/arrowUp.png"
 
 
+
 function App() {
   const [theme,setTheme]=useState('dark-theme')
   const [checked,setChecked]=useState(false)
   const [burgerToggle,setBurgerToggle]=useState(false)
   const [isVisible, setIsVisible] = useState(false);
-
+ 
 
   //Scroll To Top
   const toggleVisibility = () => {
@@ -97,7 +98,7 @@ return (
           <Route path="/contact" exact component={ContactScreen}></Route>
           <Route path="/portfolio" exact component={PortfolioScreen}></Route>
           <Route path="/services" exact component={ServiceScreen}></Route>
-        </Switching>
+         </Switching>
 
         {isVisible && 
         <div onClick={scrollToTop} className="scrollToTopBtn">

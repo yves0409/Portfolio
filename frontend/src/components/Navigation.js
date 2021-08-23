@@ -43,6 +43,7 @@ const Navigation = ({hideSidebarOnItemClick}) => {
                    <li className="nav-item">
                        <NavLink to="/contact" activeClassName="active-class" exact >Contact</NavLink>
                    </li>
+                   
                 </ul>
                <footer className="footer">
                    <p>@2021 Yves Loeys</p>
@@ -62,7 +63,7 @@ const NavigationStyled = styled.nav`
     width:100%;
     border-right:1px solid var(--border-color);
 
-@media screen and (max-width:850px) and (orientation:landscape){
+@media screen and (max-width:900px) and (orientation:landscape){
  .avatar{
     display:none;
     }

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components"
-// import Particle from '../components/Particle'
 import img from "../images/HomeScreenImageresize.jpeg"
 
 
@@ -8,14 +7,11 @@ import img from "../images/HomeScreenImageresize.jpeg"
 const HomeScreen = () => {
     return (
     <HomePageStyled>
-        <div id="cf3">
-            {/* <div className="particles-con">
-                <Particle/>
-            </div> */}
+        {/* <div id="cf3"> */}
             <div className="backgroundImage">
-                <img src={img} alt="Landingpage desert" />
+            <img src={img} alt="Landingpage desert" />
            </div>
-         </div>
+         {/* </div> */}
           
         <div className="HomeScreenTypography">
             <h1>{'<'}Front-End Web Development{'/>'}</h1>
@@ -29,14 +25,14 @@ const HomePageStyled = styled.header`
   width:100%;
   height:100vh;
   position: relative;
-  #cf3 {
+  /* #cf3 {
   position:relative;
   height:100vh;
   width:100%;
   margin:0 auto;
-}
+} */
 
-#cf3 > div {
+/* #cf3 > div {
   position:absolute;
   left:0;
   -webkit-transition: opacity 1s ease-in-out;
@@ -57,8 +53,8 @@ const HomePageStyled = styled.header`
 100% {
   opacity:0;
 }
-}
-#cf3 div.particles-con{
+} */
+/* #cf3 div.particles-con{
   animation-name: cf3FadeInOut;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -67,7 +63,7 @@ const HomePageStyled = styled.header`
 }
 .particles-con{
   width:100%;
-}
+} */
 .backgroundImage{
   img{
   width:100vw;

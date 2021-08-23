@@ -60,7 +60,7 @@ const GlobalStyle = createGlobalStyle`
      background-color: var(--background-dark-color);
      color:var(--font-light-color)
  }
-
+//scroll
  body::-webkit-scrollbar{
  width:9px;
  background-color:#383838;
