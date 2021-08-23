@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import Navigation from './Navigation'
 
+
 const Sidebar = ({burgerToggle,setBurgerToggle}) => {
     return (
         <SideBarStyled className={`${burgerToggle ? "burger-toggle" : ""}`} >
@@ -11,9 +12,12 @@ const Sidebar = ({burgerToggle,setBurgerToggle}) => {
 }
 
 const SideBarStyled = styled.div`
- width:16.3rem;
+ @media screen and (max-width:375px){
+    width:100vw;
+ };
  position:fixed;
  height:100vh;
+ width:16.3rem;
  background-color:var(--sidebar-dark-color);
  overflow:hidden;
  transition: all .4s ease-in-out;

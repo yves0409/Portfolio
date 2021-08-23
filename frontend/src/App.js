@@ -21,8 +21,8 @@ function App() {
   const [burgerToggle,setBurgerToggle]=useState(false)
   const [isVisible, setIsVisible] = useState(false);
 
-  console.log(window.pageYOffset);
 
+  //Scroll To Top
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -30,7 +30,6 @@ function App() {
       setIsVisible(false);
     }
   };
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -57,7 +56,8 @@ const ThemeTogglerHandler = ()=>{
 return (
 <div className="App">
     <Sidebar burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle}/>
-        
+
+    {/* light / Dark mode     */}
     <div className="theme">
               <div className="light-dark-mode">
                 <div className="left-content">
@@ -82,6 +82,7 @@ return (
     
 
     <MainContentStyled>
+      
         <div className="lines">
           <div className="line-1"></div>
           <div className="line-2"></div>
@@ -102,6 +103,7 @@ return (
         <div onClick={scrollToTop} className="scrollToTopBtn">
           <img src={arrow} alt="arrowup by icons8"/>
         </div>}
+        
     </MainContentStyled>
 </div>
   );
@@ -132,6 +134,7 @@ const MainContentStyled = styled.main`
 .scrollToTopBtn img{
     float:right;
     margin:1rem; 
+
   }
 `
 

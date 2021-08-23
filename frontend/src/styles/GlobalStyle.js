@@ -52,7 +52,8 @@ const GlobalStyle = createGlobalStyle`
      list-style:none;
      text-decoration:none;
      font-family: 'Nunito', sans-serif;
-     font-size:1rem
+     font-size:1rem;
+    
  }
 
  body{
@@ -107,7 +108,7 @@ const GlobalStyle = createGlobalStyle`
  .light-dark-mode{
       position:absolute;  
       right:0;
-      top:10%;
+      top:12%;
       transition: top 0.3s;
       background-color:transparent;
       width:6rem;
@@ -123,6 +124,14 @@ const GlobalStyle = createGlobalStyle`
         color:var(--white-color);
        }
     }
+
+@media screen and (max-width:850px) and (orientation:landscape){
+    .light-dark-mode{
+        position:absolute;  
+        right:0;
+        top:14%;
+    }
+   };
 
  //navtoggler
 .hamburgerMenu{
