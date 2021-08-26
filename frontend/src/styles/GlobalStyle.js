@@ -125,6 +125,8 @@ const GlobalStyle = createGlobalStyle`
        }
     }
 
+
+
 @media screen and (max-width:850px) and (orientation:landscape){
     .light-dark-mode{
         position:absolute;  
@@ -145,6 +147,13 @@ const GlobalStyle = createGlobalStyle`
             color:white;
         }
     }
+
+    .loggedInUser{
+        position:absolute;  
+        right:2%;
+        top:2%;
+  
+  }
 .burger-toggle{
         transform:translateX(0);
         z-index:20;
@@ -156,6 +165,8 @@ const GlobalStyle = createGlobalStyle`
         display: block;
         }
     };
+
+
 `
 
 export default GlobalStyle;

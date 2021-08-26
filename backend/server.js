@@ -1,23 +1,27 @@
-const mongoose = require('mongoose')
 const express = require('express');
+const mongoose = require('mongoose')
 const cors = require('cors')
 const morgan = require('morgan');
 const path = require('path');
+const userRoutes = require("./routes/userRoutes.js");
+const notFound = require("./middleware/errorMiddleware.js")
+const errorHandler = require("./middleware/errorMiddleware.js")
 
 require('dotenv').config();
-
 
 const app = express();
 const port = process.env.PORT || 5000
 
+//CORS,ACCEPT JSON
 app.use(cors())
 app.use(express.json());
 
-//Gives you a log of the endpoints you hit
+//ENDPOINTS HIT WILL SHOW IN CONSOLE (ONLY DEVELOPMENT)
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+//DB CONNECT
 const uri = process.env.MONGO_URI;
 mongoose.connect(uri , {useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology: true });
 const connection = mongoose.connection;
@@ -25,10 +29,10 @@ connection.once('open', ()=> {
   console.log("MongoDB database connection success");
 })
 
+//STATIC BUILD FOLDER
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
- 
-}
+ }
 
 //SERVERROUTES
 const backgroundRouter = require('./routes/background.js');
@@ -46,6 +50,11 @@ app.use('/api/info',infoRouter)
 const contactRouter = require('./routes/contact.js');
 app.use('/api/contact',contactRouter)
 
+app.use('/api/users', userRoutes);
+
+//ERROR HANDLING MIDDLEWARE
+app.use(notFound);
+app.use(errorHandler);
 
 if (process.env.NODE_ENV === 'production'){
   const __dirname = path.resolve();

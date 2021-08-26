@@ -6,9 +6,21 @@ import facebook from "../images/facebookResize.png"
 import instagram from "../images/instagramResize.png"
 import linkedin from "../images/linkedinResize.png"
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/actions/userActions";
 
 
 const Navigation = ({hideSidebarOnItemClick}) => {
+    const dispatch = useDispatch();
+
+    //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+
+    const logoutHandler = () => {
+        dispatch(logout());
+      };
+
     return (
           <NavigationStyled >
           <div className="closeBtn" onClick={()=> hideSidebarOnItemClick()}>
@@ -43,6 +55,20 @@ const Navigation = ({hideSidebarOnItemClick}) => {
                    <li className="nav-item">
                        <NavLink to="/contact" activeClassName="active-class" exact >Contact</NavLink>
                    </li>
+                   <li className="nav-item">
+                       <NavLink to="/register" activeClassName="active-class" exact >Register</NavLink>
+                   </li>
+                    {userInfo ? ( 
+                     <li className="nav-item" onClick={logoutHandler}>
+                       <NavLink to="/logout" activeClassName="active-class" exact >Logout</NavLink>
+                   </li> 
+                    ):(
+                    <li className="nav-item">
+                       <NavLink to="/login" activeClassName="active-class" exact >Login</NavLink>
+                   </li>
+                    )} 
+                   
+                   
                    
                 </ul>
                <footer className="footer">

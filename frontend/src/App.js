@@ -8,11 +8,15 @@ import ServiceScreen from "./pages/ServiceScreen"
 import PortfolioScreen from "./pages/PortfolioScreen"
 import TrendingScreen from "./pages/TrendingScreen"
 import ContactScreen from "./pages/ContactScreen"
+import Loginscreen from "./pages/Loginscreen";
+import Registerscreen from "./pages/Registerscreen";
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Switch from '@material-ui/core/Switch';
 import MenuIcon from '@material-ui/icons/Menu';
 import { IconButton } from "@material-ui/core";
-import arrow from "./images/arrowUp.png"
+import arrow from "./images/arrowUp.png";
+import { useSelector, useDispatch } from "react-redux";
+
 
 
 
@@ -21,7 +25,10 @@ function App() {
   const [checked,setChecked]=useState(false)
   const [burgerToggle,setBurgerToggle]=useState(false)
   const [isVisible, setIsVisible] = useState(false);
- 
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+ console.log(userInfo);
 
   //Scroll To Top
   const toggleVisibility = () => {
@@ -38,13 +45,13 @@ function App() {
     });
   };
 
-
-useEffect(() => {
-   document.documentElement.className= theme
-   window.addEventListener("scroll", toggleVisibility);
+  //Toggle light/dark theme
+  useEffect(() => {
+      document.documentElement.className= theme
+      window.addEventListener("scroll", toggleVisibility);
   }, [theme])
 
-const ThemeTogglerHandler = ()=>{
+  const ThemeTogglerHandler = ()=>{
       if(theme === "light-theme"){
          setTheme("dark-theme")
          setChecked(false)
@@ -55,10 +62,10 @@ const ThemeTogglerHandler = ()=>{
       }
   
 return (
-<div className="App">
+  <div className="App">
     <Sidebar burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle}/>
-
-    {/* light / Dark mode     */}
+   
+    {/* light / Dark mode */}
     <div className="theme">
               <div className="light-dark-mode">
                 <div className="left-content">
@@ -74,23 +81,28 @@ return (
                 </div>
               </div>
     </div>
-
+    <div className="loggedInUser">{userInfo ? userInfo.name : null} </div>
+    {/* hamburgerMenu */}
     <div className="hamburgerMenu">
           <IconButton onClick={()=> setBurgerToggle(!burgerToggle)}>
             <MenuIcon />
           </IconButton>
     </div>
-    
 
+    
+    
+    {/* Main */}
     <MainContentStyled>
-      
+   
         <div className="lines">
+        
           <div className="line-1"></div>
           <div className="line-2"></div>
           <div className="line-3"></div>
           <div className="line-4"></div>
+         
         </div>
-
+     
         <Switching>
           <Route path="/" exact component={HomeScreen}></Route>
           <Route path="/about" exact component={AboutScreen}></Route>
@@ -98,15 +110,16 @@ return (
           <Route path="/contact" exact component={ContactScreen}></Route>
           <Route path="/portfolio" exact component={PortfolioScreen}></Route>
           <Route path="/services" exact component={ServiceScreen}></Route>
+          <Route path="/login" exact component={Loginscreen} />
+          <Route path="/register" exact component={Registerscreen} />
          </Switching>
 
         {isVisible && 
         <div onClick={scrollToTop} className="scrollToTopBtn">
           <img src={arrow} alt="arrowup by icons8"/>
         </div>}
-        
     </MainContentStyled>
-</div>
+  </div>
   );
 }
 
@@ -118,6 +131,7 @@ const MainContentStyled = styled.main`
   @media screen and (max-width:1000px){
       margin-left:0px;
  };
+
   .lines{
     position:absolute;
     width:100%;
@@ -131,12 +145,15 @@ const MainContentStyled = styled.main`
     min-height:100vh;
     background-color: var(--border-color);
   }
+
 }
+
 .scrollToTopBtn img{
     float:right;
     margin:1rem; 
 
   }
+
 `
 
 export default App;

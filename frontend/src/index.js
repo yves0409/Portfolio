@@ -1,19 +1,22 @@
 import React from 'react';
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router} from 'react-router-dom'
+import "./bootstrap.min.css";
 
 
 import App from './App';
 import GlobalStyle from "./styles/GlobalStyle"
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <GlobalStyle/>
     <Router>
     <App />
     </Router>
   
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

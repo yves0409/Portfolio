@@ -1,21 +1,21 @@
 import React from 'react'
 import styled from "styled-components"
 import img from "../images/HomeScreenImageresize.jpeg"
+import 'react-toastify/dist/ReactToastify.min.css'
 
 
 
 const HomeScreen = () => {
-    return (
+  
+return (
     <HomePageStyled>
-        {/* <div id="cf3"> */}
-            <div className="backgroundImage">
-            <img src={img} alt="Landingpage desert" />
-           </div>
-         {/* </div> */}
-          
+        <div className="backgroundImage">
+           <img src={img} alt="Landingpage desert" />
+        </div>
+       
         <div className="HomeScreenTypography">
-            <h1>{'<'}Front-End Web Development{'/>'}</h1>
-            <p>Every Pixel Matters</p>
+           <h1>{'<'}Front-End Web Development{'/>'}</h1>
+           <p>Every Pixel Matters</p>
         </div>
     </HomePageStyled>
     )
@@ -25,46 +25,8 @@ const HomePageStyled = styled.header`
   width:100%;
   height:100vh;
   position: relative;
-  /* #cf3 {
-  position:relative;
-  height:100vh;
-  width:100%;
-  margin:0 auto;
-} */
 
-/* #cf3 > div {
-  position:absolute;
-  left:0;
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
-}
-  @keyframes cf3FadeInOut {
-  0% {
-  opacity:1;
-}
-45% {
-  opacity:1;
-}
-55% {
-  opacity:0;
-}
-100% {
-  opacity:0;
-}
-} */
-/* #cf3 div.particles-con{
-  animation-name: cf3FadeInOut;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-duration: 10s;
-  animation-direction: alternate;
-}
-.particles-con{
-  width:100%;
-} */
-.backgroundImage{
+ .backgroundImage{
   img{
   width:100vw;
   height:100vh;
@@ -72,8 +34,7 @@ const HomePageStyled = styled.header`
   opacity:0.5;
       }
     }
- 
-.HomeScreenTypography{
+ .HomeScreenTypography{
   h1{
   font-family: 'Source Serif Pro', serif;
       }
