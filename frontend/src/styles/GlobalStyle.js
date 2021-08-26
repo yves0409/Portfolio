@@ -84,7 +84,8 @@ const GlobalStyle = createGlobalStyle`
  }
 
  h1{
-     font-size: 2rem;
+    font-family: 'Source Serif Pro', serif;
+     font-size: 1.5rem;
      color:var(--white-color);
      span{
         font-size: 2.5rem;
