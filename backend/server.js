@@ -53,8 +53,8 @@ app.use('/api/contact',contactRouter)
 app.use('/api/users', userRoutes);
 
 //ERROR HANDLING MIDDLEWARE
-app.use(notFound);
-app.use(errorHandler);
+// app.use(notFound);
+// app.use(errorHandler);
 
 if (process.env.NODE_ENV === 'production'){
   const __dirname = path.resolve();
