@@ -15,7 +15,7 @@ import Switch from '@material-ui/core/Switch';
 import MenuIcon from '@material-ui/icons/Menu';
 import { IconButton } from "@material-ui/core";
 import arrow from "./images/arrowUp.png";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 
@@ -28,7 +28,7 @@ function App() {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
- console.log(userInfo);
+ 
 
   //Scroll To Top
   const toggleVisibility = () => {
