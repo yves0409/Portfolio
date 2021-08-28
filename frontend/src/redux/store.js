@@ -7,8 +7,8 @@ import {userLoginReducer,userRegisterReducer} from "./reducers/userReducers";
    
 const reducer = combineReducers({
         userLogin: userLoginReducer,
-        userRegister: userRegisterReducer
-    });
+        userRegister: userRegisterReducer,
+   });
 
 //if userInfo is in localStorage , set it to the userInfoFromStorage variable
 const userInfoFromStorage = localStorage.getItem("userInfo")

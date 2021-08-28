@@ -19,8 +19,11 @@ router.route('/add').post((req,res) => {
         email2,
         phone1,
         phone2,
-        Address
+        Address,
+        PageLikes
         } = req.body;
+
+        
 
     const newInfo = new Info({
         first_name,
@@ -33,7 +36,8 @@ router.route('/add').post((req,res) => {
         email2,
         phone1,
         phone2,
-        Address 
+        Address,
+        PageLikes 
     });
 
     newInfo.save()
@@ -41,5 +45,15 @@ router.route('/add').post((req,res) => {
     .catch(err => res.status(400).json('Error: '+ err))
 })
 
+router.route('/like').put((req,res) => {
+    
+    const {PageLikes} = req.body;
+
+    const updatedInfo = new Info({ PageLikes });
+    
+    updatedInfo.save()
+        .then(()=> res.json('info updated'))
+        .catch(err => res.status(400).json('Error: '+ err))
+    })
 
 module.exports = router;

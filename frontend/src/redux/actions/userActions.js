@@ -6,8 +6,8 @@ import {
   USER_LOGOUT,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
-  USER_REGISTER_FAIL
- } from "../types";
+  USER_REGISTER_FAIL,
+  } from "../types";
 
  //LOGIN ACTION
  export const login = (email, password) => async (dispatch) => {
@@ -94,3 +94,7 @@ export const register = (name, email, password) => async (dispatch) => {
       });
     }
   };
+
+ 
+
+  

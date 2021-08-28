@@ -50,11 +50,12 @@ app.use('/api/info',infoRouter)
 const contactRouter = require('./routes/contact.js');
 app.use('/api/contact',contactRouter)
 
+const likeRouter = require('./routes/like.js');
+app.use('/api/like',likeRouter)
+
 app.use('/api/users', userRoutes);
 
-//ERROR HANDLING MIDDLEWARE
-// app.use(notFound);
-// app.use(errorHandler);
+
 
 if (process.env.NODE_ENV === 'production'){
   const __dirname = path.resolve();

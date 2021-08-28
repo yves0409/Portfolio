@@ -10,6 +10,7 @@ import { login } from "../redux/actions/userActions";
 
 
 
+
 const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,7 +42,7 @@ const Loginscreen = ({ location, history }) => {
   
   return (
     <FormContainer>
-      <h1 >Sign In</h1>
+      <h1>Sign In</h1>
       {userInfo && <Alert severity="success">LOGIN SUCCESSFUL !</Alert>}
 
       {error && <Notification variant="danger">Incorrect email or password</Notification>}
@@ -56,7 +57,7 @@ const Loginscreen = ({ location, history }) => {
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>
-
+         
         <Form.Group controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control

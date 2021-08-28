@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from "styled-components"
 import {NavLink} from "react-router-dom"
 import avatar from "../images/avatarResize.jpg"
@@ -8,11 +8,16 @@ import linkedin from "../images/linkedinResize.png"
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import axios from "axios"
+
+
 
 
 const Navigation = ({hideSidebarOnItemClick}) => {
     const dispatch = useDispatch();
-
+      const [likes,setLikes] = useState(0)
+    
     //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
@@ -21,7 +26,19 @@ const Navigation = ({hideSidebarOnItemClick}) => {
         dispatch(logout());
       };
 
-    return (
+    //  axios.get("/api/like").then(response =>  console.log(response.data[0]._id)
+    // )
+      const id = "612908bb374b68c9b5cbbd99"   
+     
+      
+      const addLikeHandler = (id) => {
+         setLikes(likes +1)
+        // const newLikeCount = prompt("enter new age")
+        // axios.put("http://localhost:5000/update",{newLikeCount:newLikeCount,id:id})
+       
+      };
+     
+     return (
           <NavigationStyled >
           <div className="closeBtn" onClick={()=> hideSidebarOnItemClick()}>
             <HighlightOffSharpIcon/>
@@ -71,6 +88,10 @@ const Navigation = ({hideSidebarOnItemClick}) => {
                    
                    
                 </ul>
+              
+               
+               <ThumbUpAltIcon onClick={() => { addLikeHandler(id)}} style={{cursor:"pointer"}}/>
+               {likes} people liked this page
                <footer className="footer">
                    <p>@2021 Yves Loeys</p>
                </footer>
@@ -93,9 +114,7 @@ const NavigationStyled = styled.nav`
  .avatar{
     display: none;
 }
-
-    
-   };
+};
 
 @media screen and (min-width:850px) {
  .closeBtn{
@@ -114,8 +133,9 @@ const NavigationStyled = styled.nav`
      text-align:center;
      padding: .5rem 0;
  h2{
-     font-size:1.3rem;
-     font-family: 'Source Serif Pro', serif; 
+     font-size:1rem;
+     font-family: 'Source Serif Pro', serif;
+     margin-top:10px; 
      color:var(--white-color); 
      }
  img{
@@ -173,6 +193,10 @@ const NavigationStyled = styled.nav`
     text-align: center;
     
   }
+ 
+ }
+ .likes{
+     font-size:12px;
  }
 
 `

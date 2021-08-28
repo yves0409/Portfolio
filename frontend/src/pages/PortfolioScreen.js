@@ -18,15 +18,13 @@ const PortfolioScreen = () => {
   
 
     useEffect(()=> {
-      // axios.get(`${process.env.REACT_APP_API}/portfolio`)
-       axios.get("/api/portfolio")
-      // axios.get('https://yvesloeysportfolio.herokuapp.com/api/portfolio')
-         .then(response => {
+      axios.get("/api/portfolio")
+       .then(response => {
           const {data} = response;
-          setPortfolios(data)
-          setMenuItem(data) 
+           setPortfolios(data)
+           setMenuItem(data) 
           setTimeout(()=> {
-            setLoader(false)
+           setLoader(false)
           },500)
           }).catch((error) => {
           console.log(error);

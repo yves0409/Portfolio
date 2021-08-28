@@ -5,49 +5,49 @@ const infoSchema = mongoose.Schema(
   {
     first_name: {
       type: String,
-      required: true,
+      required: false,
     },
     last_name: {
       type: String,
-      required: true,
+      required: false,
     },
     languages: {
       type: String,
-      required: true,
+      required: false,
     },
     location: {
       type: String,
-      required: true,
+      required: false,
     },
     services: {
         type: String,
-        required: true,
+        required: false,
       },
       bio: {
         type: String,
-        required: true,
+        required: false,
       },
       email1: {
         type: String,
-        required: true,
+        required: false,
       },
       email2: {
         type: String,
-        required: true,
+        required: false,
       },
       phone1: {
         type: String,
-        required: true,
+        required: false,
       },
       phone2: {
         type: String,
-        required: true,
+        required: false,
       },
       Address: {
         type: String,
-        required: true,
+        required: false,
       },
-     },
+      },
   {
     timestamps: true,
   }

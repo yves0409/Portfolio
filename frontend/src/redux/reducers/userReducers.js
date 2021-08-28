@@ -6,6 +6,9 @@ import {
     USER_REGISTER_REQUEST,
     USER_REGISTER_SUCCESS,
     USER_REGISTER_FAIL,
+    
+     
+    
     } from "../types";
 
     //LOGIN REDUCER ,LOGOUT
@@ -54,3 +57,7 @@ import {
             return state;
         }
       };
+
+     
+
+
