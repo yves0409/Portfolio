@@ -9,8 +9,8 @@ import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
 import { likeAction } from "../redux/actions/likeActions";
-import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
- import axios from "axios"
+// import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+//  import axios from "axios"
 
 
 
@@ -18,7 +18,7 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 
 const Navigation = ({hideSidebarOnItemClick}) => {
     const dispatch = useDispatch();
-    const [likeAdd,setLikeAdd] = useState("299")
+    // const [likeAdd,setLikeAdd] = useState("299")
     
     
     //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
@@ -30,30 +30,23 @@ const Navigation = ({hideSidebarOnItemClick}) => {
 
     useEffect(() => {
         dispatch(likeAction()) 
-      
-    }, []);
+      }, []);
    
-    
-    
     const logoutHandler = () => {
         dispatch(logout());
       };
 
-      success && console.log(likes[0].likes);
-   
-
-
-     const addLikeHandler = () => {
+    //  const addLikeHandler = () => {
          
-       axios.put("/api/like/add")
-       .then(res => console.log(res))
-       .then(axios.get("/api/like")
-       .then(result => {
-           const currentLikes = result.data[0].likes
-           setLikeAdd(currentLikes)
-       }))
+    //    axios.put("/api/like/add")
+    //    .then(res => console.log(res))
+    //    .then(axios.get("/api/like")
+    //    .then(result => {
+    //        const currentLikes = result.data[0].likes
+    //        setLikeAdd(currentLikes)
+    //    }))
        
-      };
+    //   };
      
      return (
           <NavigationStyled >
@@ -107,8 +100,8 @@ const Navigation = ({hideSidebarOnItemClick}) => {
                 </ul>
               
                
-               <ThumbUpAltIcon onClick={() => { addLikeHandler()}} style={{cursor:"pointer"}}/>
-               {likeAdd} people liked this page
+               {/* <ThumbUpAltIcon onClick={() => { addLikeHandler()}} style={{cursor:"pointer"}}/>
+               {likeAdd} people liked this page */}
                <footer className="footer">
                    <p>@2021 Yves Loeys</p>
                </footer>
