@@ -22,21 +22,29 @@ router.route('/add').post((req,res) => {
     .catch(err => res.status(400).json('Error: '+ err))
 })
 
-router.route('/update').put( async (req,res) => {
-  const newLikeCount = req.body.newLikeCount
-  const id =req.body.id
+router.route("/add").put(function(req, res) {
+    
+    Like.findOneAndUpdate({}, {likes:3000}, function(err, result) {
+      if (result) {
+        res.send(result);
+      } else {
+        res.send(err);
+      }
+    });
+  });
 
-  await Like.findById(id,(error,likeToUpdate) => {
-    likeToUpdate.likes = newLikeCount;
-    likeToUpdate.save()
-
-  })
-
-  res.send("updated")
-})
-
-
-
+//   router.route("/add").put(function(req, res) {
+//     const {
+//         likes
+//        } = req.body;
+//     Like.findOneAndUpdate({}, {likes}, function(err, result) {
+//       if (result) {
+//         res.send(result);
+//       } else {
+//         res.send(err);
+//       }
+//     });
+//   });
 
 
 module.exports = router;

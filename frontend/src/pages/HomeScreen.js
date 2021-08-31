@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import img from "../images/HomeScreenImageresize.jpeg"
 import 'react-toastify/dist/ReactToastify.min.css'
+// import typewriter from "../images/typewriter.wav"
 
 
 
@@ -17,7 +18,11 @@ return (
        
         <div className="HomeScreenTypography" >
            <h1>{'<'}Front-End Web Development{'/>'}</h1>
+           <div className="text-typing">
+           {/* <audio><source src={typewriter} type="audio/mpeg" /></audio> */}
            <p>Every Pixel Matters</p>
+           </div>
+          
         </div>
     </HomePageStyled>
     )
@@ -67,9 +72,7 @@ const HomePageStyled = styled.header`
       }
     
  .HomeScreenTypography{
-   
-    //font-family: "Montserrat";
-    font-family: 'Source Serif Pro',serif;
+  font-family: 'Source Serif Pro',serif;
   text-align: center;
   color: #FFF;
   display: flex;
@@ -87,12 +90,39 @@ const HomePageStyled = styled.header`
   -webkit-background-clip: text;
   text-transform: uppercase;
   font-size: 35px;
-  line-height: .75;
+  line-height: 1;
+  padding:10px;
   margin: 10px 0;
   @media screen and (max-width: 700px){
         font-size: 16px;
          }
       }
+  .text-typing {
+  padding:20px 30px;
+  background:transparant;
+  font-size:35px;
+  font-family:monospace;
+  border-radius:50px;
+}
+.text-typing p {
+  margin:0px;
+  white-space:nowrap;
+  overflow:hidden;
+  animation:typing 4s steps(22,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+/* @keyframes blink {
+  0%,100% {
+    border-right:2px solid transparent;
+  }
+  50% {
+    border-right:2px solid transparent;
+  }
+} */
   p{
   font-size:1.2rem;
   @media screen and (max-width: 700px){

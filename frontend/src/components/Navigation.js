@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import styled from "styled-components"
 import {NavLink} from "react-router-dom"
 import avatar from "../images/avatarResize.jpg"
@@ -8,35 +8,52 @@ import linkedin from "../images/linkedinResize.png"
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
+import { likeAction } from "../redux/actions/likeActions";
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-//import axios from "axios"
+ import axios from "axios"
+
 
 
 
 
 const Navigation = ({hideSidebarOnItemClick}) => {
     const dispatch = useDispatch();
-     // const [likes,setLikes] = useState(0)
+    const [likeAdd,setLikeAdd] = useState("299")
+    
     
     //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
+    const pageLikeReducer = useSelector((state) => state.pageLikeReducer);
+    const { likes,success } = pageLikeReducer;
+
+    useEffect(() => {
+        dispatch(likeAction()) 
+      
+    }, []);
+   
+    
+    
     const logoutHandler = () => {
         dispatch(logout());
       };
 
-    //  axios.get("/api/like").then(response =>  console.log(response.data[0]._id)
-    // )
-     // const id = "612908bb374b68c9b5cbbd99"   
-     
-      
-      //const addLikeHandler = (id) => {
-        // setLikes(likes +1)
-        // const newLikeCount = prompt("enter new age")
-        // axios.put("http://localhost:5000/update",{newLikeCount:newLikeCount,id:id})
+      success && console.log(likes[0].likes);
+   
+
+
+     const addLikeHandler = () => {
+         
+       axios.put("/api/like/add")
+       .then(res => console.log(res))
+       .then(axios.get("/api/like")
+       .then(result => {
+           const currentLikes = result.data[0].likes
+           setLikeAdd(currentLikes)
+       }))
        
-      //};
+      };
      
      return (
           <NavigationStyled >
@@ -90,8 +107,8 @@ const Navigation = ({hideSidebarOnItemClick}) => {
                 </ul>
               
                
-               {/* <ThumbUpAltIcon onClick={() => { addLikeHandler(id)}} style={{cursor:"pointer"}}/> */}
-               {/* {likes} people liked this page */}
+               <ThumbUpAltIcon onClick={() => { addLikeHandler()}} style={{cursor:"pointer"}}/>
+               {likeAdd} people liked this page
                <footer className="footer">
                    <p>@2021 Yves Loeys</p>
                </footer>
