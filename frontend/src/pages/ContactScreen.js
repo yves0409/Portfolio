@@ -90,7 +90,7 @@ return (
                          
                         </div>
                         {/* change */}
-                        <div class="container">
+                        {/* <div class="container">
 	<div className="front side">
 		<div className="content">
 			<h1>Yves Loeys</h1>
@@ -111,9 +111,9 @@ return (
 				<input type="submit" value="Done"/>
 			</form>
 		</div>
-	</div>
+	</div> */}
 {/* change */}
-</div>
+{/* </div> */}
                 <div className="right-content">
                 
                     {info.map(item => <ContactItem 
