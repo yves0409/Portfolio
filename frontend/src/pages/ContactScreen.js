@@ -67,11 +67,11 @@ return (
                         <form className="form" id="contactform"   >
                                 <div className="form-field">
                                     <label htmlFor="name">Enter name</label>
-                                    <input type="text" id="name" name="name" value={name} required onChange={(e)=>setName(e.target.value)}/>
+                                    <input type="text" id="name" name="name" value={name} required minLength="6" maxLength="8" onChange={(e)=>setName(e.target.value)}/>
                                 </div>
                                     <div className="form-field">
                                         <label htmlFor="name">Enter email</label>
-                                        <input type="email" id="email" name="email" value={emailsender}  onChange={(e)=> setEmailsender(e.target.value)}/>
+                                        <input type="email" id="email" name="email" value={emailsender} onChange={(e)=> setEmailsender(e.target.value)}/>
                                     </div>
                                         <div className="form-field">
                                             <label htmlFor="subject">Enter subject</label>
@@ -132,7 +132,7 @@ return (
 }
 
 const ContactPageStyled = styled.section`
-.container {
+/* .container {
 	min-width: 700px;
 	min-height: 350px;
 	border-radius: 20px;
@@ -224,7 +224,7 @@ form input[type="submit"] {
 	border-radius: 4px;
 	color: #fff;
 	cursor: pointer;
-}
+} */
 /* my button style  */
 .white-mode {
 	text-decoration: none;
@@ -304,6 +304,10 @@ input{
    padding: 0 15px;
    width: 100%;
    color: inherit;
+   /* :hover{
+     background-color:white;
+     opacity:.4;
+   } */
    }
 textarea{
    background-color:transparent;
