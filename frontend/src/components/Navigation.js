@@ -169,7 +169,8 @@ const NavigationStyled = styled.nav`
      text-align:center;
      margin-bottom:9rem;
 .active-class{
-    box-shadow: 6px 0px 20px 6px #8b9bf533
+    //box-shadow: 6px 0px 20px 6px #8b9bf533;
+    color: magenta;
     }
  li{
     display: block;
@@ -182,14 +183,17 @@ const NavigationStyled = styled.nav`
     transition:all .4s ease-in-out;
     font-weight:500;
     letter-spacing:1px;
- &:hover{
-    cursor:pointer;
-    box-shadow: 6px 0px 20px 6px #40eb0c33;
-   }
+    color:white;
+ 
   }
  a:hover::before{
-   width:100%;
-   height:100%;
+    content : "";
+  position: absolute;
+  left    : 30%;
+  bottom  : 0;
+  height  : 1px;
+  width   : 40%;  /* or 100px */
+  border-bottom:1px solid magenta;
     }
    }
  }

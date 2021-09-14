@@ -10,6 +10,8 @@ import info from "../data/info"
 import emailjs from 'emailjs-com';
 import SendIcon from '@material-ui/icons/Send';
 import { useForm } from "react-hook-form";
+//import { Modal,Button} from "react-bootstrap";
+
 
 
 init("user_dvXegxEb11cRFMAuFpf6J");
@@ -19,7 +21,11 @@ const ContactScreen = () => {
     const [subject, setSubject] = useState('');
     const [emailsender, setEmailsender] = useState('');
     const [question, setQuestion] = useState('');
-    const { register, handleSubmit,formState:{errors} } = useForm({mode:"onBlur"});
+    //const [show, setShow] = useState(false);
+     //const handleClose = () => setShow(false);
+     //const handleShow = () => setShow(true);
+   
+    const { register, handleSubmit,formState:{errors} } = useForm({reValidateMode:"onChange"});
     const onFormSubmit  = (data) => console.log(data);
   
  const templateParams = {
@@ -64,6 +70,30 @@ const ContactScreen = () => {
 
 return (
         <MainLayout>
+        {/* <Button variant="primary" onClick={handleShow}>
+        Launch static backdrop modal
+      </Button>
+        <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+
+
+        <Modal.Header closeButton>
+          <Modal.Title>Ready to Send?</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+         Your question will be sent to the recipient
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary">Yes</Button>
+        </Modal.Footer>
+      </Modal> */}
         <ToastContainer/>
             <Title title={"Contact"} span={"Contact"}/>
             <ContactPageStyled>
@@ -95,16 +125,16 @@ return (
                             <input className={errors.subject ? 'err' : ""} type="text" id="subject" name="subject" value={subject} {...register("subject",{required:'subject is required'})} onChange={(e)=> setSubject(e.target.value)}/>
                             {errors.subject && <span className="errorMessage">Please enter a subject</span>}
                         </div>
-                        <div className="form-field">
+                        <div className="form-field" >
                         <label htmlFor="subject">Enter message (Max 150 char) <span className="requiredStar">*</span></label>
-                                <textarea className={errors.question ? 'err' : ""} id="textarea" cols="30" rows="10" name="question" value={question} {...register("question", { required:'maximum 80 characters', minLength:15 ,maxLength:150 })}  onChange={(e)=> setQuestion(e.target.value)}></textarea>
-                                {errors.question && <span className="errorMessage">Question cannot be longer than 80 characters</span>}
+                                <textarea  className={errors.textarea ? 'err' : ""} id="textarea"  name="question" value={question} {...register("question",{required:'text is required'})} onChange={(e)=> setQuestion(e.target.value)}></textarea>
+                                {errors.question && <span className="errorMessage">Question cannot be longer than 150 characters</span>}
+                                
                         </div>
-                        <div className="form-field" onMouseEnter={handleSubmit(onFormSubmit)} >
-                            {!errors.name & !errors.email & !errors.subject & !errors.question ?  <div className="iconbtn" data-toggle="tooltip" data-placement="bottom" title="send email">
-                                <button className="submitBtn"  type="submit"><SendIcon/> </button>
-                                {/* <button>Submit</button> */}
-                        </div>: <div>Please check all fields</div>}
+                      
+                        <div className="form-field" onMouseEnter={handleSubmit(onFormSubmit)}>
+                            {errors.name & errors.email & errors.subject & errors.question ?  <div className="errorMessage">Please fill in all fields correctly</div> : <div className="iconbtn" data-toggle="tooltip" data-placement="bottom" title="send email">
+                                <button className="submitBtn"  type="submit"><SendIcon/></button></div>}
                         </div>
                     </form>
                 </div>
@@ -210,9 +240,9 @@ input{
    } */
 }
 .err {
-    background-color:red;
+    background-color:#CC6699;
     
-    opacity:.3;
+    color:white;
 }
    .errorMessage ,.requiredStar {
        color:red;
