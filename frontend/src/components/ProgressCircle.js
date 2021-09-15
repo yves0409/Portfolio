@@ -24,6 +24,9 @@ const ProgressCircleStyled = styled.section`
     text-align:center;
     width:150px;
     height:150px;
+    :hover {
+       transform:scale(1,1);
+    }
  strong{
     color: var(--icon-green-color);
     font-size: 16px; 
@@ -31,6 +34,7 @@ const ProgressCircleStyled = styled.section`
  h6{
     padding: .2rem ;
     color: var(--icon-green-color);
+   
    }
 `
 

@@ -23,10 +23,8 @@ const PortfolioScreen = () => {
           const {data} = response;
            setPortfolios(data)
            setMenuItem(data) 
-          setTimeout(()=> {
-           setLoader(false)
-          },500)
-          }).catch((error) => {
+           data  && setLoader(false)
+              }).catch((error) => {
           console.log(error);
         })
      },[])
@@ -35,14 +33,13 @@ const PortfolioScreen = () => {
         if(button === 'All'){
             setMenuItem(portfolios)
             return
-        }
+               }
         const filteredData = portfolios.filter((item)=>item.category === button )
         setMenuItem(filteredData)
       }
        
 
 return (
-  
    <MainLayout>
         <CardStyled>
             <Title title={"Portfolios"} span={"Portfolios"}/>
@@ -62,7 +59,6 @@ const CardStyled = styled.div`
     grid-template-columns:repeat(2,1fr);
     grid-column-gap:2rem;
     grid-row-gap:3rem;
-    
     @media screen and (max-width:1300px){
      grid-template-columns:repeat(1,1fr);
      width:70%;

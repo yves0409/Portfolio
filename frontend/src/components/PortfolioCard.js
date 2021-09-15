@@ -13,7 +13,7 @@ const PortfolioCard = ({menuItem}) => {
                     return <div className="grid-item" key={item._id}>
                                 <div className="portfolio-content">
                                     <div className="portfolio-image" key={item._id} >
-                                    <ReactPlayer url={item.url}   width="auto"/>
+                                    <ReactPlayer url={item.url} width="auto"/>
                                         <ul>
                                             <li>
                                               <a href={item.link1}><GitHubIcon/></a>
@@ -36,6 +36,7 @@ const PortfolioCardStyled = styled.div`
         border:2px solid var(--icon-green-color);
         border-radius:6px;
         padding:.8rem;
+       
     .portfolio-content{
         display: block;
         position: relative;
@@ -48,7 +49,6 @@ const PortfolioCardStyled = styled.div`
         font-size:1.1rem;
     }
     span{
-       
         text-transform:uppercase;
         color:grey;
     }

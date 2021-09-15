@@ -82,9 +82,9 @@ const Navigation = ({hideSidebarOnItemClick}) => {
                    <li className="nav-item">
                        <NavLink to="/contact" activeClassName="active-class" exact >Contact</NavLink>
                    </li>
-                   <li className="nav-item">
+                   {/* <li className="nav-item">
                        <NavLink to="/register" activeClassName="active-class" exact >Register</NavLink>
-                   </li>
+                   </li> */}
                     {userInfo ? ( 
                      <li className="nav-item" onClick={logoutHandler}>
                        <NavLink to="/logout" activeClassName="active-class" exact >Logout</NavLink>
@@ -169,8 +169,7 @@ const NavigationStyled = styled.nav`
      text-align:center;
      margin-bottom:9rem;
 .active-class{
-    //box-shadow: 6px 0px 20px 6px #8b9bf533;
-    color: magenta;
+   color: var(--icon-green-color);
     }
  li{
     display: block;
@@ -183,17 +182,21 @@ const NavigationStyled = styled.nav`
     transition:all .4s ease-in-out;
     font-weight:500;
     letter-spacing:1px;
-    color:white;
+    color:var(--font-dark-color-3);
  
+  }
+  a:hover{
+    color:var(--icon-green-color);
+    text-decoration:none;
   }
  a:hover::before{
     content : "";
   position: absolute;
-  left    : 30%;
-  bottom  : 0;
-  height  : 1px;
-  width   : 40%;  /* or 100px */
-  border-bottom:1px solid magenta;
+  left    : 32%;
+  bottom  : 0px;
+  height  : 0px;
+  width   : 35%;  /* or 100px */
+  border-bottom: 3px solid var(--icon-green-color);
     }
    }
  }

@@ -15,24 +15,24 @@ const PortfolioButton = ({filter,button}) => {
 }
 
 const PortfolioButtonStyled = styled.button`
-    border:1px solid white;
+    
+   
     background-color: var(--background-dark-color);
     padding: .2rem 1.5rem;
     font-size:.8rem;
     color: var(--white-color);
-    margin: .6rem .4rem;
+    margin: .8rem .7rem;
     cursor: pointer;
-    transition:all .4s ease-in-out;
+    border:none;
+
     border-radius:4px;
- &:active,&:focus{
-    border: 1px solid var(--white-color);
-    box-shadow: 0 8px 16px 0 #f8eded33, 0 6px 20px 0 
-    #f8f6f62f;
+  &:active{
+   border-bottom:3px solid green;
+  
  }
   &:hover{
-    box-shadow: 0 8px 16px 0 #dbd5d533, 0 6px 20px 0 
-    #f3efef30;
-  }
+    border-bottom:3px solid white;
+  } 
 `
 
 const ButtonsStyled = styled.div`

@@ -11,8 +11,8 @@ const AboutReviewItem = ({text}) => {
 
 const AboutReviewItemStyled = styled.div`
    padding: 2rem 1rem;
-   border-left: 6px solid var(--border-color);
-   background-color: var(--background-dark-color-2);
+   border-left: 6px solid var(--white-color-2);
+   background-color: var(--background-dark-color-3);
    position:relative;
    width:100%;
    margin-bottom:1rem;
@@ -23,7 +23,7 @@ const AboutReviewItemStyled = styled.div`
     border-width: .8rem;
     top: 100%;
     border-style: solid;
-    border-color: var(--background-dark-color-2)  transparent transparent var(--background-dark-color-2);
+    border-color: var(--background-dark-color-3)  transparent transparent var(--background-dark-color-3);
    }
    p {
     padding: .2rem 0;

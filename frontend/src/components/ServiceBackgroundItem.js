@@ -58,7 +58,7 @@ p{
     top:15px;
     height: 2px;
     width:3rem;
-    background-color: var(--border-color);
+    background-color: var(--white-color);
     }
 h4{
     color: var(--primary-color);
@@ -68,6 +68,7 @@ h4{
 h5{
     padding-bottom: .5rem ;
     font-size:.9rem;
+    color: var(--white-color);
     }
 p{
     font-size:.8rem;

@@ -17,8 +17,7 @@ const ServiceBackGroundSection = () => {
   useEffect(()=> {
       axios.get(`${process.env.REACT_APP_API}/background`)
       axios.get("/api/background")
-      //axios.get('https://yvesloeysportfolio.herokuapp.com/background')
-        .then(response => {
+       .then(response => {
           const {data} = response;
           setBackgroundInfo(data)
         }).catch((error) => {
@@ -54,7 +53,8 @@ const BackGroundSectionStyled = styled.div`
     padding-bottom:2.5rem;
 }
 .Background-content{
-    border-left:2px solid var(--border-color); 
+    border-left:2px solid var(--border-color);
+    margin:1rem; 
 }
 `
 export default ServiceBackGroundSection

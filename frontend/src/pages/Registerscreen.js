@@ -5,6 +5,7 @@ import Notification from "../components/Notification";
 import Spinners from "../components/Spinners";
 import FormContainer from "../components/FormContainer";
 import Alert from "@material-ui/lab/Alert";
+
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../redux/actions/userActions";
 
@@ -48,6 +49,7 @@ const Registerscreen = ({ location, history }) => {
       {userInfo && <Alert severity="success">SIGNUP SUCCESSFUL !</Alert>}
       {message && <Notification variant="danger">{message}</Notification>}
       {error && <Notification variant="danger">{message}</Notification>}
+  
       {loading && <Spinners />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
@@ -87,7 +89,7 @@ const Registerscreen = ({ location, history }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button type="submit" variant="dark">
+        <Button type="submit" className="py-2 bg-info my-2 rounded text-center">
           Register
         </Button>
       </Form>
@@ -95,7 +97,7 @@ const Registerscreen = ({ location, history }) => {
         <Col>
           Already have an account ?{" "}
           <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-            <span style={{color:"grey"}}>Register</span>
+            <span style={{color:"#26c3e4"}}>Login</span>
           </Link>
         </Col>
       </Row>
