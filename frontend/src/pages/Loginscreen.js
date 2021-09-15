@@ -18,18 +18,7 @@ const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  swal({
-    title: "Undergoing Maintenance",
-    text: "While you can register and login, Most functionality will be limited until further notice",
-    icon: "warning",
-    dangerMode: true,
-    
-  })
-  .then(willDelete => {
-    if (willDelete) {
-      swal("Done!", "You can now login or signup!", "success");
-    }
-  });
+
 
 
   const dispatch = useDispatch();
@@ -39,6 +28,21 @@ const Loginscreen = ({ location, history }) => {
   const { loading, userInfo, error } = userLogin;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
+
+  useEffect(() => {
+    swal({
+      title: "Undergoing Maintenance",
+      text: "While you can register and login, Most functionality will be limited until further notice",
+      icon: "warning",
+      dangerMode: true,
+      
+    })
+    .then(willDelete => {
+      if (willDelete) {
+        swal("Done!", "You can now login or signup!", "success");
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const push = history.push;
