@@ -9,46 +9,28 @@ import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
 import { likeAction } from "../redux/actions/likeActions";
-// import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-//  import axios from "axios"
-
-
-
+import { Provider, LikeButton } from "@lyket/react";
 
 
 const Navigation = ({hideSidebarOnItemClick}) => {
     const dispatch = useDispatch();
-    // const [likeAdd,setLikeAdd] = useState("299")
-    
+  
     //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
-    //const pageLikeReducer = useSelector((state) => state.pageLikeReducer);
-    //const { likes,success } = pageLikeReducer;
-
-    useEffect(() => {
+useEffect(() => {
         dispatch(likeAction()) 
       }, []);
    
-    const logoutHandler = () => {
+
+const logoutHandler = () => {
         dispatch(logout());
       };
 
-    //  const addLikeHandler = () => {
-         
-    //    axios.put("/api/like/add")
-    //    .then(res => console.log(res))
-    //    .then(axios.get("/api/like")
-    //    .then(result => {
-    //        const currentLikes = result.data[0].likes
-    //        setLikeAdd(currentLikes)
-    //    }))
-       
-    //   };
-     
-     return (
-          <NavigationStyled >
+  
+return (
+    <NavigationStyled >
           <div className="closeBtn" onClick={()=> hideSidebarOnItemClick()}>
             <HighlightOffSharpIcon/>
            </div>
@@ -97,17 +79,22 @@ const Navigation = ({hideSidebarOnItemClick}) => {
                    
                    
                 </ul>
-              
-               
-               {/* <ThumbUpAltIcon onClick={() => { addLikeHandler()}} style={{cursor:"pointer"}}/>
-               {likeAdd} people liked this page */}
-               <footer className="footer">
-                   <p>@2021 Yves Loeys</p>
-               </footer>
-               
-        </NavigationStyled>
-       
-    )
+                <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)"}}}>
+                    <div >
+                    <LikeButton
+                   
+                      namespace="my-blog-post"
+                      id="applause-react"
+                      component={LikeButton.templates.Twitter}
+                   />
+                    </div>
+                   
+                </Provider>
+        <footer className="footer">
+           <p>@2021 Yves Loeys</p>
+        </footer>
+    </NavigationStyled>
+  )
 }
 
 
