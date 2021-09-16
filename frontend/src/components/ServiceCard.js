@@ -4,11 +4,12 @@ import styled from "styled-components"
 
 const ServiceCard = ({image,title,paragraph}) => {
     return (
-        <ServiceCardStyled>
+        <ServiceCardStyled >
             <div className="container">
                 <img src={image} alt="Smashicons,surang,good ware,icongeek26" />
                 <h4>{title}</h4>
                 <p>{paragraph}</p>
+              
             </div>
         </ServiceCardStyled>
     )

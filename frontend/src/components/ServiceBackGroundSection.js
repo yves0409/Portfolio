@@ -12,10 +12,7 @@ const ServiceBackGroundSection = () => {
   const briefcase = <BusinessCenterIcon/>
   const[backgroundInfo,setBackgroundInfo]= useState([])
  
-  
-  
-  useEffect(()=> {
-      //axios.get(`${process.env.REACT_APP_API}/background`)
+   useEffect(()=> {
       axios.get("/api/background")
        .then(response => {
           const {data} = response;
@@ -25,10 +22,7 @@ const ServiceBackGroundSection = () => {
         })
    },[])
 
- 
-  
-    
-  return (
+ return (
     <BackGroundSectionStyled>
          <Title title={"background"} span={"background"}/>
          <InnerLayout>

@@ -27,8 +27,7 @@ return (
               <img src={coding} alt="res" />
           </div>
           <div className="right-content">
-                <h4>I'm <span>Yves</span></h4> 
-                <p className="about-paragraph">{aboutInfo.bio}</p>
+              <p className="about-paragraph">{aboutInfo.bio}</p>
                   <div className="about-info">
                     <div className="info-title">
                         <p>Full Name : <span>{aboutInfo.first_name} {aboutInfo.last_name}</span></p>
@@ -79,13 +78,11 @@ const ImageSectionStyled = styled.div`
      text-decoration-color: var(--icon-green-color);
      text-decoration-thickness: 3px;
  }
- h4{
-     font-size:2rem;
-     color:var(--white-color);
+
  span{
      font-size:2rem;
     }
- }
+ 
  .about-paragraph{
      padding:1rem 0;
      font-size:.9rem;

@@ -18,8 +18,6 @@ import arrow from "./images/arrowUp.png";
 import { useSelector } from "react-redux";
 
 
-
-
 function App() {
   const [theme,setTheme]=useState('dark-theme')
   const [checked,setChecked]=useState(false)
@@ -29,7 +27,6 @@ function App() {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
  
-
   //Scroll To Top
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -93,14 +90,11 @@ return (
     
     {/* Main */}
     <MainContentStyled>
-   
         <div className="lines">
-        
           <div className="line-1"></div>
           <div className="line-2"></div>
           <div className="line-3"></div>
           <div className="line-4"></div>
-         
         </div>
      
         <Switching>
@@ -112,12 +106,12 @@ return (
           <Route path="/services" exact component={ServiceScreen}></Route>
           <Route path="/login" exact component={Loginscreen} />
           <Route path="/register" exact component={Registerscreen} />
-         </Switching>
+        </Switching>
 
         {isVisible && 
-        <div onClick={scrollToTop} className="scrollToTopBtn">
-          <img src={arrow} alt="arrowup by icons8"/>
-        </div>}
+          <div onClick={scrollToTop} className="scrollToTopBtn">
+           <img src={arrow} alt="arrowup by icons8"/>
+          </div>}
     </MainContentStyled>
   </div>
   );

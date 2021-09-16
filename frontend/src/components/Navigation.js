@@ -75,21 +75,17 @@ return (
                        <NavLink to="/login" activeClassName="active-class" exact >Login</NavLink>
                    </li>
                     )} 
-                   
-                   
-                   
                 </ul>
-                <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)"}}}>
-                    <div >
+                
+                <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)",icon:"var(--white-color-2)"}}}>
                     <LikeButton
-                   
-                      namespace="my-blog-post"
-                      id="applause-react"
-                      component={LikeButton.templates.Twitter}
-                   />
-                    </div>
-                   
+                        className="likes"
+                        namespace="my-blog-post"
+                        id="applause-react"
+                        /* component={LikeButton.templates.Twitter} */
+                    />
                 </Provider>
+               
         <footer className="footer">
            <p>@2021 Yves Loeys</p>
         </footer>
@@ -105,9 +101,15 @@ const NavigationStyled = styled.nav`
     height:100%;
     width:100%;
     border-right:1px solid var(--border-color);
-
+    .css-x3nz81-Simple:focus{
+       outline:none;
+       
+    }
+    .css-iyjp1g-Simple{
+        outline:none;
+    }
 @media screen and (max-width:900px) and (orientation:landscape){
- .avatar{
+   .avatar{
     display: none;
 }
 };
@@ -153,7 +155,7 @@ const NavigationStyled = styled.nav`
 .nav-items{
      width:100%;
      text-align:center;
-     margin-bottom:9rem;
+     margin-bottom:3rem;
 .active-class{
    color: var(--icon-green-color);
     }
@@ -189,6 +191,7 @@ const NavigationStyled = styled.nav`
  footer{
     border-top: 1px solid var(--border-color);
     width:80%;
+    margin-top:3rem;
  p{
     padding:2rem 0;
     font-size:0.7rem;

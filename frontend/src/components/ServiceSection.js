@@ -12,7 +12,7 @@ const ServiceSection = () => {
             <ServiceSectionStyled>
                 <Title title={"services"} span={"services"}/>
                 <div className="services">
-                    {services.map(service => <ServiceCard 
+                    {services.map((service) => <ServiceCard 
                         key={service.id} 
                         image={service.image} 
                         title={service.title} 
