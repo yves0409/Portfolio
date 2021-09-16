@@ -15,7 +15,7 @@ const ServiceBackGroundSection = () => {
   
   
   useEffect(()=> {
-      axios.get(`${process.env.REACT_APP_API}/background`)
+      //axios.get(`${process.env.REACT_APP_API}/background`)
       axios.get("/api/background")
        .then(response => {
           const {data} = response;
@@ -54,7 +54,7 @@ const BackGroundSectionStyled = styled.div`
 }
 .Background-content{
     border-left:2px solid var(--border-color);
-    margin:1rem; 
+  
 }
 `
 export default ServiceBackGroundSection

@@ -19,6 +19,7 @@ return (
 
 const ServiceBackgroundItemStyled = styled.div`
     display: flex;
+    margin-right:2.5rem;
 @media screen and (max-width:500px){
 p,h4,h5{
     font-size:70%;
@@ -51,6 +52,7 @@ p{
 .right-content{
     padding-left:5rem;
     position:relative;
+   
 &::before{
     content:"";
     position:absolute;
@@ -63,7 +65,8 @@ p{
 h4{
     color: var(--primary-color);
     font-size:1.4rem;
-    padding-bottom: .4rem
+    padding-bottom: .4rem;
+   
     }
 h5{
     padding-bottom: .5rem ;
@@ -72,6 +75,7 @@ h5{
     }
 p{
     font-size:.8rem;
+    
     }
 }
 `

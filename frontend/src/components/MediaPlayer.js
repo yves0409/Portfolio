@@ -28,7 +28,7 @@ const MediaPlayer = () => {
                />
             <h2 className="title">{item.title}</h2>
             <p className="text">{item.text}</p>
-            <a href={item.link} className="link" target="_blank">Click to go to Original Video</a>
+            <a href={item.link} className="link" target="_blank" rel="noopener noreferrer" >Click to go to Original Video</a>
             </div>)}
         </MediaPlayerStyled>
     )

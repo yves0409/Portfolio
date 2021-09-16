@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect} from 'react'
 import styled from "styled-components"
 import {NavLink} from "react-router-dom"
 import avatar from "../images/avatarResize.jpg"
@@ -20,13 +20,12 @@ const Navigation = ({hideSidebarOnItemClick}) => {
     const dispatch = useDispatch();
     // const [likeAdd,setLikeAdd] = useState("299")
     
-    
     //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
-    const pageLikeReducer = useSelector((state) => state.pageLikeReducer);
-    const { likes,success } = pageLikeReducer;
+    //const pageLikeReducer = useSelector((state) => state.pageLikeReducer);
+    //const { likes,success } = pageLikeReducer;
 
     useEffect(() => {
         dispatch(likeAction()) 

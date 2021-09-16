@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Form, Button } from "react-bootstrap";
-import Notification from "../components/Notification";
 import Spinners from "../components/Spinners";
 import FormContainer from "../components/FormContainer";
 import Alert from "@material-ui/lab/Alert";
@@ -63,11 +62,9 @@ const Loginscreen = ({ location, history }) => {
 return (
     <FormContainer>
       <h1>Sign In</h1>
-      {userInfo && <Alert severity="success">LOGIN SUCCESSFUL !</Alert>}
-      {/* {error && <Notification  variant="danger">INCORRECT EMAIL OR PASSWORD, PLEASE TRY AGAIN..</Notification> } */}
-      {error && <Alert severity="error">INCORRECT EMAIL OR PASSWORD, PLEASE TRY AGAIN..</Alert> }
-
-      {loading && <Spinners />}
+       {userInfo && <Alert severity="success">LOGIN SUCCESSFUL !</Alert>} 
+       {error && <Alert severity="error">INCORRECT EMAIL OR PASSWORD, PLEASE TRY AGAIN..</Alert> }
+       {loading && <Spinners />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="email">
           <Form.Label>Email Adress</Form.Label>
