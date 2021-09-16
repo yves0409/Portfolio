@@ -145,6 +145,7 @@ const GlobalStyle = createGlobalStyle`
  //navtoggler
 .hamburgerMenu{
         position: absolute;
+      
         display: none;
         right:5%;
         top: 3%;
@@ -154,14 +155,15 @@ const GlobalStyle = createGlobalStyle`
             color:white;
         }
     }
-
-    .loggedInUser{
+   
+.loggedInUser{
         position:absolute;  
         right:2%;
         top:2%;
   
   }
-.burger-toggle{
+
+  .burger-toggle{
         transform:translateX(0);
         z-index:20;
     }

@@ -103,28 +103,34 @@ const NavigationStyled = styled.nav`
     border-right:1px solid var(--border-color);
     .css-x3nz81-Simple:focus{
        outline:none;
-       
-    }
+       }
     .css-iyjp1g-Simple{
         outline:none;
     }
-@media screen and (max-width:900px) and (orientation:landscape){
-   .avatar{
+@media screen and (max-width:950px) and (orientation:landscape){
+ .avatar{
     display: none;
-}
+   }
+ .nav-items{
+    margin:.5rem;
+    }
+  .social{
+    display: none;
+
+  }
 };
 
 @media screen and (min-width:850px) {
  .closeBtn{
     display:none;
-    }
-   };
+  }
+};
  
-.closeBtn{
+ .closeBtn{
     margin:1rem;
  }
 
-.avatar {
+ .avatar {
      margin-top:2rem;
      width:80%;
      border-bottom: 1px solid var(--border-color);
