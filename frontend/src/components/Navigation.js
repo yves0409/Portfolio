@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import styled from "styled-components"
 import {NavLink} from "react-router-dom"
 import avatar from "../images/avatarResize.jpg"
@@ -9,12 +9,13 @@ import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
 import { likeAction } from "../redux/actions/likeActions";
-import { Provider, UpdownButton } from "@lyket/react";
+import { Provider, LikeButton } from "@lyket/react";
 import swal from 'sweetalert';
 
 
 const Navigation = ({hideSidebarOnItemClick}) => {
     const dispatch = useDispatch();
+   
   
     //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
     const userLogin = useSelector((state) => state.userLogin);
@@ -30,6 +31,7 @@ const logoutHandler = () => {
       };
 
 const openModal = () => {
+  
     swal({
         position: 'top-end',
         icon: 'success',
@@ -89,16 +91,17 @@ return (
                    </li>
                     )} 
                 </ul>
-                
-                <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)",icon:"var(--white-color-2)"}}}>
-                    <UpdownButton
-                        className="likes"
+             <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)",icon:"var(--white-color-2)"}}}>
+                    <LikeButton
+                      
                         namespace="my-blog-post"
-                        id="applause-react"
-                        onPressUp={openModal}
+                        id="how-to-beat-me-at-chess"
+                        onPress={openModal}
                         hideCounterIfLessThan={1}
-                    />
-                </Provider>
+                        />
+         
+           </Provider>
+                
                
         <footer className="footer">
            <p>@2021 Yves Loeys</p>
@@ -121,6 +124,7 @@ const NavigationStyled = styled.nav`
     .css-iyjp1g-Simple{
         outline:none;
     }
+   
 @media screen and (max-width:896px) and (orientation:landscape){
   height:100vh;
  .avatar{
@@ -133,6 +137,15 @@ const NavigationStyled = styled.nav`
     display: none;
 
   }
+};
+
+@media screen and (max-height:812px) {
+  height:100vh;
+ 
+ .nav-items{
+    margin:.5rem;
+    }
+ 
 };
 
 @media screen and (min-width:850px) {
