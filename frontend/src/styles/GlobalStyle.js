@@ -127,8 +127,10 @@ const GlobalStyle = createGlobalStyle`
  svg{
         display: flex;
         align-items:center;
-        font-size:1.6rem;
-        color:var(--white-color);
+        font-size:1.5rem;
+        color:var(---white-color-2) 
+        
+      
        }
     }
 
@@ -138,21 +140,21 @@ const GlobalStyle = createGlobalStyle`
     .light-dark-mode{
         position:absolute;  
         right:0;
-        top:14%;
+        top:13%;
+        
     }
    };
 
  //navtoggler
 .hamburgerMenu{
         position: absolute;
-      
         display: none;
         right:5%;
         top: 3%;
         z-index:15;
         svg{
             font-size:2rem;
-            color:white;
+            color:var(--white-color-2);
         }
     }
    
@@ -163,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
   
   }
 
-  .burger-toggle{
+.burger-toggle{
         transform:translateX(0);
         z-index:20;
     }

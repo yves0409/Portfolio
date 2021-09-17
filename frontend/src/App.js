@@ -54,11 +54,11 @@ function App() {
          setChecked(false)
       }else{
         setTheme("light-theme")
-       setChecked(true)  
+        setChecked(true)  
       }
       }
-  
-return (
+
+  return (
   <div className="App">
     <Sidebar burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle}/>
    
@@ -74,6 +74,9 @@ return (
                   checked={checked}
                   inputProps={{'aria-label':''}} 
                   onChange={ThemeTogglerHandler}
+                  color="var(--white-color)"
+                  size="small"
+                 
                   />
                 </div>
               </div>
@@ -125,8 +128,7 @@ const MainContentStyled = styled.main`
   @media screen and (max-width:1000px){
       margin-left:0px;
  };
-
-  .lines{
+.lines{
     position:absolute;
     width:100%;
     min-height:100%;
@@ -147,6 +149,7 @@ const MainContentStyled = styled.main`
     margin:1rem; 
 
   }
+
 
 `
 

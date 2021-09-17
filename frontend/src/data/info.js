@@ -13,15 +13,15 @@ const info = [
         id:1,
         icon:phone,
         title:"Phone",
-        contact1:"+1(424)431 7550",
-        contact2:"+32(478)531 692"
+        contact1:"+1(424)--- ----",
+        contact2:"+32(478)--- ---"
     },
     {
         id:2,
         icon:email,
         title:"Email",
         contact1:"yves.loeys@gmail.com",
-        contact2:".yloeys@gmail.com"
+        contact2:"yloeys@gmail.com"
     },
     {
         id:3,

@@ -9,7 +9,8 @@ import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
 import { likeAction } from "../redux/actions/likeActions";
-import { Provider, LikeButton } from "@lyket/react";
+import { Provider, UpdownButton } from "@lyket/react";
+import swal from 'sweetalert';
 
 
 const Navigation = ({hideSidebarOnItemClick}) => {
@@ -27,6 +28,18 @@ useEffect(() => {
 const logoutHandler = () => {
         dispatch(logout());
       };
+
+const openModal = () => {
+    swal({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Thank you for liking my page',
+        showConfirmButton: false,
+        timer: 2000
+      })
+}
+
+
 
   
 return (
@@ -78,11 +91,12 @@ return (
                 </ul>
                 
                 <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)",icon:"var(--white-color-2)"}}}>
-                    <LikeButton
+                    <UpdownButton
                         className="likes"
                         namespace="my-blog-post"
                         id="applause-react"
-                        /* component={LikeButton.templates.Twitter} */
+                        onPressUp={openModal}
+                        hideCounterIfLessThan={1}
                     />
                 </Provider>
                
@@ -101,13 +115,14 @@ const NavigationStyled = styled.nav`
     height:100%;
     width:100%;
     border-right:1px solid var(--border-color);
-    .css-x3nz81-Simple:focus{
+    .css-16fl4ks-Simple:focus{
        outline:none;
        }
     .css-iyjp1g-Simple{
         outline:none;
     }
-@media screen and (max-width:950px) and (orientation:landscape){
+@media screen and (max-width:896px) and (orientation:landscape){
+  height:100vh;
  .avatar{
     display: none;
    }
@@ -125,7 +140,6 @@ const NavigationStyled = styled.nav`
     display:none;
   }
 };
- 
  .closeBtn{
     margin:1rem;
  }
