@@ -93,14 +93,11 @@ return (
                 </ul>
              <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)",icon:"var(--white-color-2)"}}}>
                     <LikeButton
-                      
-                        namespace="my-blog-post"
-                        id="how-to-beat-me-at-chess"
+                        namespace="my-like-button"
+                        id="likebtnId"
                         onPress={openModal}
-                        hideCounterIfLessThan={1}
                         />
-         
-           </Provider>
+             </Provider>
                 
                
         <footer className="footer">
