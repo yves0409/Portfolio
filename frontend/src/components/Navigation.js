@@ -5,6 +5,7 @@ import avatar from "../images/avatarResize.jpg"
 import facebook from "../images/facebookResize.png"
 import instagram from "../images/instagramResize.png"
 import linkedin from "../images/linkedinResize.png"
+import github from "../images/Github-icon.png"
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
@@ -55,9 +56,9 @@ return (
            </div> 
           
                <div className="social">
-               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src={facebook} alt="facebookicon"/></a>
-               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagramicon"  /></a> 
-               <a href="https://www.linkedin.com/in/yves-loeys-461b66171" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="linkedinicon"/></a>
+                    <a href="https://www.github.com/yves0409" target="_blank" rel="noopener noreferrer" ><img src={github}  alt="githubicon" className="githubIcon"/></a>
+                    <a href="https://www.instagram.com/yves0409" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagramicon"/></a> 
+                    <a href="https://www.linkedin.com/in/yves-loeys-461b66171" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="linkedinicon"/></a>
                 </div>
                <ul className="nav-items" onClick={()=> hideSidebarOnItemClick()}>
                    <li className="nav-item">
@@ -121,7 +122,7 @@ const NavigationStyled = styled.nav`
     .css-iyjp1g-Simple{
         outline:none;
     }
-   
+ 
 @media screen and (max-width:896px) and (orientation:landscape){
   height:100vh;
  .avatar{
@@ -183,6 +184,15 @@ const NavigationStyled = styled.nav`
     height:60px; 
     width:60px;
     margin-bottom:2rem
+       }
+       .githubIcon{
+           height:37px;
+           width:37px;
+           color:white;
+           border:1px solid var(--white-color);
+           border-radius: 9px;
+           margin-right:1rem;
+           
        }
 }
 .nav-items{
