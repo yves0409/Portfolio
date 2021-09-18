@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect} from 'react'
 import styled from "styled-components"
 import {NavLink} from "react-router-dom"
 import avatar from "../images/avatarResize.jpg"
@@ -137,9 +137,12 @@ const NavigationStyled = styled.nav`
     display: none;
 
   }
+  .closeBtn{
+    display:none;
+  }
 };
 
-@media screen and (max-height:812px) {
+/* @media screen and (max-height:812px) {
   height:100vh;
  
  .nav-items{
@@ -155,7 +158,7 @@ const NavigationStyled = styled.nav`
 };
  .closeBtn{
     margin:1rem;
- }
+ } */
 
  .avatar {
      margin-top:2rem;

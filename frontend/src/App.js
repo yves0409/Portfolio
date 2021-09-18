@@ -74,7 +74,7 @@ function App() {
                   checked={checked}
                   inputProps={{'aria-label':''}} 
                   onChange={ThemeTogglerHandler}
-                  color="var(--white-color)"
+                  color="default"
                   size="small"
                  
                   />
