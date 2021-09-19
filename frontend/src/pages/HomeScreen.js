@@ -89,6 +89,7 @@ const HomePageStyled = styled.header`
   letter-spacing: 1px;
   h1{
   background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+ 
   background-size: cover;
   color: transparent;
   background-clip: text;

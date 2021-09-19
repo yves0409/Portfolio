@@ -8,6 +8,9 @@ import ServiceScreen from "./pages/ServiceScreen"
 import PortfolioScreen from "./pages/PortfolioScreen"
 import TrendingScreen from "./pages/TrendingScreen"
 import ContactScreen from "./pages/ContactScreen"
+import WebDevelopmentScreen from "./pages/WebDevelopmentScreen"
+import ArtificialIntelligenceScreen from "./pages/ArtificialIntelligenceScreen"
+import MobileDevelopmentScreen from "./pages/MobileDevelopmentScreen"
 import Loginscreen from "./pages/Loginscreen";
 import Registerscreen from "./pages/Registerscreen";
 import Brightness4Icon from '@material-ui/icons/Brightness4';
@@ -109,6 +112,10 @@ function App() {
           <Route path="/services" exact component={ServiceScreen}></Route>
           <Route path="/login" exact component={Loginscreen} />
           <Route path="/register" exact component={Registerscreen} />
+          <Route path="/webdevelopment" exact component={WebDevelopmentScreen} />
+          <Route path="/artificialintelligence" exact component={ArtificialIntelligenceScreen} />
+          <Route path="/mobiledevelopment" exact component={MobileDevelopmentScreen} />
+
         </Switching>
 
         {isVisible && 

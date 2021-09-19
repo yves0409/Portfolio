@@ -1,15 +1,23 @@
 import React from 'react'
 import styled from "styled-components"
+//import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
-const ServiceCard = ({image,title,paragraph}) => {
+const ServiceCard = ({image,title,paragraph,url,history}) => {
+
+    const routeChange = () =>{ 
+        let path = {url}
+       history.push(`/${path.url}`);
+      }
     return (
         <ServiceCardStyled >
-            <div className="container">
+            <div className="container" >
                 <img src={image} alt="Smashicons,surang,good ware,icongeek26" />
                 <h4>{title}</h4>
                 <p>{paragraph}</p>
-              
+                <Link to={`${url}`}>More...</Link>
+
             </div>
         </ServiceCardStyled>
     )

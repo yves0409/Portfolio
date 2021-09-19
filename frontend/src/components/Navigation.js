@@ -2,14 +2,14 @@ import React,{useEffect} from 'react'
 import styled from "styled-components"
 import {NavLink} from "react-router-dom"
 import avatar from "../images/avatarResize.jpg"
-import facebook from "../images/facebookResize.png"
+//import facebook from "../images/facebookResize.png"
 import instagram from "../images/instagramResize.png"
 import linkedin from "../images/linkedinResize.png"
 import github from "../images/Github-icon.png"
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
-import { likeAction } from "../redux/actions/likeActions";
+//import { likeAction } from "../redux/actions/likeActions";
 import { Provider, LikeButton } from "@lyket/react";
 import swal from 'sweetalert';
 
@@ -22,9 +22,9 @@ const Navigation = ({hideSidebarOnItemClick}) => {
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
-useEffect(() => {
-        dispatch(likeAction()) 
-      }, []);
+// useEffect(() => {
+//         dispatch(likeAction()) 
+//       }, []);
    
 
 const logoutHandler = () => {

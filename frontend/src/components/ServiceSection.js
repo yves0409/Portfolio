@@ -11,12 +11,15 @@ const ServiceSection = () => {
         <InnerLayout>
             <ServiceSectionStyled>
                 <Title title={"services"} span={"services"}/>
-                <div className="services">
+                <div className="services" >
                     {services.map((service) => <ServiceCard 
                         key={service.id} 
                         image={service.image} 
                         title={service.title} 
-                        paragraph={service.paragraph}/>)}
+                        paragraph={service.paragraph}
+                        url={service.url}
+                        />)}
+                        
                 </div>
             </ServiceSectionStyled>
         </InnerLayout>
