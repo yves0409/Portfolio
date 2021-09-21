@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { MainLayout } from '../styles/Layout'
 import Title from '../components/Title'
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 import styled from "styled-components"
 
 const MobileDevelopmentScreen = () => {
+    const [showSubscribe,setShowSubscribe] = useState(false)
     return (
          <MainLayout>
          <div>
@@ -14,8 +15,8 @@ const MobileDevelopmentScreen = () => {
 
         </div>
         <SubscribeStyled>
-            <p>Subscribe</p>
-            <MailchimpSubscribe url={process.env.REACT_APP_MAILCHIMP_URL} />
+            <button className="subscribe" onClick={()=> setShowSubscribe(!showSubscribe)}>Subscribe</button>
+         {showSubscribe? <MailchimpSubscribe url={process.env.REACT_APP_MAILCHIMP_URL}/> : null}
         </SubscribeStyled>
 
 
@@ -38,6 +39,12 @@ const SubscribeStyled = styled.div`
        padding: 6px 10px;
        font-size:16px;
        border-radius: 6px;
+       margin-top:1rem;
+   }
+   .subscribe{
+       color:black;
+       background-color:#cc0000;
+       margin: 2rem;;
    }
 
 `

@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = ({image,title,paragraph,url,history}) => {
 
-    const routeChange = () =>{ 
-        let path = {url}
-       history.push(`/${path.url}`);
-      }
+ 
     return (
         <ServiceCardStyled >
             <div className="container" >
@@ -62,5 +59,6 @@ transition:all .4s ease-in-out;
           height:100px;
           }
   }
+ 
 `
 export default ServiceCard
