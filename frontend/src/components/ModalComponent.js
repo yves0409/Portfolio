@@ -2,7 +2,7 @@ import React ,{useState}from 'react'
 import MailchimpSubscribe from "react-mailchimp-subscribe"
 import Modal from 'react-bootstrap/Modal'
 import styled from "styled-components"
-import Button from 'react-bootstrap/button'
+import {Button }from 'react-bootstrap'
 
 
 const ModalComponent = () => {
