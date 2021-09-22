@@ -1,39 +1,34 @@
-import React,{useEffect} from 'react'
+import React ,{useState}from 'react'
 import styled from "styled-components"
 import {NavLink} from "react-router-dom"
 import avatar from "../images/avatarResize.jpg"
-//import facebook from "../images/facebookResize.png"
 import instagram from "../images/instagramResize.png"
 import linkedin from "../images/linkedinResize.png"
 import github from "../images/Github-icon.png"
 import HighlightOffSharpIcon from '@material-ui/icons/HighlightOffSharp';
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
-//import { likeAction } from "../redux/actions/likeActions";
 import { Provider, LikeButton } from "@lyket/react";
 import swal from 'sweetalert';
+import CustomButton from "../components/CustomButton"
+import ModalComponent from "../components/ModalComponent"
 
 
 const Navigation = ({hideSidebarOnItemClick}) => {
-    const dispatch = useDispatch();
+const dispatch = useDispatch();
+const [showSubscribe,setShowSubscribe] = useState(false)
    
-  
-    //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
-    const userLogin = useSelector((state) => state.userLogin);
-    const { userInfo } = userLogin;
+//GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
+const userLogin = useSelector((state) => state.userLogin);
+const { userInfo } = userLogin;
 
-// useEffect(() => {
-//         dispatch(likeAction()) 
-//       }, []);
-   
 
 const logoutHandler = () => {
         dispatch(logout());
       };
 
 const openModal = () => {
-  
-    swal({
+  swal({
         position: 'top-end',
         icon: 'success',
         title: 'Thank you for liking my page',
@@ -42,24 +37,28 @@ const openModal = () => {
       })
 }
 
+const openSub = ()=> {
+  setShowSubscribe(!showSubscribe)
+}
 
-
-  
 return (
     <NavigationStyled >
-          <div className="closeBtn" onClick={()=> hideSidebarOnItemClick()}>
+                {/* CloseNavButton */}
+           <div className="closeBtn" onClick={()=> hideSidebarOnItemClick()}>
             <HighlightOffSharpIcon/>
            </div>
+                {/* Avatar */}
            <div className="avatar">
                <img src={avatar} alt="avatar" />
                <h2 className="avatarTxt">Yves Loeys</h2>
            </div> 
-          
+                {/* Socialmedia */}
                <div className="social">
                     <a href="https://www.github.com/yves0409" target="_blank" rel="noopener noreferrer" ><img src={github}  alt="githubicon" className="githubIcon"/></a>
                     <a href="https://www.instagram.com/yves0409" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagramicon"/></a> 
                     <a href="https://www.linkedin.com/in/yves-loeys-461b66171" target="_blank" rel="noopener noreferrer"><img src={linkedin} alt="linkedinicon"/></a>
                 </div>
+                {/* Navlinks */}
                <ul className="nav-items" onClick={()=> hideSidebarOnItemClick()}>
                    <li className="nav-item">
                        <NavLink to="/" activeClassName="active-class" exact >Home</NavLink>
@@ -79,9 +78,7 @@ return (
                    <li className="nav-item">
                        <NavLink to="/contact" activeClassName="active-class" exact >Contact</NavLink>
                    </li>
-                   {/* <li className="nav-item">
-                       <NavLink to="/register" activeClassName="active-class" exact >Register</NavLink>
-                   </li> */}
+                
                     {userInfo ? ( 
                      <li className="nav-item" onClick={logoutHandler}>
                        <NavLink to="/logout" activeClassName="active-class" exact >Logout</NavLink>
@@ -92,6 +89,7 @@ return (
                    </li>
                     )} 
                 </ul>
+             {/* Likebutton */}
              <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)",icon:"var(--white-color-2)"}}}>
                     <LikeButton
                         namespace="my-like-button"
@@ -99,8 +97,10 @@ return (
                         onPress={openModal}
                         />
              </Provider>
-                
-               
+             {/* Subscributton */}
+            <CustomButton open={openSub}/>
+       {showSubscribe? <ModalComponent/>:null}
+             {/* Footer */}
         <footer className="footer">
            <p>@2021 Yves Loeys</p>
         </footer>
@@ -110,25 +110,27 @@ return (
 
 
 const NavigationStyled = styled.nav`
-    display: flex;
+    display:flex;
     flex-direction:column;
-    align-items: center;
+    align-items:center;
     height:100%;
     width:100%;
     border-right:1px solid var(--border-color);
-    .css-16fl4ks-Simple:focus{
+  .css-16fl4ks-Simple:focus{
        outline:none;
        }
-    .css-iyjp1g-Simple{
+  .css-iyjp1g-Simple{
         outline:none;
     }
- 
+  .closeBtn{
+   margin-top: 1rem;
+ }
 @media screen and (max-width:896px) and (orientation:landscape){
   height:100vh;
- .avatar{
+  .avatar{
     display: none;
    }
- .nav-items{
+  .nav-items{
     margin:.5rem;
     }
   .social{
@@ -140,25 +142,7 @@ const NavigationStyled = styled.nav`
   }
 };
 
-/* @media screen and (max-height:812px) {
-  height:100vh;
- 
- .nav-items{
-    margin:.5rem;
-    }
- 
-};
-
-@media screen and (min-width:850px) {
- .closeBtn{
-    display:none;
-  }
-};
- .closeBtn{
-    margin:1rem;
- } */
-
- .avatar {
+.avatar {
      margin-top:2rem;
      width:80%;
      border-bottom: 1px solid var(--border-color);
@@ -240,9 +224,7 @@ const NavigationStyled = styled.nav`
     font-size:0.7rem;
     display: block;
     text-align: center;
-    
-  }
- 
+    }
  }
  .likes{
      font-size:12px;

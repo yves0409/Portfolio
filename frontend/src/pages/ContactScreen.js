@@ -70,30 +70,7 @@ const ContactScreen = () => {
 
 return (
         <MainLayout>
-        {/* <Button variant="primary" onClick={handleShow}>
-        Launch static backdrop modal
-      </Button>
-        <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-
-
-        <Modal.Header closeButton>
-          <Modal.Title>Ready to Send?</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-         Your question will be sent to the recipient
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Yes</Button>
-        </Modal.Footer>
-      </Modal> */}
+  
         <ToastContainer/>
             <Title title={"Contact"} span={"Contact"}/>
             <ContactPageStyled>

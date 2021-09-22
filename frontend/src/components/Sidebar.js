@@ -12,12 +12,14 @@ const Sidebar = ({burgerToggle,setBurgerToggle}) => {
 }
 
 const SideBarStyled = styled.div`
- @media screen and (max-width:414px){
-    width:100vw;
-    height:100vh;
+ @media screen and (max-width:460px){
+    width:100%;
+    height:100%;
  };
+ display: flex;
+ flex-wrap:wrap;
  position:fixed;
- height:100vh;
+ height:100%;
  width:16.3rem;
  background-color:var(--sidebar-dark-color);
  overflow:hidden;

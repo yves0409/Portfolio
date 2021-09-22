@@ -62,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
     
  }
 
- body{
+body{
      background-color: var(--background-dark-color);
      color:var(--font-light-color)
  }
