@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 
-
 const portfolioSchema = mongoose.Schema(
   {
-   category: {
+    category: {
       type: String,
       required: true,
     },
@@ -20,20 +19,18 @@ const portfolioSchema = mongoose.Schema(
       required: true,
     },
     description: {
-        type: String,
-        required: true,
-      },
-      frameworks: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      required: true,
+    },
+    frameworks: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
   }
 );
-
-
 
 const Portfolio = mongoose.model("Portfolio", portfolioSchema);
 

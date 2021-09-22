@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 
-
 const backgroundSchema = mongoose.Schema(
   {
-   year: {
+    year: {
       type: String,
       required: true,
     },
@@ -24,8 +23,6 @@ const backgroundSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-
-
 
 const Background = mongoose.model("Background", backgroundSchema);
 

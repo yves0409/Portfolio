@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const trendingSchema = mongoose.Schema(
   {
     url: {
@@ -24,8 +23,6 @@ const trendingSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-
-
 
 const Trending = mongoose.model("Trending", trendingSchema);
 

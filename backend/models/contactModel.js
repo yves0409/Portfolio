@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
-
 const contactSchema = mongoose.Schema(
   {
     icon: {
       type: String,
       required: true,
-      },
+    },
     title: {
       type: String,
       required: true,
@@ -19,13 +18,11 @@ const contactSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    },
+  },
   {
     timestamps: true,
   }
 );
-
-
 
 const Contact = mongoose.model("Contact", contactSchema);
 

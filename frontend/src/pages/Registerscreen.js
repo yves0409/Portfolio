@@ -9,8 +9,6 @@ import Alert from "@material-ui/lab/Alert";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../redux/actions/userActions";
 
-
-
 const Registerscreen = ({ location, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,7 +25,7 @@ const Registerscreen = ({ location, history }) => {
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
-   if (userInfo) {
+    if (userInfo) {
       const push = history.push;
       setTimeout(() => push(redirect), 2000);
     }
@@ -49,7 +47,7 @@ const Registerscreen = ({ location, history }) => {
       {userInfo && <Alert severity="success">SIGNUP SUCCESSFUL !</Alert>}
       {message && <Notification variant="danger">{message}</Notification>}
       {error && <Notification variant="danger">{message}</Notification>}
-  
+
       {loading && <Spinners />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
@@ -97,7 +95,7 @@ const Registerscreen = ({ location, history }) => {
         <Col>
           Already have an account ?{" "}
           <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-            <span style={{color:"#26c3e4"}}>Login</span>
+            <span style={{ color: "#26c3e4" }}>Login</span>
           </Link>
         </Col>
       </Row>

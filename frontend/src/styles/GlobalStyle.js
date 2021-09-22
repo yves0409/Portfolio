@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 .light-theme{
@@ -178,6 +178,6 @@ body{
     };
 
 
-`
+`;
 
 export default GlobalStyle;
