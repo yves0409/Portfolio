@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch as Switching } from "react-router";
+import { Route, Switch as Switching, withRouter } from "react-router";
 import Sidebar from "./components/Sidebar";
 import styled from "styled-components";
 import HomeScreen from "./pages/HomeScreen";
@@ -20,9 +20,9 @@ import { IconButton } from "@material-ui/core";
 import arrow from "./images/arrowUp.png";
 import { useSelector } from "react-redux";
 import ReactGA from "react-ga";
+// import { withRouter } from "react-router-dom";
 
-ReactGA.initialize("287370931");
-ReactGA.pageview(window.location.pathname + window.location.search);
+ReactGA.initialize("UA-208270591-1");
 
 function App() {
   const [theme, setTheme] = useState("dark-theme");
@@ -32,6 +32,10 @@ function App() {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
 
   //Scroll To Top
   const toggleVisibility = () => {
@@ -170,4 +174,4 @@ const MainContentStyled = styled.main`
   }
 `;
 
-export default App;
+export default withRouter(App);
