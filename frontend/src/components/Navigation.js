@@ -9,7 +9,7 @@ import HighlightOffSharpIcon from "@material-ui/icons/HighlightOffSharp";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
 //mport { Provider, LikeButton } from "@lyket/react";
-import swal from "sweetalert";
+//import swal from "sweetalert";
 import CustomButton from "../components/CustomButton";
 import ModalComponent from "../components/ModalComponent";
 
@@ -25,15 +25,15 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
     dispatch(logout());
   };
 
-  const openModal = () => {
-    swal({
-      position: "top-end",
-      icon: "success",
-      title: "Thank you for liking my page",
-      showConfirmButton: false,
-      timer: 2000,
-    });
-  };
+  // const openModal = () => {
+  //   swal({
+  //     position: "top-end",
+  //     icon: "success",
+  //     title: "Thank you for liking my page",
+  //     showConfirmButton: false,
+  //     timer: 2000,
+  //   });
+  // };
 
   const openSub = () => {
     setShowSubscribe(!showSubscribe);

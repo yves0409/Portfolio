@@ -19,6 +19,10 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { IconButton } from "@material-ui/core";
 import arrow from "./images/arrowUp.png";
 import { useSelector } from "react-redux";
+import ReactGA from "react-ga";
+
+ReactGA.initialize("G-MXNSHS8L6S");
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App() {
   const [theme, setTheme] = useState("dark-theme");
