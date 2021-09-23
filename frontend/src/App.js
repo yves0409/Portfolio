@@ -21,7 +21,7 @@ import arrow from "./images/arrowUp.png";
 import { useSelector } from "react-redux";
 import ReactGA from "react-ga";
 
-ReactGA.initialize("G-MXNSHS8L6S");
+ReactGA.initialize("287370931");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App() {
