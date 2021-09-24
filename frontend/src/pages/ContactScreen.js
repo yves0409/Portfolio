@@ -8,7 +8,6 @@ import Title from "../components/Title";
 import ContactItem from "../components/ContactItem";
 import info from "../data/info";
 import emailjs from "emailjs-com";
-import SendIcon from "@material-ui/icons/Send";
 import { useForm } from "react-hook-form";
 
 init("user_dvXegxEb11cRFMAuFpf6J");
@@ -22,9 +21,10 @@ const ContactScreen = () => {
   const {
     register,
     handleSubmit,
+    clearErrors,
     formState: { errors },
-  } = useForm({ reValidateMode: "onChange" });
-  const onFormSubmit = (data) => console.log(data);
+  } = useForm({ mode: "onBlur", reValidateMode: "onBlur" });
+  //const onFormSubmit = (data) => console.log(data);
 
   const templateParams = {
     from_name: emailsender,
@@ -35,8 +35,7 @@ const ContactScreen = () => {
   };
 
   //SEND FORM TO EMAIL => 'emailjs'////
-
-  const sendMessage = (e) => {
+  const sendMessage = (form, e) => {
     e.preventDefault();
     setName("");
     setEmailsender("");
@@ -77,7 +76,11 @@ const ContactScreen = () => {
               <h4>Get in touch </h4>
             </div>
 
-            <form className="form" id="contactform" onSubmit={sendMessage}>
+            <form
+              className="form"
+              id="contactform"
+              onSubmit={handleSubmit(sendMessage)}
+            >
               <div className="form-field">
                 <label htmlFor="name">
                   Enter name <span className="requiredStar">*</span>
@@ -148,40 +151,28 @@ const ContactScreen = () => {
                   id="textarea"
                   name="question"
                   value={question}
-                  {...register("question", { required: "text is required" })}
+                  {...register("question", {
+                    required: "text is required",
+                    minLength: 5,
+                    maxLength: 150,
+                  })}
                   onChange={(e) => setQuestion(e.target.value)}
                 ></textarea>
                 {errors.question && (
                   <span className="errorMessage">
-                    Question cannot be longer than 150 characters
+                    Question has to be min 5 and max 150 characters
                   </span>
                 )}
               </div>
-
-              <div
-                className="form-field"
-                onMouseEnter={handleSubmit(onFormSubmit)}
+              <button
+                type="button"
+                onClick={() => {
+                  clearErrors();
+                }}
               >
-                {errors.name &
-                errors.email &
-                errors.subject &
-                errors.question ? (
-                  <div className="errorMessage">
-                    Please fill in all fields correctly
-                  </div>
-                ) : (
-                  <div
-                    className="iconbtn"
-                    data-toggle="tooltip"
-                    data-placement="bottom"
-                    title="send email"
-                  >
-                    <button className="submitBtn" type="submit">
-                      <SendIcon />
-                    </button>
-                  </div>
-                )}
-              </div>
+                Clear Errors
+              </button>
+              <input type="submit"></input>
             </form>
           </div>
 
@@ -298,15 +289,66 @@ const ContactPageStyled = styled.section`
           width: 100%;
           padding: 20px;
         }
-        .submitBtn {
-          background: black;
-          padding: 0px;
-          border: none;
-          color: var(--icon-green-color);
-          cursor: pointer;
-        }
       }
     }
+  }
+  button,
+  input[type="submit"] {
+    background: #ec5990;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 40px;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: 10px;
+    width: 100%;
+    border-radius: 4px;
+  }
+  button {
+    display: block;
+    appearance: none;
+    border-radius: 4px;
+    width: 100%;
+  }
+  input[type="button"]:active,
+  input[type="submit"]:active {
+    transition: 0.3s all;
+    transform: translateY(3px);
+    border: 1px solid transparent;
+    opacity: 0.8;
+  }
+
+  input:disabled {
+    opacity: 0.4;
+  }
+
+  input[type="button"]:hover {
+    transition: 0.3s all;
+  }
+
+  input[type="button"],
+  input[type="submit"] {
+    -webkit-appearance: none;
+  }
+
+  input[type="submit"]:hover {
+    background: #bf1650;
+  }
+  button[type="button"] {
+    padding: 5px;
+    background: #516391;
+    color: white;
+    letter-spacing: 0px;
+    text-transform: none;
+    padding: 10px;
+    letter-spacing: 2px;
+  }
+
+  button[type="button"]:hover {
+    background: black;
+    color: white;
   }
 `;
 
