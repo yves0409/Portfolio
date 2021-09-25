@@ -55,12 +55,9 @@ const ContactScreen = () => {
             position: toast.POSITION.TOP_RIGHT,
             pauseOnHover: true,
           });
-          console.log("SUCCESS!", response.status, response.text);
-          console.log(process.env.REACT_APP_SERVICE_ID);
         },
         function (err) {
           toast.error("Your message was not able to be sent");
-          console.log(err);
         }
       );
   };

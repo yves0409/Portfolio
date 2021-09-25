@@ -156,24 +156,9 @@ const NavigationStyled = styled.nav`
   .closeBtn {
     margin-top: 1rem;
   }
-  @media screen and (max-width: 896px) and (orientation: landscape) {
-    height: 100vh;
-    .avatar {
-      display: none;
-    }
-    .nav-items {
-      margin: 0.5rem;
-    }
-    .social {
-      display: none;
-    }
-    .closeBtn {
-      display: none;
-    }
-  }
 
   .avatar {
-    margin-top: 2rem;
+    margin: 2rem 0 2rem 0;
     width: 80%;
     border-bottom: 1px solid var(--border-color);
     text-align: center;
@@ -181,7 +166,7 @@ const NavigationStyled = styled.nav`
     h2 {
       font-size: 1rem;
       font-family: "Source Serif Pro", serif;
-      margin-top: 10px;
+      margin: 1rem 0 1rem 0;
       color: var(--white-color);
     }
     img {
@@ -211,7 +196,8 @@ const NavigationStyled = styled.nav`
   .nav-items {
     width: 100%;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem 0 2rem 0;
+
     .active-class {
       color: var(--icon-green-color);
     }
@@ -246,9 +232,9 @@ const NavigationStyled = styled.nav`
   footer {
     border-top: 1px solid var(--border-color);
     width: 80%;
-    margin-top: 2rem;
+    margin-top: 3rem;
     p {
-      padding: 2rem 0;
+      padding: 3rem 0;
       font-size: 0.7rem;
       display: block;
       text-align: center;
@@ -256,6 +242,53 @@ const NavigationStyled = styled.nav`
   }
   .likes {
     font-size: 12px;
+  }
+  @media screen and (max-width: 896px) {
+    .avatar {
+      margin: 1rem 0 1rem 0;
+    }
+    .nav-items {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+    .footer {
+      margin-top: 1rem;
+      p {
+        padding: 1rem 0;
+      }
+    }
+    .nav-items {
+      margin-top: 0.5rem;
+    }
+  }
+  /* @media screen and (min-width: 700px) {
+    .avatar {
+      margin: 1rem 0 1rem 0;
+    }
+    .nav-items {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+    .footer {
+      display: none;
+    }
+    .nav-items {
+      margin-top: 0.5rem;
+    }
+  } */
+  @media screen and (max-width: 896px) and (orientation: landscape) {
+    .avatar {
+      display: none;
+    }
+    .nav-items {
+      margin-top: 2rem;
+    }
+    .social {
+      display: none;
+    }
+    .closeBtn {
+      display: none;
+    }
   }
 `;
 export default Navigation;
