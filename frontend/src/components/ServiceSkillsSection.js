@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { InnerLayout } from "../styles/Layout";
 import Title from "./Title";
 import ProgressCircle from "./ProgressCircle";
-import skillprogress from "../data/skillprogress";
+import dataSkillsProgress from "../data/dataSkillsProgress";
 
 const ServiceSkillsSection = () => {
   return (
@@ -11,7 +11,7 @@ const ServiceSkillsSection = () => {
       <Title title={"Languages/ markup"} span={"Languages/ markup"} />
       <InnerLayout>
         <div className="skills">
-          {skillprogress.map((skill) => (
+          {dataSkillsProgress.map((skill) => (
             <ProgressCircle
               key={skill.id}
               title={skill.title}

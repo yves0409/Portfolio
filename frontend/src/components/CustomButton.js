@@ -83,6 +83,7 @@ const CustomBtnStyled = styled.div`
     line-height: 1.6;
     text-align: center;
     text-transform: uppercase;
+    color: #fff;
   }
   button:hover .circle {
     width: 100%;

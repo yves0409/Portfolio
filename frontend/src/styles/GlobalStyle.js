@@ -177,7 +177,49 @@ body{
         }
     };
 
+//Modal
+.custom-modal-style {
+      width: 160%;
+      height:auto;
+      background-color: transparent;
+      margin-top: 35%;
+      margin-left: -6%;
+       text-align:center; 
+       border:none;  
+}
 
+@media (max-width: 1023px) {
+  .custom-modal-style .slider img {
+    width: 100%;
+    height: auto;
+   
+  }
+}
+
+.custom-modal-style .modal-title.h4 {
+   color: white;
+}
+
+.custom-modal-style .btn {
+  font-size: 1.1rem;
+  margin-top: -10px;
+  border:none;
+}
+
+.custom-modal-style .btn:hover {
+  background-color: #689473;
+  border-radius: 4px;
+  outline: none;
+}
+
+@media screen and (max-width:576px){
+  .custom-modal-style .modal-title.h4 {
+    margin-right: 33%;
+    };
+    .custom-modal-style .btn {
+     margin-right: 33%;
+}
+}
 `;
 
 export default GlobalStyle;

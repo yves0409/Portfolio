@@ -16,11 +16,14 @@ const ContactItem = ({ icon, title, contact1, contact2 }) => {
 };
 
 const ContactItemStyled = styled.div`
-  padding: 1.5rem 2rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  border-radius: 6px;
   background-color: var(--background-dark-color-2);
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
+
   .left-content {
     padding: 1.5rem;
     border: 1px solid var(--border-color);

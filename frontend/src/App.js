@@ -20,7 +20,6 @@ import { IconButton } from "@material-ui/core";
 import arrow from "./images/arrowUp.png";
 import { useSelector } from "react-redux";
 import ReactGA from "react-ga";
-// import { withRouter } from "react-router-dom";
 
 ReactGA.initialize("UA-208270591-1");
 

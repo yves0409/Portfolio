@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
 
-const ModalComponent = () => {
+const ModalSubscribeComponent = () => {
   const [show, setShow] = useState(true);
 
   const handleClose = () => {
@@ -67,4 +67,4 @@ const ModalStyled = styled.div`
     letter-spacing: 2px;
   }
 `;
-export default ModalComponent;
+export default ModalSubscribeComponent;

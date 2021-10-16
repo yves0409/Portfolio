@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Title from "../components/Title";
 import ContactItem from "../components/ContactItem";
-import info from "../data/info";
+import dataContactInfo from "../data/dataContactInfo";
 import emailjs from "emailjs-com";
 import { useForm } from "react-hook-form";
 
@@ -24,7 +24,6 @@ const ContactScreen = () => {
     clearErrors,
     formState: { errors },
   } = useForm({ mode: "onBlur", reValidateMode: "onBlur" });
-  //const onFormSubmit = (data) => console.log(data);
 
   const templateParams = {
     from_name: emailsender,
@@ -161,20 +160,26 @@ const ContactScreen = () => {
                   </span>
                 )}
               </div>
-              <button
-                type="button"
-                onClick={() => {
-                  clearErrors();
-                }}
-              >
-                Clear Errors
-              </button>
+              {errors.name ||
+              errors.subject ||
+              errors.email ||
+              errors.textarea ||
+              errors.question ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    clearErrors();
+                  }}
+                >
+                  Clear Errors
+                </button>
+              ) : null}
               <input type="submit"></input>
             </form>
           </div>
 
           <div className="right-content">
-            {info.map((item) => (
+            {dataContactInfo.map((item) => (
               <ContactItem
                 key={item.id}
                 icon={item.icon}
@@ -191,7 +196,7 @@ const ContactScreen = () => {
 };
 
 const ContactPageStyled = styled.section`
-  .white-mode {
+  /* .white-mode {
     text-decoration: none;
     padding: 7px 10px;
     background-color: #122;
@@ -206,8 +211,8 @@ const ContactPageStyled = styled.section`
   .white-mode:hover {
     background-color: #fff;
     color: #122;
-  }
-  .footer {
+  } */
+  /* .footer {
     background-color: white;
     padding: 1rem;
     display: flex;
@@ -221,19 +226,17 @@ const ContactPageStyled = styled.section`
       height: 60px;
       width: 60px;
     }
-  }
+  } */
   .contact-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
+
     @media screen and (max-width: 1200px) {
       grid-template-columns: repeat(1, 1fr);
     }
     .right-content {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      padding-top: 3rem;
-      width: 100%;
+      margin-top: 3rem;
     }
     .contact-title {
       h4 {

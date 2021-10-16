@@ -84,10 +84,7 @@ const ImageSectionStyled = styled.div`
     }
     .downloadResumeText {
       color: var(--icon-green-color);
-      margin-left: 0.4rem;
-      text-decoration: underline;
-      text-decoration-color: var(--icon-green-color);
-      text-decoration-thickness: 3px;
+      margin: 0.3rem 0.2rem;
     }
 
     span {

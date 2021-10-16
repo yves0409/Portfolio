@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { InnerLayout } from "../styles/Layout";
 import ServiceCard from "./ServiceCard";
 import Title from "./Title";
-import services from "../data/services";
+import dataServices from "../data/dataServices";
 
 const ServiceSection = () => {
   return (
@@ -11,7 +11,7 @@ const ServiceSection = () => {
       <ServiceSectionStyled>
         <Title title={"services"} span={"services"} />
         <div className="services">
-          {services.map((service) => (
+          {dataServices.map((service) => (
             <ServiceCard
               key={service.id}
               image={service.image}

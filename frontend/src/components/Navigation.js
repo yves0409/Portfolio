@@ -11,7 +11,7 @@ import { logout } from "../redux/actions/userActions";
 //mport { Provider, LikeButton } from "@lyket/react";
 //import swal from "sweetalert";
 import CustomButton from "../components/CustomButton";
-import ModalComponent from "../components/ModalComponent";
+import ModalSubscribeComponent from "../components/ModalSubscribeComponent";
 
 const Navigation = ({ hideSidebarOnItemClick }) => {
   const dispatch = useDispatch();
@@ -24,16 +24,6 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
   const logoutHandler = () => {
     dispatch(logout());
   };
-
-  // const openModal = () => {
-  //   swal({
-  //     position: "top-end",
-  //     icon: "success",
-  //     title: "Thank you for liking my page",
-  //     showConfirmButton: false,
-  //     timer: 2000,
-  //   });
-  // };
 
   const openSub = () => {
     setShowSubscribe(!showSubscribe);
@@ -131,7 +121,7 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
              </Provider> */}
       {/* Subscributton */}
       <CustomButton open={openSub} />
-      {showSubscribe ? <ModalComponent /> : null}
+      {showSubscribe ? <ModalSubscribeComponent /> : null}
       {/* Footer */}
       <footer className="footer">
         <p>@2021 Yves Loeys</p>
