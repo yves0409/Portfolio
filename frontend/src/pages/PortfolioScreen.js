@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { InnerLayout, MainLayout } from "../styles/Layout";
+import { MainLayout } from "../styles/Layout";
 import Title from "../components/Title";
 //import PortfolioCard from "../components/PortfolioCard";
 //import PortfolioButton from "../components/PortfolioButton";
@@ -75,33 +75,33 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
       <Title title={"Portfolios"} span={"Portfolios"} />
 
       <BlurStyled>
-        <InnerLayout>
-          {/* <PortfolioButton filter={filter} button={button} /> */}
-          <Container className={`${blur ? "blurred" : ""}`}>
-            <h3 className="title">
-              As a designer & user interface developer based in Los Angeles, I
-              create engaging online experiences for users. It’s a fine balance
-              of applying technology, design, research, and experimentation.
-            </h3>
-            <Row className="row">
-              {dataPortfolioCard.map((item) => (
-                <Col className="col" key={item.id}>
-                  <PortfolioCards
-                    id={item.id}
-                    image={item.image}
-                    title={item.title}
-                    description={item.description}
-                    frameworks={item.frameworks}
-                    git={item.git}
-                    onClickIsBlurred={blurred}
-                    closeModalClicked={unBlurred}
-                    /* menuItem={menuItem} */
-                  />{" "}
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        </InnerLayout>
+        {/* <InnerLayout> */}
+        {/* <PortfolioButton filter={filter} button={button} /> */}
+        <Container className={`${blur ? "blurred" : "unblurred"}`}>
+          <h3 className="title">
+            As a designer & user interface developer based in Los Angeles, I
+            create engaging online experiences for users. It’s a fine balance of
+            applying technology, design, research, and experimentation.
+          </h3>
+          <Row className="row">
+            {dataPortfolioCard.map((item) => (
+              <Col className="col" key={item.id}>
+                <PortfolioCards
+                  id={item.id}
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  frameworks={item.frameworks}
+                  git={item.git}
+                  onClickIsBlurred={blurred}
+                  closeModalClicked={unBlurred}
+                  /* menuItem={menuItem} */
+                />{" "}
+              </Col>
+            ))}
+          </Row>
+        </Container>
+        {/* </InnerLayout> */}
       </BlurStyled>
     </MainLayout>
   );
@@ -126,17 +126,36 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
 //   }
 // `;
 const BlurStyled = styled.div`
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 
+  .unblurred {
+    margin: 0px auto;
+  }
   /* display: flex;
   justify-content: center;
   flex-wrap: wrap; */
   .row {
     margin-top: 2rem;
   }
+
+  @media screen and (min-width: 1000px) {
+    .row {
+      animation: slideRight 1s ease-in-out forwards;
+    }
+    @keyframes slideRight {
+      0% {
+        transform: translateX(900px) scale(0.1);
+      }
+      100% {
+        transform: translateX(0px) scale(1);
+      }
+    }
+  }
+
   .col {
     padding: 5px;
   }
+
   .sc-gKAaRy {
     padding-top: 10px;
     padding-bottom: 5px;
@@ -144,9 +163,9 @@ const BlurStyled = styled.div`
 
   .title {
     color: var(--white-color);
-    max-width: 80vw;
-    margin: 0px auto;
-    font-size: 1.5rem;
+    /* max-width: 80vw; */
+    /* margin: 0px auto; */
+    font-size: 1.3rem;
     margin-top: 5rem;
   }
   .blurred {

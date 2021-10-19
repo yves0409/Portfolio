@@ -2,17 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { InnerLayout } from "../styles/Layout";
 import ServiceCard from "./ServiceCard";
-import Title from "./Title";
 import dataServices from "../data/dataServices";
 
 const ServiceSection = () => {
   return (
     <InnerLayout>
       <ServiceSectionStyled>
-        <Title title={"services"} span={"services"} />
         <div className="services">
           {dataServices.map((service) => (
             <ServiceCard
+              className="imcard"
               key={service.id}
               image={service.image}
               title={service.title}
@@ -27,7 +26,7 @@ const ServiceSection = () => {
 };
 const ServiceSectionStyled = styled.div`
   .services {
-    margin-top: 4rem;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;

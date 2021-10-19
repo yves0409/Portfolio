@@ -6,11 +6,14 @@ import FormContainer from "../components/FormContainer";
 import Alert from "@material-ui/lab/Alert";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../redux/actions/userActions";
-import swal from "sweetalert";
+import Succes from "../components/Succes";
+
+// import swal from "sweetalert";
 
 const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -18,20 +21,26 @@ const Loginscreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, userInfo, error } = userLogin;
 
+  useEffect(() => {
+    if (userLogin) {
+      setLoginSuccess(!loginSuccess);
+    }
+  }, [userLogin]);
+
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
-  useEffect(() => {
-    swal({
-      title: "Undergoing Maintenance",
-      text: "While you can register and login, Most functionality will be limited until further notice",
-      icon: "warning",
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        swal("Done!", "You can now login or signup!", "success");
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   swal({
+  //     title: "Undergoing Maintenance",
+  //     text: "While you can register and login, Most functionality will be limited until further notice",
+  //     icon: "warning",
+  //     dangerMode: true,
+  //   }).then((willDelete) => {
+  //     if (willDelete) {
+  //       swal("Done!", "You can now login or signup!", "success");
+  //     }
+  //   });
+  // }, []);
 
   useEffect(() => {
     const push = history.push;
@@ -51,8 +60,10 @@ const Loginscreen = ({ location, history }) => {
 
   return (
     <FormContainer>
+      {/* {!loginSuccess ? <Succes /> : null} */}
       <h1>Sign In</h1>
-      {userInfo && <Alert severity="success">LOGIN SUCCESSFUL !</Alert>}
+      {/* {userInfo && <Alert severity="success">LOGIN SUCCESSFUL !</Alert>} */}
+      {userInfo && <Succes name={userInfo.name} />}
       {error && (
         <Alert severity="error">
           INCORRECT EMAIL OR PASSWORD, PLEASE TRY AGAIN..

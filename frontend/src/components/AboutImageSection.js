@@ -6,9 +6,26 @@ import downloadCV from "../images/download.png";
 import cv from "../../src/data/cv.pdf";
 import axios from "axios";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import { useSelector } from "react-redux";
+import ModalSubscribeComponent from "./ModalSubscribeComponent";
+import { IoEnterOutline } from "react-icons/io5";
 
 const ImageSection = () => {
   const [aboutInfo, setAboutInfo] = useState("");
+  const [showSubscribe, setShowSubscribe] = useState(false);
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const loginLink = (
+    <Link to="/login">
+      <IoEnterOutline size={70} />
+    </Link>
+  );
+
+  const showPleaseLoginModal = () => {
+    setShowSubscribe(!showSubscribe);
+  };
 
   useEffect(() => {
     async function getResults() {
@@ -22,9 +39,9 @@ const ImageSection = () => {
     <ImageSectionStyled>
       <div className="left-content">
         <img src={coding} alt="res" />
+        <p className="about-paragraph">{aboutInfo.bio}</p>
       </div>
       <div className="right-content">
-        <p className="about-paragraph">{aboutInfo.bio}</p>
         <div className="about-info">
           <div className="info-title">
             <p>
@@ -44,11 +61,29 @@ const ImageSection = () => {
             </p>
           </div>
         </div>
-        <Link to={cv} target="_blank" download>
-          <img src={downloadCV} alt="Freepic" />
-        </Link>
-        <p className="downloadResumeText">Resume</p>
+
+        <div className="downloadResume">
+          {userInfo ? (
+            <Link to={cv} target="_blank" download>
+              <img src={downloadCV} alt="Freepic" />
+            </Link>
+          ) : (
+            <img
+              src={downloadCV}
+              alt="Freepic"
+              onClick={showPleaseLoginModal}
+            />
+          )}
+          <p className="downloadResumeText">Resume</p>
+        </div>
       </div>
+      {showSubscribe && (
+        <ModalSubscribeComponent
+          title={"Please Login to download my resume !"}
+          closebtnTxt={" Close"}
+          body={loginLink}
+        />
+      )}
     </ImageSectionStyled>
   ) : (
     <LinearProgress color="primary" />
@@ -58,22 +93,40 @@ const ImageSection = () => {
 const ImageSectionStyled = styled.div`
   margin-top: 4rem;
   display: flex;
-  @media screen and (max-width: 1700px) {
+  justify-content: space-around;
+
+  @media screen and (max-width: 1400px) {
     flex-direction: column;
     .left-content {
       margin-bottom: 2rem;
     }
-  }
-  .left-content {
-    width: 100%;
-    margin-right: 1rem;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .right-content {
+      .about-info {
+        justify-content: center;
+      }
     }
   }
+
+  .left-content {
+    width: 100%;
+    margin-right: 5rem;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .about-paragraph {
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  }
+
   .right-content {
+    width: 100%;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     img {
       cursor: pointer;
       width: 70px;
@@ -91,14 +144,10 @@ const ImageSectionStyled = styled.div`
       font-size: 2rem;
     }
 
-    .about-paragraph {
-      padding: 1rem 0;
-      font-size: 0.9rem;
-    }
     .about-info {
-      display: flex;
       padding-bottom: 1.4rem;
     }
+
     .info-title {
       padding-right: 3rem;
       p {

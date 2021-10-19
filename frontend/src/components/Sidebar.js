@@ -26,7 +26,7 @@ const SideBarStyled = styled.div`
   @media screen and (max-width: 1000px) {
     transform: translateX(-100%);
     z-index: 20;
-  } ;
+  }
 `;
 
 export default Sidebar;

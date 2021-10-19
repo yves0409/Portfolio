@@ -28,6 +28,17 @@ const AboutReviewSection = () => {
 
 const AboutReviewSectionStyled = styled.section`
   padding-top: 3.5rem;
+  transform: translateY(100px);
+  animation: slideUp 0.8s ease forwards 1s;
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(500px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
   .reviews {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

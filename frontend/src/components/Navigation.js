@@ -8,6 +8,7 @@ import github from "../images/Github-icon.png";
 import HighlightOffSharpIcon from "@material-ui/icons/HighlightOffSharp";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 //mport { Provider, LikeButton } from "@lyket/react";
 //import swal from "sweetalert";
 import CustomButton from "../components/CustomButton";
@@ -20,6 +21,10 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
   //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const mailchimp = (
+    <MailchimpSubscribe url={process.env.REACT_APP_MAILCHIMP_URL} />
+  );
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -121,7 +126,14 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
              </Provider> */}
       {/* Subscributton */}
       <CustomButton open={openSub} />
-      {showSubscribe ? <ModalSubscribeComponent /> : null}
+      {showSubscribe ? (
+        <ModalSubscribeComponent
+          title={"Enter a valid email to subribe"}
+          body={"If you subsribe you will receive updates and newsletters"}
+          closebtnTxt={" Close"}
+          body2={mailchimp}
+        />
+      ) : null}
       {/* Footer */}
       <footer className="footer">
         <p>@2021 Yves Loeys</p>

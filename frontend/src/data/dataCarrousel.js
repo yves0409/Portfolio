@@ -11,27 +11,29 @@ const dataCarrousel = [
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633188890/Portfolio/uiooxr94js5d2jhindxg.png",
-        legend: "Orders",
+        legend: "FAQ page",
       },
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633188890/Portfolio/ua4unrgwrb6liywpergs.png",
-        legend: "contact",
+        legend:
+          "A complete dashboard to keep track of orders,clients,revenue,etc...",
       },
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633188890/Portfolio/riaencdfdjtlo7zupv2w.png",
-        legend: "about",
+        legend: "Edit, delete and keeping track of products",
       },
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633188889/Portfolio/wmyiptt8bskl0fwzp8ha.png",
-        legend: "product",
+        legend: "Dashboard page",
       },
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633188887/Portfolio/dsaq0jafzksg9j8mq2iq.png",
-        legend: "whatever",
+        legend:
+          "Shopping cart where you can start the order process and proceed to payment",
       },
     ],
   },
@@ -47,27 +49,29 @@ const dataCarrousel = [
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633207148/Portfolio/jtekd0cswafhfyzx7lh4.png",
-        legend: "Posts",
+        legend: "Posts, like or comment on any user post",
       },
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633207056/Portfolio/lhr2zm4cldmd5bg1nmxk.png",
-        legend: "Profile",
+        legend:
+          "A complete Profile with all the users details, repositories and so on",
       },
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633207212/Portfolio/zktcbm83rnd8yjns15i6.png",
-        legend: "Members",
+        legend:
+          "List of all registered users and their bio with the option to connect to them",
       },
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633206702/Portfolio/gcqlvradtxkfh8zks7in.png",
-        legend: "Dashboard",
+        legend: "Every user will have a personal Dashboard",
       },
       {
         image:
           "https://res.cloudinary.com/yves/image/upload/c_scale,w_1080/v1633207275/Portfolio/zbomudqfsmjxjbafn9ie.png",
-        legend: "Login/Register",
+        legend: "Authentication page with a Login/Register",
       },
     ],
   },
