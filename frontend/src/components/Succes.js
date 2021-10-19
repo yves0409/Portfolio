@@ -37,7 +37,7 @@ const SuccesStyled = styled.div`
   }
 
   h4 {
-    color: red;
+    color: var(--white-color);
     margin-top: 2rem;
   }
 

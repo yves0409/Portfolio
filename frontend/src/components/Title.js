@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import Slide from "react-reveal/Slide";
+// import Slide from "react-reveal/Slide";
 
 const Title = ({ title, span }) => {
   return (
     <TitleStyled>
-      <Slide right duration={1000}>
-        <h2>
-          {title} <span>{span}</span>
-        </h2>
-      </Slide>
+      {/* <Slide right duration={1000}> */}
+      <h2>
+        {title} <span>{span}</span>
+      </h2>
+      {/* </Slide> */}
     </TitleStyled>
   );
 };

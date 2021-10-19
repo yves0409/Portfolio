@@ -60,7 +60,6 @@ const Loginscreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      {/* {!loginSuccess ? <Succes /> : null} */}
       <h1>Sign In</h1>
       {/* {userInfo && <Alert severity="success">LOGIN SUCCESSFUL !</Alert>} */}
       {userInfo && <Succes name={userInfo.name} />}
