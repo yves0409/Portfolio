@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { InnerLayout } from "../styles/Layout";
 import Title from "./Title";
 import ProgressCircle from "./ProgressCircle";
 import dataSkillsProgress from "../data/dataSkillsProgress";
+import { InnerLayout } from "../styles/Layout";
 
 const ServiceSkillsSection = () => {
   return (

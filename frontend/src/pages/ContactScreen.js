@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { MainLayout, InnerLayout } from "../styles/Layout";
-import { init } from "emailjs-com";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Title from "../components/Title";
 import ContactItem from "../components/ContactItem";
 import dataContactInfo from "../data/dataContactInfo";
 import emailjs from "emailjs-com";
+import { MainLayout, InnerLayout } from "../styles/Layout";
+import { init } from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 
 init("user_dvXegxEb11cRFMAuFpf6J");
@@ -196,37 +196,6 @@ const ContactScreen = () => {
 };
 
 const ContactPageStyled = styled.section`
-  /* .white-mode {
-    text-decoration: none;
-    padding: 7px 10px;
-    background-color: #122;
-    border-radius: 3px;
-    color: #fff;
-    transition: 0.35s ease-in-out;
-    position: fixed;
-    left: 15px;
-    bottom: 15px;
-    font-family: "Montserrat";
-  }
-  .white-mode:hover {
-    background-color: #fff;
-    color: #122;
-  } */
-  /* .footer {
-    background-color: white;
-    padding: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 4px;
-    background-color: var(--border-color);
-    img {
-      height: 60px;
-      width: 60px;
-    }
-  } */
   .contact-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Succes = ({ name }) => {
+const Success = ({ name }) => {
   return (
     <SuccesStyled>
       <div className="success-animation">
@@ -98,4 +98,4 @@ const SuccesStyled = styled.div`
   }
 `;
 
-export default Succes;
+export default Success;

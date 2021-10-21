@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { InnerLayout } from "../styles/Layout";
 import Title from "./Title";
 import SmallTitle from "./SmallTitle";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import BackgroundItem from "./ServiceBackgroundItem";
 import axios from "axios";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import { InnerLayout } from "../styles/Layout";
 
 const ServiceBackGroundSection = () => {
   const briefcase = <BusinessCenterIcon />;

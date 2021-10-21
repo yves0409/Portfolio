@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Title from "../components/Title";
-import { MainLayout, InnerLayout } from "../styles/Layout";
 import MediaPlayer from "../components/MediaPlayer";
+import { MainLayout, InnerLayout } from "../styles/Layout";
 
 const TrendingScreen = () => {
   return (

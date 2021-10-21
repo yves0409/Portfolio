@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import coding from "../images/codingresize.jpeg";
 import downloadCV from "../images/download.png";
 import cv from "../../src/data/cv.pdf";
 import axios from "axios";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import { useSelector } from "react-redux";
 import ModalSubscribeComponent from "./ModalSubscribeComponent";
+import { Link } from "react-router-dom";
 import { IoEnterOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 const ImageSection = () => {
   const [aboutInfo, setAboutInfo] = useState("");

@@ -1,6 +1,6 @@
 import React from "react";
-import { MainLayout } from "../styles/Layout";
 import Title from "../components/Title";
+import { MainLayout } from "../styles/Layout";
 
 const MobileDevelopmentScreen = () => {
   return (

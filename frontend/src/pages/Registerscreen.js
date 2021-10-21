@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Row, Col, Form, Button } from "react-bootstrap";
 import Notification from "../components/Notification";
 import Spinners from "../components/Spinners";
 import FormContainer from "../components/FormContainer";
 import Alert from "@material-ui/lab/Alert";
-
+import { Link } from "react-router-dom";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../redux/actions/userActions";
 

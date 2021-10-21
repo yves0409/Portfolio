@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-//import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const ServiceCard = ({ image, title, paragraph, url, history }) => {
+const ServiceCard = ({ image, title, paragraph, url }) => {
   return (
     <ServiceCardStyled>
       <div className="container">

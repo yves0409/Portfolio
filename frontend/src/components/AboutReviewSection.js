@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import ReviewItem from "./AboutReviewItem";
-import { InnerLayout } from "../styles/Layout";
 import Title from "./Title";
+import { InnerLayout } from "../styles/Layout";
 
 const AboutReviewSection = () => {
   return (

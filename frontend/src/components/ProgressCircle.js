@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import "react-circular-progressbar/dist/styles.css";
 import {
   buildStyles,
   CircularProgressbarWithChildren,
 } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 
 const ProgressCircle = ({ title, percentage, img }) => {
   return (

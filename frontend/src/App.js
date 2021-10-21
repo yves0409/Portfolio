@@ -16,10 +16,10 @@ import Registerscreen from "./pages/Registerscreen";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Switch from "@material-ui/core/Switch";
 import MenuIcon from "@material-ui/icons/Menu";
-import { IconButton } from "@material-ui/core";
-import arrow from "./images/arrowUp.png";
-import { useSelector } from "react-redux";
 import ReactGA from "react-ga";
+import arrow from "./images/arrowUp.png";
+import { IconButton } from "@material-ui/core";
+import { useSelector } from "react-redux";
 
 ReactGA.initialize("UA-208270591-1");
 

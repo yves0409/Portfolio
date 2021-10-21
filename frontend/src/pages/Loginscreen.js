@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../redux/actions/userActions";
 import Spinners from "../components/Spinners";
 import FormContainer from "../components/FormContainer";
 import Alert from "@material-ui/lab/Alert";
-import { useSelector, useDispatch } from "react-redux";
-import { login } from "../redux/actions/userActions";
-import Succes from "../components/Succes";
-
-// import swal from "sweetalert";
+import Success from "../components/Success";
 
 const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
@@ -29,23 +27,10 @@ const Loginscreen = ({ location, history }) => {
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
-  // useEffect(() => {
-  //   swal({
-  //     title: "Undergoing Maintenance",
-  //     text: "While you can register and login, Most functionality will be limited until further notice",
-  //     icon: "warning",
-  //     dangerMode: true,
-  //   }).then((willDelete) => {
-  //     if (willDelete) {
-  //       swal("Done!", "You can now login or signup!", "success");
-  //     }
-  //   });
-  // }, []);
-
   useEffect(() => {
     const push = history.push;
     if (userInfo) {
-      setTimeout(() => push(redirect), 2000);
+      setTimeout(() => push(redirect), 3000);
     }
     if (error) {
       push("/login");
@@ -61,8 +46,7 @@ const Loginscreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h1>Sign In</h1>
-      {/* {userInfo && <Alert severity="success">LOGIN SUCCESSFUL !</Alert>} */}
-      {userInfo && <Succes name={userInfo.name} />}
+      {userInfo && <Success name={userInfo.name} />}
       {error && (
         <Alert severity="error">
           INCORRECT EMAIL OR PASSWORD, PLEASE TRY AGAIN..

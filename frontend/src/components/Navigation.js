@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 import avatar from "../images/avatarResize.jpg";
 import instagram from "../images/instagramResize.png";
 import linkedin from "../images/linkedinResize.png";
 import github from "../images/Github-icon.png";
 import HighlightOffSharpIcon from "@material-ui/icons/HighlightOffSharp";
-import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../redux/actions/userActions";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-//mport { Provider, LikeButton } from "@lyket/react";
-//import swal from "sweetalert";
 import CustomButton from "../components/CustomButton";
 import ModalSubscribeComponent from "../components/ModalSubscribeComponent";
+import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/actions/userActions";
 
 const Navigation = ({ hideSidebarOnItemClick }) => {
   const dispatch = useDispatch();
@@ -22,6 +20,7 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  //MAILCHIMP COMPONENT TO PASS AS A PROP
   const mailchimp = (
     <MailchimpSubscribe url={process.env.REACT_APP_MAILCHIMP_URL} />
   );
@@ -116,15 +115,7 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
           </li>
         )}
       </ul>
-      {/* Likebutton */}
-      {/* <Provider apiKey="pt_3a41bc2c69f68f5b385538067e7910" theme={{colors: {text: "var(--white-color)",icon:"var(--white-color-2)"}}}>
-                    <LikeButton
-                        namespace="my-like-button"
-                        id="likebtnId"
-                        onPress={openModal}
-                        />
-             </Provider> */}
-      {/* Subscributton */}
+
       <CustomButton open={openSub} />
       {showSubscribe ? (
         <ModalSubscribeComponent
@@ -226,7 +217,7 @@ const NavigationStyled = styled.nav`
         left: 32%;
         bottom: 0px;
         height: 0px;
-        width: 35%; /* or 100px */
+        width: 35%;
         border-bottom: 3px solid var(--icon-green-color);
       }
     }
@@ -263,21 +254,7 @@ const NavigationStyled = styled.nav`
       margin-top: 0.5rem;
     }
   }
-  /* @media screen and (min-width: 700px) {
-    .avatar {
-      margin: 1rem 0 1rem 0;
-    }
-    .nav-items {
-      margin-bottom: 1rem;
-      margin-top: 1rem;
-    }
-    .footer {
-      display: none;
-    }
-    .nav-items {
-      margin-top: 0.5rem;
-    }
-  } */
+
   @media screen and (max-width: 896px) and (orientation: landscape) {
     .avatar {
       display: none;

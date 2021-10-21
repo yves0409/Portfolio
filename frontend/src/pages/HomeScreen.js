@@ -138,14 +138,7 @@ const HomePageStyled = styled.header`
         width: 100%;
       }
     }
-    /* @keyframes blink {
-  0%,100% {
-    border-right:2px solid transparent;
-  }
-  50% {
-    border-right:2px solid transparent;
-  }
-} */
+
     p {
       font-size: 1.2rem;
       @media screen and (max-width: 700px) {
@@ -181,25 +174,7 @@ const HomePageStyled = styled.header`
       opacity: 0;
     }
   }
-  /* #cf3 div.particles-con{
-  animation-name: cf3FadeInOut;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-duration: 10s;
-  animation-direction: alternate;
-}
-.particles-con{
-  width:100%;
-}
-.backgroundImage{
-  img{
-  width:100%;
-  height:100vh;
-  object-fit:cover;
-  opacity:0.5;
-      }
-      
-  } */
+
   .HomeScreenTypography {
     h1 {
       font-family: "Source Serif Pro", serif;

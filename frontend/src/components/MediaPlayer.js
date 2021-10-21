@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player";
 import styled from "styled-components";
+import ReactPlayer from "react-player";
 import axios from "axios";
 
 const MediaPlayer = () => {

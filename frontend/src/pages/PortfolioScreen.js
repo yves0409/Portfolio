@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { MainLayout } from "../styles/Layout";
 import Title from "../components/Title";
-//import PortfolioCard from "../components/PortfolioCard";
-//import PortfolioButton from "../components/PortfolioButton";
 import styled from "styled-components";
-//import axios from "axios";
-//import LinearProgress from "@material-ui/core/LinearProgress";
-import { Container, Row, Col } from "react-bootstrap";
 import dataPortfolioCard from "../data/dataPortfolioCard";
 import PortfolioCards from "../components/PortfolioCards";
+import { Container, Row, Col } from "react-bootstrap";
+import { MainLayout } from "../styles/Layout";
 
 const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
   //   const [portfolios, setPortfolios] = useState([]);
@@ -75,7 +71,6 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
       <Title title={"Portfolios"} span={"Portfolios"} />
 
       <BlurStyled>
-        {/* <InnerLayout> */}
         {/* <PortfolioButton filter={filter} button={button} /> */}
         <Container className={`${blur ? "blurred" : "unblurred"}`}>
           <h3 className="title">
@@ -101,7 +96,6 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
             ))}
           </Row>
         </Container>
-        {/* </InnerLayout> */}
       </BlurStyled>
     </MainLayout>
   );
@@ -126,14 +120,10 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
 //   }
 // `;
 const BlurStyled = styled.div`
-  /* margin-top: 1rem; */
-
   .unblurred {
     margin: 0px auto;
   }
-  /* display: flex;
-  justify-content: center;
-  flex-wrap: wrap; */
+
   .row {
     margin-top: 2rem;
   }
@@ -163,8 +153,6 @@ const BlurStyled = styled.div`
 
   .title {
     color: var(--white-color);
-    /* max-width: 80vw; */
-    /* margin: 0px auto; */
     font-size: 1.3rem;
     margin-top: 5rem;
   }

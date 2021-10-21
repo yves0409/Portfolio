@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Card, Tooltip, OverlayTrigger } from "react-bootstrap";
 import ModalCarrouselComponents from "./ModalCarrouselComponents";
 import gitImage from "../images/gitdesign.png";
+import { Card, Tooltip, OverlayTrigger } from "react-bootstrap";
 
 const PortfolioCard = ({
   id,
