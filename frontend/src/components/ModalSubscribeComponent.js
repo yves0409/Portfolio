@@ -19,7 +19,7 @@ const ModalSubscribeComponent = ({ title, body, closebtnTxt, body2 }) => {
         <Modal.Body>
           <div className="subscribeForm">{body2}</div>
         </Modal.Body>
-        <Modal.Body>{body}</Modal.Body>
+        <Modal.Body className="modalbody">{body}</Modal.Body>
         <Button variant="success" onClick={handleClose}>
           {closebtnTxt}
         </Button>

@@ -24,7 +24,7 @@ const ModalCarrouselComponents = ({
       keyboard={false}
     >
       <Modal.Title>{title}</Modal.Title>
-      <Modal.Body className="bod">
+      <Modal.Body>
         <CarrouselPortfolio carrouselId={id} />
         <Button variant="outline-success" size="sm" onClick={handleClose}>
           Close

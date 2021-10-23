@@ -215,11 +215,14 @@ body{
 @media screen and (max-width:576px){
   .custom-modal-style .modal-title.h4 {
     margin-right: 33%;
-    };
-    .custom-modal-style .btn {
+    }
+  .custom-modal-style .btn {
      margin-right: 33%;
+    }
+  .modal-title  {
+  font-size:1rem;
+    }
 }
-} 
 
 
 
@@ -234,8 +237,6 @@ body{
   }
 
   .subscribeForm button {
-   
-  
     outline: none;
     height: 40px;
     text-align: center;
@@ -264,11 +265,19 @@ body{
     display: flex;
     justify-content: center;
   }
-  .modal-body {
+  
+  .subscribeForm > div {
     display: flex;
     justify-content: center;
-    flex-direction: column;
   }
+
+  .modalbody.modal-body {
+    display: flex;
+    justify-content: center;
+   }
+
+   
+ 
 
 `;
 
