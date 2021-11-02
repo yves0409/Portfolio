@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const CustomButton = ({ open }) => {
+const CustomButton = ({ open, title }) => {
   return (
     <CustomBtnStyled>
       <button className="learn-more" onClick={open}>
         <span className="circle" aria-hidden="true">
           <span className="icon arrow"></span>
         </span>
-        <span className="button-text">Subscribe</span>
+        <span className="button-text">{title}</span>
       </button>
     </CustomBtnStyled>
   );
@@ -40,6 +40,8 @@ const CustomBtnStyled = styled.div`
     margin: 0;
     width: 3rem;
     height: 3rem;
+    //text-alignbackground: grey;
+    opacity: 0.4;
     background: #282936;
     border-radius: 1.625rem;
   }
@@ -79,8 +81,9 @@ const CustomBtnStyled = styled.div`
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
     color: #282936;
-    font-weight: 200;
-    line-height: 1.6;
+    // font-weight: 100;
+    //-height: 1.6;
+    font-size: 14px;
     text-align: center;
     text-transform: uppercase;
     color: #fff;

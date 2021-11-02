@@ -2,8 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import img from "../images/HomeScreenImageresize.jpeg";
 import "react-toastify/dist/ReactToastify.min.css";
+import CustomButton from "../components/CustomButton";
+import { useHistory } from "react-router-dom";
 
-const HomeScreen = () => {
+const HomeScreen = ({ landing, setLanding }) => {
+  let history = useHistory();
+
+  const enterSite = () => {
+    setLanding(!landing);
+    history.push("/about");
+  };
+
   return (
     <HomePageStyled>
       <div className="backgroundImage">
@@ -16,6 +25,9 @@ const HomeScreen = () => {
         </h1>
         <div className="text-typing">
           <p>Every Pixel Matters</p>
+        </div>
+        <div className="enterBtn">
+          <CustomButton open={enterSite} title={"Enter"} />
         </div>
       </div>
     </HomePageStyled>
@@ -147,7 +159,7 @@ const HomePageStyled = styled.header`
     }
     position: absolute;
     top: 20%;
-    left: 50%;
+    /* left: 50%; */
     transform: translate(-50%, -50%);
     text-align: center;
     width: 80%;
@@ -159,6 +171,12 @@ const HomePageStyled = styled.header`
     -moz-transition: opacity 1s ease-in-out;
     -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
+  }
+  .enterBtn {
+    position: absolute;
+    top: 105%;
+
+    opacity: 0.7;
   }
   @keyframes cf3FadeInOut {
     0% {

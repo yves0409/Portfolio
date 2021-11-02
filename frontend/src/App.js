@@ -17,17 +17,19 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Switch from "@material-ui/core/Switch";
 import MenuIcon from "@material-ui/icons/Menu";
 import ReactGA from "react-ga";
-import arrow from "./images/arrowUp.png";
+import PublishSharpIcon from "@mui/icons-material/PublishSharp";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { IconButton } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
 ReactGA.initialize("UA-208270591-1");
 
-function App() {
+function App({ history }) {
   const [theme, setTheme] = useState("dark-theme");
   const [checked, setChecked] = useState(false);
   const [burgerToggle, setBurgerToggle] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [landing, setLanding] = useState(true);
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -69,75 +71,90 @@ function App() {
 
   return (
     <div className="App">
-      <Sidebar burgerToggle={burgerToggle} setBurgerToggle={setBurgerToggle} />
+      {landing ? (
+        <HomeScreen landing={landing} setLanding={setLanding} />
+      ) : (
+        <div>
+          <Sidebar
+            burgerToggle={burgerToggle}
+            setBurgerToggle={setBurgerToggle}
+            landing={landing}
+            setLanding={setLanding}
+          />
+          {/* light / Dark mode */}
+          <div className="theme">
+            <div className="light-dark-mode">
+              <div className="left-content">
+                <Brightness4Icon />
+              </div>
+              <div className="right-content">
+                <Switch
+                  value=""
+                  checked={checked}
+                  inputProps={{ "aria-label": "" }}
+                  onChange={ThemeTogglerHandler}
+                  color="default"
+                  size="small"
+                />
+              </div>
+            </div>
+          </div>
+          {userInfo ? (
+            <div className="loggedInUser">
+              <div className="accountIcon">
+                <AccountCircleOutlinedIcon />
+              </div>
+              <div className="accountName">{userInfo.name}</div>
+            </div>
+          ) : null}{" "}
+          {/* hamburgerMenu */}
+          <div className="hamburgerMenu">
+            <IconButton onClick={() => setBurgerToggle(!burgerToggle)}>
+              <MenuIcon />
+            </IconButton>
+          </div>
+          {/* Main */}
+          <MainContentStyled>
+            <div className="lines">
+              <div className="line-1"></div>
+              <div className="line-2"></div>
+              <div className="line-3"></div>
+              <div className="line-4"></div>
+            </div>
 
-      {/* light / Dark mode */}
-      <div className="theme">
-        <div className="light-dark-mode">
-          <div className="left-content">
-            <Brightness4Icon />
-          </div>
-          <div className="right-content">
-            <Switch
-              value=""
-              checked={checked}
-              inputProps={{ "aria-label": "" }}
-              onChange={ThemeTogglerHandler}
-              color="default"
-              size="small"
-            />
-          </div>
+            <Switching>
+              <Route path="/about" component={AboutScreen}></Route>
+              <Route path="/trending" component={TrendingScreen}></Route>
+              <Route path="/contact" component={ContactScreen}></Route>
+              <Route path="/portfolio" component={PortfolioScreen}></Route>
+              <Route path="/services" component={ServiceScreen}></Route>
+              <Route path="/login" component={Loginscreen} />
+              <Route path="/register" component={Registerscreen} />
+              <Route
+                path="/webdevelopment"
+                exact
+                component={WebDevelopmentScreen}
+              />
+              <Route
+                path="/artificialintelligence"
+                exact
+                component={ArtificialIntelligenceScreen}
+              />
+              <Route
+                path="/mobiledevelopment"
+                exact
+                component={MobileDevelopmentScreen}
+              />
+            </Switching>
+
+            {isVisible && (
+              <div onClick={scrollToTop} className="scrollToTopBtn">
+                <PublishSharpIcon />
+              </div>
+            )}
+          </MainContentStyled>
         </div>
-      </div>
-      <div className="loggedInUser">{userInfo ? userInfo.name : null} </div>
-      {/* hamburgerMenu */}
-      <div className="hamburgerMenu">
-        <IconButton onClick={() => setBurgerToggle(!burgerToggle)}>
-          <MenuIcon />
-        </IconButton>
-      </div>
-
-      {/* Main */}
-      <MainContentStyled>
-        <div className="lines">
-          <div className="line-1"></div>
-          <div className="line-2"></div>
-          <div className="line-3"></div>
-          <div className="line-4"></div>
-        </div>
-
-        <Switching>
-          <Route path="/" exact component={HomeScreen}></Route>
-          <Route path="/about" exact component={AboutScreen}></Route>
-          <Route path="/trending" exact component={TrendingScreen}></Route>
-          <Route path="/contact" exact component={ContactScreen}></Route>
-          <Route path="/portfolio" exact component={PortfolioScreen}></Route>
-          <Route path="/services" exact component={ServiceScreen}></Route>
-          <Route path="/login" exact component={Loginscreen} />
-          <Route path="/register" exact component={Registerscreen} />
-          <Route
-            path="/webdevelopment"
-            exact
-            component={WebDevelopmentScreen}
-          />
-          <Route
-            path="/artificialintelligence"
-            exact
-            component={ArtificialIntelligenceScreen}
-          />
-          <Route
-            path="/mobiledevelopment"
-            exact
-            component={MobileDevelopmentScreen}
-          />
-        </Switching>
-
-        {isVisible && (
-          <div onClick={scrollToTop} className="scrollToTopBtn">
-            <img src={arrow} alt="arrowup by icons8" />
-          </div>
-        )}
-      </MainContentStyled>
+      )}
     </div>
   );
 }
@@ -149,6 +166,7 @@ const MainContentStyled = styled.main`
   @media screen and (max-width: 1000px) {
     margin-left: 0px;
   }
+
   .lines {
     position: absolute;
     width: 100%;
@@ -167,9 +185,11 @@ const MainContentStyled = styled.main`
     }
   }
 
-  .scrollToTopBtn img {
-    float: right;
+  .scrollToTopBtn {
+    display: flex;
+    justify-content: center;
     margin: 1rem;
+    cursor: pointer;
   }
 `;
 

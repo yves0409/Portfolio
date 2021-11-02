@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
 
-const Navigation = ({ hideSidebarOnItemClick }) => {
+const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
   const dispatch = useDispatch();
   const [showSubscribe, setShowSubscribe] = useState(false);
 
@@ -31,6 +31,10 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
 
   const openSub = () => {
     setShowSubscribe(!showSubscribe);
+  };
+
+  const goHome = () => {
+    setLanding(!landing);
   };
 
   return (
@@ -71,7 +75,7 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
       {/* Navlinks */}
       <ul className="nav-items" onClick={() => hideSidebarOnItemClick()}>
         <li className="nav-item">
-          <NavLink to="/" activeClassName="active-class" exact>
+          <NavLink to="/" activeClassName="active-class" exact onClick={goHome}>
             Home
           </NavLink>
         </li>
@@ -116,7 +120,7 @@ const Navigation = ({ hideSidebarOnItemClick }) => {
         )}
       </ul>
 
-      <CustomButton open={openSub} />
+      <CustomButton open={openSub} title={"Subscribe"} />
       {showSubscribe ? (
         <ModalSubscribeComponent
           title={"Enter a valid email to subribe"}

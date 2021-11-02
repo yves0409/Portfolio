@@ -162,13 +162,29 @@ body{
         position:absolute;  
         right:2%;
         top:2%;
-  
-  }
+        display: flex;
+        }
+
+.accountIcon{
+        margin-right: .5rem;
+}
+
+.accountName{
+        margin-top: .1rem;
+}
+
+@media screen and (max-width:1000px){
+.accountName{
+        font-size:14px;
+        }
+    };
 
 .burger-toggle{
         transform:translateX(0);
         z-index:20;
     }
+
+  
 
 //Global mediaQueries
  @media screen and (max-width:1000px){

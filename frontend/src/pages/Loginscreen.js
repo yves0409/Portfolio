@@ -25,7 +25,7 @@ const Loginscreen = ({ location, history }) => {
     }
   }, [userLogin]);
 
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  const redirect = location.search ? location.search.split("=")[1] : "/about";
 
   useEffect(() => {
     const push = history.push;

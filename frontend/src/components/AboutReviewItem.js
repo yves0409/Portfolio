@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Avatar from "@mui/material/Avatar";
+import tia from "../images/tia.JPG";
 
 const AboutReviewItem = ({ text }) => {
   return (
     <AboutReviewItemStyled>
+      <Avatar alt="Tia Muridi" src={tia} />
       <p>{text}</p>
     </AboutReviewItemStyled>
   );
@@ -27,7 +30,7 @@ const AboutReviewItemStyled = styled.div`
       var(--background-dark-color-3);
   }
   p {
-    padding: 0.2rem 0;
+    padding: 1rem 0.2rem;
     font-size: 0.8rem;
   }
 `;

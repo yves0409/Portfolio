@@ -2,10 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import Navigation from "./Navigation";
 
-const Sidebar = ({ burgerToggle, setBurgerToggle }) => {
+const Sidebar = ({ burgerToggle, setBurgerToggle, landing, setLanding }) => {
   return (
     <SideBarStyled className={`${burgerToggle ? "burger-toggle" : ""}`}>
-      <Navigation hideSidebarOnItemClick={setBurgerToggle} />
+      <Navigation
+        hideSidebarOnItemClick={setBurgerToggle}
+        landing={landing}
+        setLanding={setLanding}
+      />
     </SideBarStyled>
   );
 };

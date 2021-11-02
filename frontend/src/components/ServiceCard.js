@@ -6,10 +6,14 @@ const ServiceCard = ({ image, title, paragraph, url }) => {
   return (
     <ServiceCardStyled>
       <div className="container">
-        <img src={image} alt="Smashicons,surang,good ware,icongeek26" />
-        <h4>{title}</h4>
-        <p>{paragraph}</p>
-        <Link to={`${url}`}>More...</Link>
+        <Link
+          to={`${url}`}
+          style={{ color: "inherit", textDecoration: "inherit" }}
+        >
+          <img src={image} alt="Smashicons,surang,good ware,icongeek26" />
+          <h4>{title}</h4>
+          <p>{paragraph}</p>
+        </Link>
       </div>
     </ServiceCardStyled>
   );
@@ -22,12 +26,24 @@ const ServiceCardStyled = styled.div`
   border-top: 7px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   transition: all 0.4s ease-in-out;
+
   &:hover {
     border-top: 7px solid var(--primary-color);
     transform: translateY(-3px);
+
+    img {
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: transparent;
+      display: flex;
+      transition: all 0.2s ease, background-color;
+    }
   }
+
   .container {
     padding: 1.2rem;
+
     h4 {
       color: var(--white-color);
       font-size: 1.4rem;
@@ -48,7 +64,9 @@ const ServiceCardStyled = styled.div`
     p {
       padding: 0.8rem 0;
       font-size: 0.8rem;
+      text-decoration: none;
     }
+
     img {
       width: 100px;
       height: 100px;
