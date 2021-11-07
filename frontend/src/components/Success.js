@@ -23,7 +23,7 @@ const Success = ({ name }) => {
             d="M14.1 27.2l7.1 7.2 16.7-16.8"
           />
         </svg>
-        <h4>WELCOME {name}</h4>
+        <h4>{name}</h4>
       </div>
     </SuccesStyled>
   );

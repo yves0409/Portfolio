@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ReviewItem from "./AboutReviewItem";
 import Title from "./Title";
 import { InnerLayout } from "../styles/Layout";
+import ReviewForm from "./ReviewForm";
+import axios from "axios";
 
 const AboutReviewSection = () => {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    async function getReviews() {
+      const results = await axios.get("/api/review");
+      const { data } = results;
+      console.log(data);
+      setReviews(data);
+    }
+    getReviews();
+  }, []);
+
   return (
     <AboutReviewSectionStyled>
       <Title title={"Reviews"} span={"Reviews"} />
       <InnerLayout>
         <div className="reviews">
-          <ReviewItem
-            text={
-              "Yves is fantastic to work with. I highly recommended him and will be send him more work when needed."
-            }
-          />
-          <ReviewItem
-            text={
-              "Great work!, will always be my go-to hire if available. His work is exceptional and communication is always open and clear, which makes him an all around pleasure to work with. Stop looking as you have found the right person!"
-            }
-          />
+          {reviews
+            ? reviews
+                .slice(0, 4)
+                .map((item) => (
+                  <ReviewItem
+                    key={item._id}
+                    name={item.name}
+                    reviewText={item.reviewText}
+                    initial={`${item.name.split(" ")[0][0]}${
+                      item.name.split(" ")[1][0]
+                    }`}
+                  />
+                ))
+            : /* <LinearProgress color="primary" /> */ null}
         </div>
+        <ReviewForm />
       </InnerLayout>
     </AboutReviewSectionStyled>
   );

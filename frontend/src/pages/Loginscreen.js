@@ -11,7 +11,7 @@ import Success from "../components/Success";
 const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginSuccess, setLoginSuccess] = useState(false);
+  //const [loginSuccess, setLoginSuccess] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -19,11 +19,11 @@ const Loginscreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, userInfo, error } = userLogin;
 
-  useEffect(() => {
-    if (userLogin) {
-      setLoginSuccess(!loginSuccess);
-    }
-  }, [userLogin]);
+  // useEffect(() => {
+  //   if (userLogin) {
+  //     setLoginSuccess(!loginSuccess);
+  //   }
+  // }, [userLogin]);
 
   const redirect = location.search ? location.search.split("=")[1] : "/about";
 
@@ -46,7 +46,7 @@ const Loginscreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h1>Sign In</h1>
-      {userInfo && <Success name={userInfo.name} />}
+      {userInfo && <Success name={"WELCOME " + userInfo.name} />}
       {error && (
         <Alert severity="error">
           INCORRECT EMAIL OR PASSWORD, PLEASE TRY AGAIN..

@@ -240,27 +240,36 @@ body{
     }
 }
 
+.modal-content {
+ background-color: #80A467;
+ border-radius: 8px;
+ opacity:0.9;
+}
+
+
 
 
 .subscribeForm p {
     color: white;
     margin-top: 3rem;
+    
   }
   .subscribeForm input {
     margin-right: 16px;
     font-size: 1.3rem;
     padding: 3px 5px;
+    border-radius:4px;
+    border:1px solid white;
   }
 
   .subscribeForm button {
-    outline: none;
     height: 40px;
     text-align: center;
     width: 130px;
     border-radius: 40px;
-    background: #fff;
-    border: 2px solid #1ecd97;
-    color: #1ecd97;
+    background-color: #fff;
+    border: 2px solid white;
+    color: #80A467;
     letter-spacing: 1px;
     text-shadow: 0;
     font-size: 12px;
@@ -270,8 +279,9 @@ body{
     margin-top: 5px;
   }
   .subscribeForm button:hover {
-    color: white;
-    background: #1ecd97;
+    color: #fff;
+    background-color: #80A467;
+    outline: white;
   }
   .subscribeForm button:active {
     letter-spacing: 2px;
@@ -290,6 +300,18 @@ body{
   .modalbody.modal-body {
     display: flex;
     justify-content: center;
+    color:black;
+   }
+
+   .closeBtnModal{
+    background-color: #80A467;
+    border-radius: 8px;
+   }
+
+   .closeBtnModal:hover{
+    background-color: #80A467;
+    border-radius: 8px;
+    color:black;
    }
 
    

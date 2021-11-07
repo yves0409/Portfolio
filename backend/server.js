@@ -54,8 +54,11 @@ app.use("/api/info", infoRouter);
 const contactRouter = require("./routes/contact.js");
 app.use("/api/contact", contactRouter);
 
-const likeRouter = require("./routes/like.js");
-app.use("/api/like", likeRouter);
+//const likeRouter = require("./routes/like.js");
+//app.use("/api/like", likeRouter);
+
+const reviewRouter = require("./routes/review.js");
+app.use("/api/review", reviewRouter);
 
 app.use("/api/users", userRoutes);
 

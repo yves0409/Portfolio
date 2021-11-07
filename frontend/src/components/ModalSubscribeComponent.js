@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
+//import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 const ModalSubscribeComponent = ({ title, body, closebtnTxt, body2 }) => {
   const [show, setShow] = useState(true);
@@ -20,8 +21,10 @@ const ModalSubscribeComponent = ({ title, body, closebtnTxt, body2 }) => {
           <div className="subscribeForm">{body2}</div>
         </Modal.Body>
         <Modal.Body className="modalbody">{body}</Modal.Body>
-        <Button variant="success" onClick={handleClose}>
+
+        <Button className="closeBtnModal" onClick={handleClose}>
           {closebtnTxt}
+          {/* <HighlightOffIcon /> */}
         </Button>
       </Modal>
     </ModalStyled>

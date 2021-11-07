@@ -1,13 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import Avatar from "@mui/material/Avatar";
-import tia from "../images/tia.JPG";
 
-const AboutReviewItem = ({ text }) => {
+const AboutReviewItem = ({ name, reviewText, initial }) => {
   return (
     <AboutReviewItemStyled>
-      <Avatar alt="Tia Muridi" src={tia} />
-      <p>{text}</p>
+      <div className="avatarContainer">
+        <Avatar>{initial}</Avatar>
+
+        <h5>{name}</h5>
+      </div>
+
+      <p>{reviewText}</p>
     </AboutReviewItemStyled>
   );
 };
@@ -28,6 +32,11 @@ const AboutReviewItemStyled = styled.div`
     border-style: solid;
     border-color: var(--background-dark-color-3) transparent transparent
       var(--background-dark-color-3);
+  }
+  .avatarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   p {
     padding: 1rem 0.2rem;
