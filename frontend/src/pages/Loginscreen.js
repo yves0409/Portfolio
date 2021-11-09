@@ -11,19 +11,12 @@ import Success from "../components/Success";
 const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const [loginSuccess, setLoginSuccess] = useState(false);
 
   const dispatch = useDispatch();
 
   //GETTING THE STATE
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, userInfo, error } = userLogin;
-
-  // useEffect(() => {
-  //   if (userLogin) {
-  //     setLoginSuccess(!loginSuccess);
-  //   }
-  // }, [userLogin]);
 
   const redirect = location.search ? location.search.split("=")[1] : "/about";
 

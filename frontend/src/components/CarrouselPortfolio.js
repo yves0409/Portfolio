@@ -1,15 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import dataCarrousel from "../data/dataCarrousel";
 import { Carousel } from "react-responsive-carousel";
 
-const CarrouselPortfolio = ({ carrouselId }) => {
-  const filteredTestItems = dataCarrousel.find(
-    (item) => item.id === carrouselId
-  );
-  const thumbs = filteredTestItems.thumbs;
-
+const CarrouselPortfolio = ({ thumbs }) => {
   return (
     <CarrouselStyled>
       <Carousel showArrows={false} className="wrapper">

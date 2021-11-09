@@ -8,15 +8,26 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/add").post((req, res) => {
-  const { category, url, link1, title, description, frameworks } = req.body;
-
-  const newPortfolio = new Portfolio({
-    category,
-    url,
-    link1,
+  const {
+    image,
     title,
+    category,
     description,
     frameworks,
+    stack,
+    git,
+    thumbs,
+  } = req.body;
+
+  const newPortfolio = new Portfolio({
+    image,
+    title,
+    category,
+    description,
+    frameworks,
+    stack,
+    git,
+    thumbs,
   });
 
   newPortfolio

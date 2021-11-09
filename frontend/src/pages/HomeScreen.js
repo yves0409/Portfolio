@@ -18,7 +18,6 @@ const HomeScreen = ({ landing, setLanding }) => {
       <div className="backgroundImage">
         <img src={img} alt="Landingpage desert" />
       </div>
-
       <div className="HomeScreenTypography">
         <h1>
           {"<"}Front-End Web Development{"/>"}

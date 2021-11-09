@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ReviewItem from "./AboutReviewItem";
 import Title from "./Title";
 import { InnerLayout } from "../styles/Layout";
 import ReviewForm from "./ReviewForm";
-import axios from "axios";
+import { getreview } from "../redux/actions/reviewActions";
+import { useSelector, useDispatch } from "react-redux";
+import Spinners from "./Spinners";
 
 const AboutReviewSection = () => {
-  const [reviews, setReviews] = useState([]);
+  const dispatch = useDispatch();
+
+  const reviewList = useSelector((state) => state.reviewList);
+  const { loading, reviews } = reviewList;
 
   useEffect(() => {
-    async function getReviews() {
-      const results = await axios.get("/api/review");
-      const { data } = results;
-      console.log(data);
-      setReviews(data);
-    }
-    getReviews();
-  }, []);
+    dispatch(getreview());
+  }, [getreview]);
 
   return (
     <AboutReviewSectionStyled>
       <Title title={"Reviews"} span={"Reviews"} />
       <InnerLayout>
         <div className="reviews">
+          {loading && <Spinners />}
           {reviews
             ? reviews
                 .slice(0, 4)
@@ -37,7 +37,7 @@ const AboutReviewSection = () => {
                     }`}
                   />
                 ))
-            : /* <LinearProgress color="primary" /> */ null}
+            : null}
         </div>
         <ReviewForm />
       </InnerLayout>

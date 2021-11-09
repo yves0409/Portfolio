@@ -5,12 +5,10 @@ import gitImage from "../images/gitdesign.png";
 import { Card, Tooltip, OverlayTrigger } from "react-bootstrap";
 
 const PortfolioCard = ({
-  id,
   image,
-  description,
   title,
   git,
-  frameworks,
+  thumbs,
   onClickIsBlurred,
   closeModalClicked,
 }) => {
@@ -19,7 +17,6 @@ const PortfolioCard = ({
   const showModalHandler = () => {
     setShow(!show);
     onClickIsBlurred();
-    console.log(id);
   };
 
   const closeModalHandler = () => {
@@ -60,9 +57,8 @@ const PortfolioCard = ({
           show={show}
           setShow={setShow}
           onCloseModalUnblur={closeModalHandler}
-          id={id}
           title={title}
-          description={description}
+          thumbs={thumbs}
         />
       )}
     </CardStyled>

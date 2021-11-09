@@ -6,9 +6,8 @@ const ModalCarrouselComponents = ({
   show,
   setShow,
   onCloseModalUnblur,
-  id,
   title,
-  description,
+  thumbs,
 }) => {
   const handleClose = () => {
     setShow(false);
@@ -25,7 +24,7 @@ const ModalCarrouselComponents = ({
     >
       <Modal.Title>{title}</Modal.Title>
       <Modal.Body>
-        <CarrouselPortfolio carrouselId={id} />
+        <CarrouselPortfolio thumbs={thumbs} />
         <Button variant="outline-success" size="sm" onClick={handleClose}>
           Close
         </Button>

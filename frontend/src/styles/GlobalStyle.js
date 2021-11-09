@@ -134,8 +134,6 @@ body{
        }
     }
 
-
-
 @media screen and (max-width:850px) and (orientation:landscape){
     .light-dark-mode{
         position:absolute;  
@@ -198,26 +196,25 @@ body{
       width: 160%;
       height:auto;
       background-color: transparent;
-      margin-top: 35%;
+      margin-top: 25%;
       margin-left: -6%;
        text-align:center; 
-       border:none;  
-}
+       border:none; 
+    }
 
 @media (max-width: 1023px) {
   .custom-modal-style .slider img {
     width: 100%;
     height: auto;
-   
-  }
+   }
 }
 
-.custom-modal-style .modal-title.h4 {
-   color: white;
+.custom-modal-style .slider .legend  {
+  color: black;
 }
 
 .custom-modal-style .btn {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-top: -10px;
   border:none;
 }
@@ -234,16 +231,17 @@ body{
     }
   .custom-modal-style .btn {
      margin-right: 33%;
+     font-size:.7rem;
     }
   .modal-title  {
   font-size:1rem;
-    }
+  }
 }
 
 .modal-content {
- background-color: #80A467;
+ background-color: #EFF3EB;
  border-radius: 8px;
- opacity:0.9;
+ 
 }
 
 
@@ -254,15 +252,16 @@ body{
     margin-top: 3rem;
     
   }
-  .subscribeForm input {
+.subscribeForm input {
     margin-right: 16px;
-    font-size: 1.3rem;
-    padding: 3px 5px;
+    font-size: 1rem;
+    padding: 0px 5px;
     border-radius:4px;
     border:1px solid white;
+    box-shadow: 0 0 15px -2px #a0a59d;
   }
 
-  .subscribeForm button {
+.subscribeForm button {
     height: 40px;
     text-align: center;
     width: 130px;
@@ -270,6 +269,7 @@ body{
     background-color: #fff;
     border: 2px solid white;
     color: #80A467;
+    box-shadow: 0 0 15px -2px #a0a59d;
     letter-spacing: 1px;
     text-shadow: 0;
     font-size: 12px;
@@ -278,11 +278,13 @@ body{
     transition: all 0.25s ease;
     margin-top: 5px;
   }
+  
   .subscribeForm button:hover {
     color: #fff;
     background-color: #80A467;
     outline: white;
   }
+  
   .subscribeForm button:active {
     letter-spacing: 2px;
   }
@@ -303,19 +305,31 @@ body{
     color:black;
    }
 
-   .closeBtnModal{
-    background-color: #80A467;
-    border-radius: 8px;
-   }
-
-   .closeBtnModal:hover{
-    background-color: #80A467;
+  .closeBtnModal{
+    background-color: #EFF3EB;
     border-radius: 8px;
     color:black;
+    .text1{
+      display:none
+    }
    }
 
-   
- 
+  .closeBtnModal:hover{
+    background-color: #EFF3EB;
+    border-radius: 8px;
+    color:black;
+    .text1{
+      display:block
+    }
+    .text2{
+      display:none;
+    }
+   }
+
+   .reviewFormContainer {
+     width: 90%;
+     margin: 4rem  auto;
+   }
 
 `;
 

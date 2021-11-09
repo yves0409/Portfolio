@@ -1,30 +1,44 @@
 import React, { useState, useEffect } from "react";
 import FormContainer from "./FormContainer";
-import axios from "axios";
 import { Form } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { IoEnterOutline } from "react-icons/io5";
+import { review } from "../redux/actions/reviewActions";
+import { useSelector, useDispatch } from "react-redux";
 import ModalSubscribeComponent from "./ModalSubscribeComponent";
 import Success from "../components/Success";
+import Spinners from "../components/Spinners";
 
-const ReviewForm = ({ history }) => {
+const ReviewForm = () => {
   const [name, setName] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [showSubscribe, setShowSubscribe] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
+  const dispatch = useDispatch();
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const reviewsAdded = useSelector((state) => state.reviewsAdded);
+  const { loading, success } = reviewsAdded;
+
   useEffect(() => {
-    if (showSuccess) {
-      setTimeout(() => setShowSuccess(!showSuccess), 3000);
+    if (success) {
+      setShowSuccess(!showSuccess);
       setName("");
       setReviewText("");
     }
-  }, [showSuccess]);
+
+    setTimeout(() => {
+      setShowSuccess(showSuccess);
+    }, 3000);
+  }, [success]);
+
+  if (success) {
+    console.log(success);
+  }
 
   const loginLink = (
     <Link to="/login">
@@ -34,21 +48,7 @@ const ReviewForm = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-    const reviewData = {
-      name: name,
-      reviewText: reviewText,
-    };
-    axios.post("/api/review/add", reviewData, config).then((res) => {
-      if (res.status === 200) {
-        setShowSuccess(!showSuccess);
-      }
-    });
+    dispatch(review(name, reviewText));
   };
 
   const errorTexthandler = () => {
@@ -56,15 +56,16 @@ const ReviewForm = ({ history }) => {
   };
 
   return (
-    <FormContainer>
+    <div className="reviewFormContainer">
       <h1>Write a review</h1>
-      {showSuccess && <Success name={"Thank you for submitting your review"} />}
+      {loading && <Spinners />}
+      {showSuccess && <Success name="Thank you for submitting your review" />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
           <Form.Label></Form.Label>
           <Form.Control
             type="text"
-            placeholder="Please enter full name"
+            placeholder="Full name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></Form.Control>
@@ -103,7 +104,7 @@ const ReviewForm = ({ history }) => {
           />
         )}
       </Form>
-    </FormContainer>
+    </div>
   );
 };
 
