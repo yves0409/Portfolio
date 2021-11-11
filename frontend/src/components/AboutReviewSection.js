@@ -24,20 +24,22 @@ const AboutReviewSection = () => {
       <InnerLayout>
         {loading && <Spinners />}
         <div className="reviews">
-          {reviews
-            ? reviews
-                .slice(0, 4)
-                .map((item) => (
-                  <ReviewItem
-                    key={item._id}
-                    name={item.name}
-                    reviewText={item.reviewText}
-                    initial={`${item.name.split(" ")[0][0]}${
-                      item.name.split(" ")[1][0]
-                    }`}
-                  />
-                ))
-            : null}
+          {reviews && reviews.length > 0 ? (
+            reviews
+              .slice(0, 4)
+              .map((item) => (
+                <ReviewItem
+                  key={item._id}
+                  name={item.name}
+                  reviewText={item.reviewText}
+                  initial={`${item.name.split(" ")[0][0]}${
+                    item.name.split(" ")[1][0]
+                  }`}
+                />
+              ))
+          ) : (
+            <h3 className="noReviewText">No reviews yet</h3>
+          )}
         </div>
         <ReviewForm />
       </InnerLayout>
@@ -49,6 +51,10 @@ const AboutReviewSectionStyled = styled.section`
   padding-top: 3.5rem;
   transform: translateY(100px);
   animation: slideUp 0.8s ease forwards 1s;
+
+  .noReviewText {
+    color: var(--white-color);
+  }
 
   @keyframes slideUp {
     0% {

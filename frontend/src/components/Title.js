@@ -1,15 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-// import Slide from "react-reveal/Slide";
 
 const Title = ({ title, span }) => {
   return (
     <TitleStyled>
-      {/* <Slide right duration={1000}> */}
       <h2>
         {title} <span>{span}</span>
       </h2>
-      {/* </Slide> */}
     </TitleStyled>
   );
 };
@@ -17,11 +14,6 @@ const Title = ({ title, span }) => {
 const TitleStyled = styled.header`
   position: relative;
 
-  .react-reveal {
-    @media (max-width: 959px) {
-      animation: none !important;
-    }
-  }
   h2 {
     color: var(--white-color);
     font-size: 1.5rem;

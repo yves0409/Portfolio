@@ -8,7 +8,7 @@ const AboutReviewItem = ({ name, reviewText, initial }) => {
     <AboutReviewItemStyled>
       <div className="avatarContainer">
         <Avatar>{initial}</Avatar>
-        <h5>{name}</h5>
+        <h6>{name}</h6>
       </div>
       <div style={{ display: "flex", marginTop: "1rem" }}>
         <FormatQuoteIcon />
@@ -39,6 +39,11 @@ const AboutReviewItemStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  h6 {
+    color: var(--white-color);
+    margin-right: 1.4rem;
+    margin-top: 0.3rem;
   }
   p {
     padding: 1rem 0.2rem;
