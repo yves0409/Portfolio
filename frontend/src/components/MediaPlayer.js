@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
-import axios from "axios";
 
-const MediaPlayer = () => {
-  const [trending, setTrending] = useState([]);
-
-  useEffect(() => {
-    async function getResults() {
-      const results = await axios.get("/api/trending");
-      setTrending(results.data);
-    }
-    getResults();
-  }, []);
-
+const MediaPlayer = ({ trendings }) => {
   return (
     <MediaPlayerStyled className="blog">
-      {trending.map((item) => (
+      {trendings.map((item) => (
         <div key={item._id}>
           <ReactPlayer url={item.url} width="auto" />
           <h2 className="title">{item.title}</h2>

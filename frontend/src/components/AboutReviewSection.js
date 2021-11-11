@@ -22,8 +22,8 @@ const AboutReviewSection = () => {
     <AboutReviewSectionStyled>
       <Title title={"Reviews"} span={"Reviews"} />
       <InnerLayout>
+        {loading && <Spinners />}
         <div className="reviews">
-          {loading && <Spinners />}
           {reviews
             ? reviews
                 .slice(0, 4)

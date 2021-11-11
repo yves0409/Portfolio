@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Title from "../components/Title";
 import MediaPlayer from "../components/MediaPlayer";
 import { MainLayout, InnerLayout } from "../styles/Layout";
+import { getTrendingTopics } from "../redux/actions/trendingActions";
+import { useSelector, useDispatch } from "react-redux";
+import Spinners from "../components/Spinners";
 
 const TrendingScreen = () => {
+  const dispatch = useDispatch();
+
+  const trendingList = useSelector((state) => state.trendingList);
+  const { loading, trendings } = trendingList;
+
+  useEffect(() => {
+    dispatch(getTrendingTopics());
+  }, [getTrendingTopics]);
+
   return (
     <MainLayout>
       <TrendingScreenStyled>
@@ -14,7 +26,7 @@ const TrendingScreen = () => {
           Javascript and examples of how to use them.{" "}
         </p>
         <InnerLayout>
-          <MediaPlayer />
+          {loading ? <Spinners /> : <MediaPlayer trendings={trendings} />}
         </InnerLayout>
       </TrendingScreenStyled>
     </MainLayout>

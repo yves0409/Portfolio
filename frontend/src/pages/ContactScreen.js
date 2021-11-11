@@ -49,13 +49,13 @@ const ContactScreen = () => {
         process.env.REACT_APP_USER_ID
       )
       .then(
-        function (response) {
+        function () {
           toast.success(`📩 Your message has successfully sent!`, {
             position: toast.POSITION.TOP_RIGHT,
             pauseOnHover: true,
           });
         },
-        function (err) {
+        function () {
           toast.error("Your message was not able to be sent");
         }
       );

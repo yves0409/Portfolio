@@ -4,15 +4,15 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
 import { postReviewReducer, getReviewReducer } from "./reducers/reviewReducers";
 import { getPortfolioReducer } from "./reducers/portfolioReducers";
-//import { likeReducer } from "./reducers/likeReducers";
+import { getTrendingReducer } from "./reducers/trendingReducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
-  //pageLikeReducer: likeReducer,
   reviewsAdded: postReviewReducer,
   reviewList: getReviewReducer,
   portfolioList: getPortfolioReducer,
+  trendingList: getTrendingReducer,
 });
 
 //if userInfo is in localStorage , set it to the userInfoFromStorage variable
