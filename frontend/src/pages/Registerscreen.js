@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Notification from "../components/Notification";
 import Spinners from "../components/Spinners";
 import FormContainer from "../components/FormContainer";
-import Alert from "@material-ui/lab/Alert";
+//import Alert from "@material-ui/lab/Alert";
 import { Link } from "react-router-dom";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../redux/actions/userActions";
+import Success from "../components/Success";
 
 const Registerscreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -26,7 +27,7 @@ const Registerscreen = ({ location, history }) => {
   useEffect(() => {
     if (userInfo) {
       const push = history.push;
-      setTimeout(() => push(redirect), 2000);
+      setTimeout(() => push(redirect), 3000);
     }
   }, [history, userInfo, redirect]);
 
@@ -43,7 +44,8 @@ const Registerscreen = ({ location, history }) => {
   return (
     <FormContainer>
       <h1>Sign Up</h1>
-      {userInfo && <Alert severity="success">SIGNUP SUCCESSFUL !</Alert>}
+      {/* {userInfo && <Alert severity="success">SIGNUP SUCCESSFUL !</Alert>} */}
+      {userInfo && <Success name={"WELCOME " + userInfo.name} />}
       {message && <Notification variant="danger">{message}</Notification>}
       {error && <Notification variant="danger">{message}</Notification>}
 

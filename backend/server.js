@@ -6,11 +6,15 @@ const path = require("path");
 const userRoutes = require("./routes/userRoutes.js");
 const notFound = require("./middleware/errorMiddleware.js");
 const errorHandler = require("./middleware/errorMiddleware.js");
+const compression = require("compression");
 
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+//DYNAMIC COMPRESSION
+const compression = require("compression");
 
 //CORS,ACCEPT JSON
 app.use(cors());

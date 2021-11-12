@@ -107,7 +107,7 @@ const HomePageStyled = styled.header`
     height: 100vh;
     letter-spacing: 1px;
     h1 {
-      background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+      background-image: url(https://res.cloudinary.com/yves/image/upload/v1636734097/Portfolio/phemin9zvaxqh66nbtnf.gif);
       background-size: cover;
       color: transparent;
       background-clip: text;
@@ -130,7 +130,7 @@ const HomePageStyled = styled.header`
     }
     .text-typing {
       padding: 20px 30px;
-      background: transparant;
+      //background: transparant;
       font-size: 35px;
       font-family: monospace;
       border-radius: 50px;
