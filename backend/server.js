@@ -6,7 +6,7 @@ const path = require("path");
 const userRoutes = require("./routes/userRoutes.js");
 const notFound = require("./middleware/errorMiddleware.js");
 const errorHandler = require("./middleware/errorMiddleware.js");
-const compression = require("compression");
+//const compression = require("compression");
 
 require("dotenv").config();
 
@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //DYNAMIC COMPRESSION
-app.use(compression);
+//app.use(compression);
 
 //CORS,ACCEPT JSON
 app.use(cors());
