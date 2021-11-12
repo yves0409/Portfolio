@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //DYNAMIC COMPRESSION
-const compression = require("compression");
+app.use(compression);
 
 //CORS,ACCEPT JSON
 app.use(cors());
