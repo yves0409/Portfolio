@@ -1,18 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Route, Switch as Switching, withRouter } from "react-router";
 import Sidebar from "./components/Sidebar";
 import styled from "styled-components";
-import HomeScreen from "./pages/HomeScreen";
-import AboutScreen from "./pages/AboutScreen";
-import ServiceScreen from "./pages/ServiceScreen";
-import PortfolioScreen from "./pages/PortfolioScreen";
-import TrendingScreen from "./pages/TrendingScreen";
-import ContactScreen from "./pages/ContactScreen";
-import WebDevelopmentScreen from "./pages/WebDevelopmentScreen";
-import ArtificialIntelligenceScreen from "./pages/ArtificialIntelligenceScreen";
-import MobileDevelopmentScreen from "./pages/MobileDevelopmentScreen";
-import Loginscreen from "./pages/Loginscreen";
-import Registerscreen from "./pages/Registerscreen";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Switch from "@material-ui/core/Switch";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -22,9 +11,28 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { IconButton } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
+//COMPONENT IMPORTS USING REACT LAZY
+const HomeScreen = React.lazy(() => import("./pages/HomeScreen"));
+const AboutScreen = React.lazy(() => import("./pages/AboutScreen"));
+const ServiceScreen = React.lazy(() => import("./pages/ServiceScreen"));
+const PortfolioScreen = React.lazy(() => import("./pages/PortfolioScreen"));
+const TrendingScreen = React.lazy(() => import("./pages/TrendingScreen"));
+const ContactScreen = React.lazy(() => import("./pages/ContactScreen"));
+const WebDevelopmentScreen = React.lazy(() =>
+  import("./pages/WebDevelopmentScreen")
+);
+const ArtificialIntelligenceScreen = React.lazy(() =>
+  import("./pages/ArtificialIntelligenceScreen")
+);
+const MobileDevelopmentScreen = React.lazy(() =>
+  import("./pages/MobileDevelopmentScreen")
+);
+const Loginscreen = React.lazy(() => import("./pages/Loginscreen"));
+const Registerscreen = React.lazy(() => import("./pages/Registerscreen"));
+
 ReactGA.initialize("UA-208270591-1");
 
-function App({ history }) {
+function App() {
   const [theme, setTheme] = useState("dark-theme");
   const [checked, setChecked] = useState(false);
   const [burgerToggle, setBurgerToggle] = useState(false);
@@ -72,7 +80,9 @@ function App({ history }) {
   return (
     <div className="App">
       {landing ? (
-        <HomeScreen landing={landing} setLanding={setLanding} />
+        <Suspense fallback={<div>...Loading</div>}>
+          <HomeScreen landing={landing} setLanding={setLanding} />
+        </Suspense>
       ) : (
         <div>
           <Sidebar
@@ -123,28 +133,30 @@ function App({ history }) {
             </div>
 
             <Switching>
-              <Route path="/about" component={AboutScreen}></Route>
-              <Route path="/trending" component={TrendingScreen}></Route>
-              <Route path="/contact" component={ContactScreen}></Route>
-              <Route path="/portfolio" component={PortfolioScreen}></Route>
-              <Route path="/services" component={ServiceScreen}></Route>
-              <Route path="/login" component={Loginscreen} />
-              <Route path="/register" component={Registerscreen} />
-              <Route
-                path="/webdevelopment"
-                exact
-                component={WebDevelopmentScreen}
-              />
-              <Route
-                path="/artificialintelligence"
-                exact
-                component={ArtificialIntelligenceScreen}
-              />
-              <Route
-                path="/mobiledevelopment"
-                exact
-                component={MobileDevelopmentScreen}
-              />
+              <Suspense fallback={<div>...Loading</div>}>
+                <Route path="/about" component={AboutScreen}></Route>
+                <Route path="/trending" component={TrendingScreen}></Route>
+                <Route path="/contact" component={ContactScreen}></Route>
+                <Route path="/portfolio" component={PortfolioScreen}></Route>
+                <Route path="/services" component={ServiceScreen}></Route>
+                <Route path="/login" component={Loginscreen} />
+                <Route path="/register" component={Registerscreen} />
+                <Route
+                  path="/webdevelopment"
+                  exact
+                  component={WebDevelopmentScreen}
+                />
+                <Route
+                  path="/artificialintelligence"
+                  exact
+                  component={ArtificialIntelligenceScreen}
+                />
+                <Route
+                  path="/mobiledevelopment"
+                  exact
+                  component={MobileDevelopmentScreen}
+                />
+              </Suspense>
             </Switching>
 
             {isVisible && (

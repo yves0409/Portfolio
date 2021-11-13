@@ -6,15 +6,33 @@ const path = require("path");
 const userRoutes = require("./routes/userRoutes.js");
 const notFound = require("./middleware/errorMiddleware.js");
 const errorHandler = require("./middleware/errorMiddleware.js");
-//const compression = require("compression");
+const compression = require("compression");
 
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
 
+let setCache = function (req, res, next) {
+  // here you can define period in second, this one is 5 minutes
+  const period = 60 * 5;
+
+  // you only want to cache for GET requests
+  if (req.method == "GET") {
+    res.set("Cache-control", `public, max-age=${period}`);
+  } else {
+    // for the other requests set strict no caching parameters
+    res.set("Cache-control", `no-store`);
+  }
+  // call next() to pass on the request
+  next();
+};
+
+// call the new middleware
+app.use(setCache);
+
 //DYNAMIC COMPRESSION
-//app.use(compression);
+app.use(compression());
 
 //CORS,ACCEPT JSON
 app.use(cors());
