@@ -10,6 +10,7 @@ import PublishSharpIcon from "@mui/icons-material/PublishSharp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { IconButton } from "@material-ui/core";
 import { useSelector } from "react-redux";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 //COMPONENT IMPORTS USING REACT LAZY
 const HomeScreen = React.lazy(() => import("./pages/HomeScreen"));
@@ -80,7 +81,13 @@ function App() {
   return (
     <div className="App">
       {landing ? (
-        <Suspense fallback={<div>...Loading</div>}>
+        <Suspense
+          fallback={
+            <div>
+              <LinearProgress color="primary" />
+            </div>
+          }
+        >
           <HomeScreen landing={landing} setLanding={setLanding} />
         </Suspense>
       ) : (
@@ -133,7 +140,13 @@ function App() {
             </div>
 
             <Switching>
-              <Suspense fallback={<div>...Loading</div>}>
+              <Suspense
+                fallback={
+                  <div>
+                    <LinearProgress color="primary" />
+                  </div>
+                }
+              >
                 <Route path="/about" component={AboutScreen}></Route>
                 <Route path="/trending" component={TrendingScreen}></Route>
                 <Route path="/contact" component={ContactScreen}></Route>
