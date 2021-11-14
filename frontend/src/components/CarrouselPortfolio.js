@@ -57,12 +57,15 @@ const CarrouselStyled = styled.div`
 
   .control-dots {
     position: relative;
+    top: 0;
   }
 
-  .slide .legend {
+  .carousel .slide .legend {
     position: relative;
-    top: 15px;
-    font-size: 1.2rem;
+    top: 0px;
+    color: black;
+    padding: 10px;
+    font-size: 1rem;
     background-color: transparent;
     opacity: 0.9;
   }

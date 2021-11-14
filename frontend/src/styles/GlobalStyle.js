@@ -106,7 +106,7 @@ body{
        }
     }
 
-//utility class
+//Utility class
  .u-margin-bottom{
     margin-bottom:4rem; 
  }
@@ -143,7 +143,7 @@ body{
     }
    };
 
- //navtoggler
+ //Navtoggler
 .hamburgerMenu{
         position: absolute;
         display: none;
@@ -191,7 +191,7 @@ body{
         }
     };
 
-//Modal
+//Modal Portfolios
 .custom-modal-style {
       width: 160%;
       height:auto;
@@ -207,10 +207,6 @@ body{
     width: 100%;
     height: auto;
    }
-}
-
-.custom-modal-style .slider .legend  {
-  color: black;
 }
 
 .custom-modal-style .btn {
@@ -246,7 +242,7 @@ body{
 
 
 
-
+// Modal Subscription/Please Login
 .subscribeForm p {
     color: white;
     margin-top: 3rem;
