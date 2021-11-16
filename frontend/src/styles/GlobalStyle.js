@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
+//Color Schemes
 .light-theme{
     --primary-color:#007bff;
     --primary-color-light:#057bff;
@@ -51,7 +53,9 @@ const GlobalStyle = createGlobalStyle`
     --icon-green-color:#82AB92;
     --span-color:#eee5e5;
 }
- *{
+ 
+//Body
+*{
      padding:0;
      margin:0;
      box-sizing:border-box;
@@ -66,7 +70,8 @@ body{
      background-color: var(--background-dark-color);
      color:var(--font-light-color)
  }
-//scroll
+
+ //Scroll
  body::-webkit-scrollbar{
  width:9px;
  background-color:#383838;
@@ -82,6 +87,8 @@ body{
  background-color:#383838;
  }
 
+ 
+//Global
  a{
      font-family :inherit;
      color:inherit; 
@@ -143,7 +150,7 @@ body{
     }
    };
 
- //Navtoggler
+//Navtoggler
 .hamburgerMenu{
         position: absolute;
         display: none;
@@ -155,7 +162,8 @@ body{
             color:var(--white-color-2);
         }
     }
-   
+ 
+//User that is logged in
 .loggedInUser{
         position:absolute;  
         right:2%;
@@ -191,7 +199,7 @@ body{
         }
     };
 
-//Modal Portfolios
+//Modal Portfolio (Carrousel)
 .custom-modal-style {
       width: 160%;
       height:auto;
@@ -240,15 +248,13 @@ body{
  
 }
 
-
-
 // Modal Subscription/Please Login
 .subscribeForm p {
     color: white;
     margin-top: 3rem;
-    
-  }
-.subscribeForm input {
+    }
+
+    .subscribeForm input {
     margin-right: 16px;
     font-size: 1rem;
     padding: 0px 5px;
@@ -321,12 +327,6 @@ body{
       display:none;
     }
    }
-
-   .reviewFormContainer {
-     width: 90%;
-     margin: 4rem  auto;
-   }
-
 `;
 
 export default GlobalStyle;

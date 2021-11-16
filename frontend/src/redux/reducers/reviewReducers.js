@@ -19,11 +19,13 @@ export const postReviewReducer = (state = {}, action) => {
       return {
         loading: false,
         success: true,
+        error: false,
         postedReviews: action.payload, //See userController (userInfo: _id,name,email,isAdmin)
       };
     case POST_REVIEW_FAIL:
       return {
         loading: false,
+        err: true,
         error: action.payload,
       };
 

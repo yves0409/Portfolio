@@ -130,7 +130,6 @@ const HomePageStyled = styled.header`
     }
     .text-typing {
       padding: 20px 30px;
-      //background: transparant;
       font-size: 35px;
       font-family: monospace;
       border-radius: 50px;
