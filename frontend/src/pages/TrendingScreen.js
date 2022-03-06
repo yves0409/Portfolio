@@ -2,16 +2,15 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Title from "../components/Title";
 import MediaPlayer from "../components/MediaPlayer";
-import { MainLayout, InnerLayout } from "../styles/Layout";
+import { MainLayout } from "../styles/Layout";
 import { getTrendingTopics } from "../redux/actions/trendingActions";
 import { useSelector, useDispatch } from "react-redux";
-import Spinners from "../components/Spinners";
 
 const TrendingScreen = () => {
   const dispatch = useDispatch();
 
   const trendingList = useSelector((state) => state.trendingList);
-  const { loading, trendings } = trendingList;
+  const { trendings } = trendingList;
 
   useEffect(() => {
     dispatch(getTrendingTopics());
@@ -25,9 +24,9 @@ const TrendingScreen = () => {
           Here you will find some of the latest best practices in modern
           Javascript and examples of how to use them.{" "}
         </p>
-        <InnerLayout>
-          {loading ? <Spinners /> : <MediaPlayer trendings={trendings} />}
-        </InnerLayout>
+        <div>
+          <MediaPlayer trendings={trendings} />
+        </div>
       </TrendingScreenStyled>
     </MainLayout>
   );
