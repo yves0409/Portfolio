@@ -39,6 +39,7 @@ const ImageSection = () => {
     <ImageSectionStyled>
       <div className="left-content">
         <img src={coding} alt="res" />
+
         <p className="about-paragraph">{aboutInfo.bio}</p>
       </div>
       <div className="right-content">

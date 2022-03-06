@@ -10,6 +10,7 @@ import Spinners from "../components/Spinners";
 
 const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
   const [blur, setBlur] = useState(false);
+
   const dispatch = useDispatch();
 
   const portfolioList = useSelector((state) => state.portfolioList);

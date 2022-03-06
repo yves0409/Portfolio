@@ -49,6 +49,7 @@ mongoose.connect(uri, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
+  // useFindAndModify: false,
 });
 const connection = mongoose.connection;
 connection.once("open", () => {
@@ -78,6 +79,9 @@ app.use("/api/contact", contactRouter);
 
 const reviewRouter = require("./routes/review.js");
 app.use("/api/review", reviewRouter);
+
+const likeRouter = require("./routes/like.js");
+app.use("/api/like", likeRouter);
 
 app.use("/api/users", userRoutes);
 

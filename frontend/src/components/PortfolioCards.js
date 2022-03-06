@@ -51,7 +51,6 @@ const PortfolioCard = ({
           <Card.Img variant="top" src={image} className="cardImg" />
         </Card.Body>
       </Card>
-
       {show && (
         <ModalCarrouselComponents
           show={show}

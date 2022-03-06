@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Route, Switch as Switching, withRouter } from "react-router";
+import "./App.css";
 import Sidebar from "./components/Sidebar";
 import styled from "styled-components";
 import Brightness4Icon from "@material-ui/icons/Brightness4";

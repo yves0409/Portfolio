@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
 import { postReviewReducer, getReviewReducer } from "./reducers/reviewReducers";
+import { postLikeReducer, getLikeReducer } from "./reducers/likeReducers";
 import { getPortfolioReducer } from "./reducers/portfolioReducers";
 import { getTrendingReducer } from "./reducers/trendingReducers";
 
@@ -11,6 +12,8 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   reviewsAdded: postReviewReducer,
   reviewList: getReviewReducer,
+  likesAdded: postLikeReducer,
+  likesList: getLikeReducer,
   portfolioList: getPortfolioReducer,
   trendingList: getTrendingReducer,
 });
@@ -32,5 +35,8 @@ const store = createStore(
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
+
+// const state = store.getState();
+// console.log(state);
 
 export default store;

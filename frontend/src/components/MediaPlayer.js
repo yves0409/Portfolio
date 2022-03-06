@@ -1,26 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
+import LoadImages from "./LoadImages";
 
 const MediaPlayer = ({ trendings }) => {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <MediaPlayerStyled className="blog">
-      {trendings.map((item) => (
-        <div key={item._id}>
-          <ReactPlayer url={item.url} width="auto" />
-          <h2 className="title">{item.title}</h2>
-          <p className="text">{item.text}</p>
-          <a
-            href={item.link}
-            className="link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Click to go to Original Video
-          </a>
-        </div>
-      ))}
-    </MediaPlayerStyled>
+    <>
+      {loading && <LoadImages count={4} />}
+      <MediaPlayerStyled className="blog">
+        {trendings.map((item) => (
+          <div key={item._id}>
+            <ReactPlayer
+              url={item.url}
+              width="auto"
+              onReady={() => setLoading(false)}
+            />
+            <h2 className="title">{item.title}</h2>
+            <p className="text">{item.text}</p>
+            <a
+              href={item.link}
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Click to go to Original Video
+            </a>
+          </div>
+        ))}
+      </MediaPlayerStyled>
+    </>
   );
 };
 
