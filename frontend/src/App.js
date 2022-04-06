@@ -10,8 +10,9 @@ import ReactGA from "react-ga";
 import PublishSharpIcon from "@mui/icons-material/PublishSharp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { IconButton } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import { logout } from "../src/redux/actions/userActions";
 
 //COMPONENT IMPORTS USING REACT LAZY
 const HomeScreen = React.lazy(() => import("./pages/HomeScreen"));
@@ -41,12 +42,20 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
   const [landing, setLanding] = useState(true);
 
+  const dispatch = useDispatch();
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   });
+
+  //LOGOUT
+  const logoutHandler = () => {
+    dispatch(logout());
+    console.log("clicked");
+  };
 
   //Scroll To Top
   const toggleVisibility = () => {
@@ -117,12 +126,17 @@ function App() {
               </div>
             </div>
           </div>
+          {/* TODO */}
           {userInfo ? (
-            <div className="loggedInUser">
+            <div
+              className="loggedInUser"
+              onClick={logoutHandler}
+              style={{ cursor: "pointer" }}
+            >
               <div className="accountIcon">
                 <AccountCircleOutlinedIcon />
               </div>
-              <div className="accountName">{userInfo.name}</div>
+              <div className="accountName">{userInfo.name} </div>
             </div>
           ) : null}{" "}
           {/* hamburgerMenu */}

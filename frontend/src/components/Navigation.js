@@ -11,11 +11,6 @@ import ModalSubscribeComponent from "../components/ModalSubscribeComponent";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/actions/userActions";
-// import { postLike, getLike } from "../redux/actions/likeActions";
-// import { Statistic, Row } from "antd";
-// import { LikeOutlined } from "@ant-design/icons";
-// import Spinners from "../components/Spinners";
-// import axios from "axios";
 
 const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
   const dispatch = useDispatch();
@@ -26,46 +21,17 @@ const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  //const likesAdded = useSelector((state) => state.likesAdded);
-  //const { likeCount, success } = likesAdded;
-
-  // const likesList = useSelector((state) => state.likesList);
-  // const { loading, likes } = likesList;
-
   //MAILCHIMP COMPONENT TO PASS AS A PROP
   const mailchimp = (
     <MailchimpSubscribe url={process.env.REACT_APP_MAILCHIMP_URL} />
   );
 
+  //LOGOUT
   const logoutHandler = () => {
     dispatch(logout());
   };
 
-  // useEffect(() => {
-  //   resultLikes();
-  // }, [resultLikes]);
-
-  // const resultLikes = () => {
-  //   dispatch(getLike());
-  // };
-
-  // likes && console.log("logged likes ==>", likes[0]);
-  // likeCount && console.log("logged likeCount ==>", likeCount);
-
-  //console.log("likes from DB ==>", likes);
-
-  // const likeHandler = () => {
-  //   dispatch(postLike());
-  //   myfunc();
-  // };
-
-  // const myfunc = () => {
-  //   const input = { likeCount: "40" };
-  //   axios
-  //     .put("/api/like/61ffeec1e68829a6980208a7", input)
-  //     .then((res) => res && console.log("===>", res.data.likeCount));
-  // };
-
+  //SUBSCRIBE MODAL
   const openSub = () => {
     setShowSubscribe(!showSubscribe);
   };
@@ -109,20 +75,6 @@ const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
           <img src={linkedin} alt="linkedinicon" />
         </a>
       </div>
-
-      {/* likeCount */}
-      {/* <div onClick={likeHandler} style={{ cursor: "pointer" }}>
-        <Row gutter={16}>
-          <Statistic title="Feedback" value={like} prefix={<LikeOutlined />} />
-        </Row> */}
-      {/* {loading ? (
-          <Spinners />
-        ) : (
-          likes &&
-          likes.map((like) => <div key={like._id}>{like.likeCount}</div>)
-        )} */}
-      {/* {loading ? <Spinners /> : likeCount && { likeCount }}
-      </div> */}
 
       {/* Navlinks */}
       <ul className="nav-items" onClick={() => hideSidebarOnItemClick()}>
