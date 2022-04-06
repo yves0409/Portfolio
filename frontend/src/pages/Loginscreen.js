@@ -7,10 +7,13 @@ import Spinners from "../components/Spinners";
 import FormContainer from "../components/FormContainer";
 import Alert from "@material-ui/lab/Alert";
 import Success from "../components/Success";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import { LockOutlined, UnlockOutlined } from "@ant-design/icons";
 
 const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [togglePassword, setTogglePassword] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -36,9 +39,18 @@ const Loginscreen = ({ location, history }) => {
     dispatch(login(email, password));
   };
 
+  const toggleShowPassword = (e) => {
+    e.preventDefault();
+    setTogglePassword(!togglePassword);
+  };
+
   return (
     <FormContainer>
-      <h1>Sign In</h1>
+      {userInfo ? (
+        <h1>Sign In</h1>
+      ) : (
+        <h1 style={{ marginTop: "40%" }}>Sign In</h1>
+      )}
       {userInfo && <Success name={"WELCOME " + userInfo.name} />}
       {error && (
         <Alert severity="error">
@@ -59,22 +71,37 @@ const Loginscreen = ({ location, history }) => {
 
         <Form.Group controlId="password">
           <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
+          <div className="input-group">
+            <input
+              type={togglePassword ? "password" : "text"}
+              placeholder="Enter Password"
+              className="form-control"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="input-group-append">
+              <div className="input-group-text" onClick={toggleShowPassword}>
+                <VisibilityIcon />
+              </div>
+            </div>
+          </div>
         </Form.Group>
-        <Button type="submit" className="py-2 bg-info my-2 rounded text-center">
-          Submit
+        <Button
+          type="submit"
+          className={
+            userInfo
+              ? "py-1 bg-success mt-4 rounded text-center btn-block"
+              : "py-1 bg-danger mt-4 rounded text-center btn-block"
+          }
+        >
+          {!userInfo ? <LockOutlined /> : <UnlockOutlined />}
         </Button>
       </Form>
-      <Row className="py-3 bg-info my-2 rounded text-center">
-        <Col>
-          <span className="text-dark "> New User? </span>
+      <Row>
+        <Col className="mt-3">
+          New User?
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            <span className="text-dark">SignUp now</span>
+            <span style={{ color: "#26c3e4" }}> SignUp now</span>
           </Link>
         </Col>
       </Row>

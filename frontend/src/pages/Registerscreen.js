@@ -43,7 +43,7 @@ const Registerscreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <h1>Sign Up</h1>
+      <h1 style={{ marginTop: "40%" }}>Sign Up</h1>
       {/* {userInfo && <Alert severity="success">SIGNUP SUCCESSFUL !</Alert>} */}
       {userInfo && <Success name={"WELCOME " + userInfo.name} />}
       {message && <Notification variant="danger">{message}</Notification>}

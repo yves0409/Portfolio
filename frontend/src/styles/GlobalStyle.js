@@ -327,6 +327,17 @@ body{
       display:none;
     }
    }
+
+   .reviewFormContainer {
+     width: 90%;
+     margin: 4rem  auto;
+   }
+
+  
+   .input-group-text {
+      background-color:white;
+      padding: 10px;
+    }
 `;
 
 export default GlobalStyle;
