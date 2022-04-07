@@ -9,7 +9,7 @@ const MediaPlayer = ({ trendings }) => {
   return (
     <>
       {loading && <LoadImages count={4} />}
-      <MediaPlayerStyled className="blog">
+      <MediaPlayerStyled className="mdplayer">
         {trendings.map((item) => (
           <div key={item._id}>
             <ReactPlayer

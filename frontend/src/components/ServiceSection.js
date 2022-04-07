@@ -24,6 +24,7 @@ const ServiceSection = () => {
     </InnerLayout>
   );
 };
+
 const ServiceSectionStyled = styled.div`
   .services {
     margin-top: 2rem;

@@ -13,6 +13,7 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
 
   const dispatch = useDispatch();
 
+  //STATE ACCESS
   const portfolioList = useSelector((state) => state.portfolioList);
   const { loading, portfolios } = portfolioList;
 
@@ -20,6 +21,7 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
     dispatch(getPortfolio());
   }, [getPortfolio]);
 
+  //BLUR BACKGROUND WHEN MODAL OPENS
   const blurred = () => {
     setBlur(!blur);
   };

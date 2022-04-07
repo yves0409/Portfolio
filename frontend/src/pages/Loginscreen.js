@@ -9,6 +9,8 @@ import Alert from "@material-ui/lab/Alert";
 import Success from "../components/Success";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { LockOutlined, UnlockOutlined } from "@ant-design/icons";
+import loginImage from "../images/user_login.ico";
+import TitleComponent from "../components/TitleComponent";
 
 const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
@@ -17,7 +19,7 @@ const Loginscreen = ({ location, history }) => {
 
   const dispatch = useDispatch();
 
-  //GETTING THE STATE
+  //STATE ACCESS
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, userInfo, error } = userLogin;
 
@@ -25,12 +27,9 @@ const Loginscreen = ({ location, history }) => {
 
   useEffect(() => {
     const push = history.push;
-    if (userInfo) {
-      setTimeout(() => push(redirect), 3000);
-    }
-    if (error) {
-      push("/login");
-    }
+    userInfo && setTimeout(() => push(redirect), 3000);
+
+    error && push("/login");
   }, [history, userInfo, redirect, loading]);
 
   //DISPATCH LOGIN ON SUBMIT
@@ -49,8 +48,9 @@ const Loginscreen = ({ location, history }) => {
       {userInfo ? (
         <h1>Sign In</h1>
       ) : (
-        <h1 style={{ marginTop: "40%" }}>Sign In</h1>
+        <TitleComponent title={"Sign In"} img={loginImage} margin={"40%"} />
       )}
+
       {userInfo && <Success name={"WELCOME " + userInfo.name} />}
       {error && (
         <Alert severity="error">
@@ -90,8 +90,8 @@ const Loginscreen = ({ location, history }) => {
           type="submit"
           className={
             userInfo
-              ? "py-1 bg-success mt-4 rounded text-center btn-block"
-              : "py-1 bg-danger mt-4 rounded text-center btn-block"
+              ? "py-2 bg-success mt-4 rounded text-center btn-block"
+              : "py-2 bg-danger mt-4 rounded text-center btn-block"
           }
         >
           {!userInfo ? <LockOutlined /> : <UnlockOutlined />}

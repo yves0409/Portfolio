@@ -33,6 +33,7 @@ const MobileDevelopmentScreen = React.lazy(() =>
 const Loginscreen = React.lazy(() => import("./pages/Loginscreen"));
 const Registerscreen = React.lazy(() => import("./pages/Registerscreen"));
 
+//INITIALIZE GOOGLE ANALYTICS MODU;E
 ReactGA.initialize("UA-208270591-1");
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  //GOOGLE ANALYTICS
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   });
@@ -54,10 +56,9 @@ function App() {
   //LOGOUT
   const logoutHandler = () => {
     dispatch(logout());
-    console.log("clicked");
   };
 
-  //Scroll To Top
+  //SCROLL TO TOP
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -72,7 +73,7 @@ function App() {
     });
   };
 
-  //Toggle light/dark theme
+  //TOGGLE LIGHT/DARK THEME
   useEffect(() => {
     document.documentElement.className = theme;
     window.addEventListener("scroll", toggleVisibility);

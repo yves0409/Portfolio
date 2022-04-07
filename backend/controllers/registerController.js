@@ -2,9 +2,9 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel.js");
 const generateToken = require("../utils/generateToken.js");
 
-//Route : POST /api/users
-//What it does: Register new user
-//Who : Public
+//ROUTE => POST REQUEST TO  /api/users
+//PURPOSE => REGISTER NEW USER
+//ACCESS => PUBLIC
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   const userExists = await User.findOne({ email });
@@ -20,6 +20,7 @@ const registerUser = asyncHandler(async (req, res) => {
     password,
   });
 
+  //TODO ADD ADMIN INPUTFIELD ?
   if (user) {
     res.status(201).json({
       _id: user._id,

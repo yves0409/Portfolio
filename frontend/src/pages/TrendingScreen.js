@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 const TrendingScreen = () => {
   const dispatch = useDispatch();
 
+  //STATE ACCESS
   const trendingList = useSelector((state) => state.trendingList);
   const { trendings } = trendingList;
 
@@ -33,7 +34,7 @@ const TrendingScreen = () => {
 };
 
 const TrendingScreenStyled = styled.div`
-  .blog {
+  .mdplayer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;

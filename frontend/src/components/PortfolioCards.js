@@ -14,6 +14,7 @@ const PortfolioCard = ({
 }) => {
   const [show, setShow] = useState(false);
 
+  //SHOW/HIDE MODAL
   const showModalHandler = () => {
     setShow(!show);
     onClickIsBlurred();
@@ -23,6 +24,7 @@ const PortfolioCard = ({
     closeModalClicked();
   };
 
+  //TOOLTIP FOR HOVER GITHUB ICON
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       click for github repo

@@ -1,28 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Title from "./Title";
 import SmallTitle from "./SmallTitle";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import BackgroundItem from "./ServiceBackgroundItem";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { getBackground } from "../redux/actions/backgroundActions";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { InnerLayout } from "../styles/Layout";
 
 const ServiceBackGroundSection = () => {
   const briefcase = <BusinessCenterIcon />;
-  const [backgroundInfo, setBackgroundInfo] = useState([]);
+
+  const dispatch = useDispatch();
+
+  //STATE ACCESS
+  const backgroundList = useSelector((state) => state.backgroundList);
+  const { loading, backgrounds } = backgroundList;
 
   useEffect(() => {
-    axios
-      .get("/api/background")
-      .then((response) => {
-        const { data } = response;
-        setBackgroundInfo(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    dispatch(getBackground());
+  }, [getBackground]);
 
   return (
     <BackGroundSectionStyled>
@@ -32,8 +30,11 @@ const ServiceBackGroundSection = () => {
           <SmallTitle icon={briefcase} title={"Working Experience"} />
         </div>
         <div className="Background-content">
-          {backgroundInfo ? (
-            backgroundInfo.map((item) => (
+          {loading ? (
+            <LinearProgress color="primary" />
+          ) : (
+            backgrounds &&
+            backgrounds.map((item) => (
               <BackgroundItem
                 key={item._id}
                 year={item.year}
@@ -42,8 +43,6 @@ const ServiceBackGroundSection = () => {
                 text={item.text}
               />
             ))
-          ) : (
-            <LinearProgress color="primary" />
           )}
         </div>
       </InnerLayout>

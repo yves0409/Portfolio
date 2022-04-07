@@ -14,6 +14,7 @@ const ImageSection = () => {
   const [aboutInfo, setAboutInfo] = useState("");
   const [showSubscribe, setShowSubscribe] = useState(false);
 
+  //STATE ACCESS
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -23,6 +24,7 @@ const ImageSection = () => {
     </Link>
   );
 
+  //MODAL TO ASK FOR LOGIN
   const showPleaseLoginModal = () => {
     setShowSubscribe(!showSubscribe);
   };

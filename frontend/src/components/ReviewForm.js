@@ -10,6 +10,8 @@ import ModalSubscribeComponent from "./ModalSubscribeComponent";
 import Success from "../components/Success";
 import Spinners from "../components/Spinners";
 import Alert from "@material-ui/lab/Alert";
+import writeReview from "../images/writeReview.png";
+import TitleComponent from "./TitleComponent";
 
 const ReviewForm = () => {
   const [name, setName] = useState("");
@@ -19,7 +21,7 @@ const ReviewForm = () => {
 
   const dispatch = useDispatch();
 
-  //REDUX STATE
+  //STATE ACCESS
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -33,26 +35,26 @@ const ReviewForm = () => {
       setReviewText("");
     }
 
+    //SHOW SUCCESS COMPONENT FOR 3 SECONDS
     setTimeout(() => {
       setShowSuccess(showSuccess);
     }, 3000);
   }, [success]);
 
-  if (success) {
-    console.log(success);
-  }
-
+  //LINK IN MODALBODY THAT REDIRECTS USER TO LOGIN PAGE
   const loginLink = (
     <Link to="/login">
       <IoEnterOutline size={70} />
     </Link>
   );
 
+  //SUBMIT THE REVIEW FORM
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(review(name, reviewText));
   };
 
+  //WHEN USER IS NOT LOGGED IN , SHOW MODAL TO LOGIN
   const errorTexthandler = () => {
     setShowSubscribe(!showSubscribe);
   };
@@ -61,7 +63,12 @@ const ReviewForm = () => {
     <Container>
       <Row className="d-flex justify-content-center mt-5">
         <Col sm={12} md={10} lg={8}>
-          <h1>Write a review</h1>
+          <TitleComponent
+            title={"Write a review"}
+            img={writeReview}
+            margin={"20%"}
+          />
+
           {loading && <Spinners />}
           {showSuccess && (
             <Success name={`Thank you ${userInfo.name} for your review`} />
@@ -71,6 +78,7 @@ const ReviewForm = () => {
               ONE OF THE FIELDS IS INVALID, PLEASE TRY AGAIN..
             </Alert>
           )}
+
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
               <Form.Label></Form.Label>
@@ -94,14 +102,13 @@ const ReviewForm = () => {
             {userInfo ? (
               <Button
                 type="submit"
-                className="py-2 bg-info my-2 rounded text-center"
+                className="py-2 bg-danger mt-4 rounded text-center btn-block"
               >
                 Submit
               </Button>
             ) : (
               <Button
-                type="button"
-                className="py-2 bg-info my-2 rounded text-center"
+                className="py-2 bg-danger mt-4 rounded text-center btn-block"
                 onClick={errorTexthandler}
               >
                 Submit

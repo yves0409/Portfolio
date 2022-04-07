@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 const HomeScreen = ({ landing, setLanding }) => {
   let history = useHistory();
 
+  //ENTER
   const enterSite = () => {
     setLanding(!landing);
     history.push("/about");
@@ -162,21 +163,21 @@ const HomePageStyled = styled.header`
     text-align: center;
     width: 80%;
   }
-  #cf3 > div {
+  /* #cf3 > div {
     position: absolute;
     left: 0;
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
     -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
-  }
+  } */
   .enterBtn {
     position: absolute;
     top: 105%;
 
     opacity: 0.7;
   }
-  @keyframes cf3FadeInOut {
+  /* @keyframes cf3FadeInOut {
     0% {
       opacity: 1;
     }
@@ -189,7 +190,7 @@ const HomePageStyled = styled.header`
     100% {
       opacity: 0;
     }
-  }
+  } */
 
   .HomeScreenTypography {
     h1 {

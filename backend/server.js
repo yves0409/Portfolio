@@ -13,22 +13,20 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+//CACHE GET REQUESTS, MIDDLEWARE
 let setCache = function (req, res, next) {
-  // here you can define period in second, this one is 5 minutes
   const period = 60 * 5;
 
-  // you only want to cache for GET requests
   if (req.method == "GET") {
     res.set("Cache-control", `public, max-age=${period}`);
   } else {
-    // for the other requests set strict no caching parameters
     res.set("Cache-control", `no-store`);
   }
-  // call next() to pass on the request
+
   next();
 };
 
-// call the new middleware
+//USE THE CACHE MIDDLEWARE
 app.use(setCache);
 
 //DYNAMIC COMPRESSION
@@ -49,7 +47,6 @@ mongoose.connect(uri, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
-  // useFindAndModify: false,
 });
 const connection = mongoose.connection;
 connection.once("open", () => {
@@ -80,11 +77,10 @@ app.use("/api/contact", contactRouter);
 const reviewRouter = require("./routes/review.js");
 app.use("/api/review", reviewRouter);
 
-const likeRouter = require("./routes/like.js");
-app.use("/api/like", likeRouter);
-
+//REGISTER + LOGIN
 app.use("/api/users", userRoutes);
 
+//PRODUCTION / DEPLOYMENT
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
   app.use(express.static(path.join(__dirname, "/frontend/build")));
@@ -94,6 +90,7 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
+//PORT
 app.listen(port, () => {
   console.log(`Server is running on port : ${port}`);
 });

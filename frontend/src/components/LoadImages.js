@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Skeleton } from "antd";
 
+//SKELETON
 const LoadImages = ({ count }) => {
   const cards = () => {
     let totalCards = [];
@@ -14,7 +15,7 @@ const LoadImages = ({ count }) => {
     return totalCards;
   };
 
-  return <div className="blog">{cards()}</div>;
+  return <div className="mdplayer">{cards()}</div>;
 };
 
 export default LoadImages;

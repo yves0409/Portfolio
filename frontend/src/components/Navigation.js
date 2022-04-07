@@ -15,7 +15,6 @@ import { logout } from "../redux/actions/userActions";
 const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
   const dispatch = useDispatch();
   const [showSubscribe, setShowSubscribe] = useState(false);
-  //const [like, setLike] = useState(likes);
 
   //GETTING THE STATE (CHANGE LOGIN/LOGOUT0 BUTTON ACCORDINGLY)
   const userLogin = useSelector((state) => state.userLogin);
@@ -36,6 +35,7 @@ const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
     setShowSubscribe(!showSubscribe);
   };
 
+  //GO TO LANDING PAGE
   const goHome = () => {
     setLanding(!landing);
   };
@@ -241,9 +241,7 @@ const NavigationStyled = styled.nav`
       text-align: center;
     }
   }
-  .likes {
-    font-size: 12px;
-  }
+
   @media screen and (max-width: 896px) {
     .avatar {
       margin: 1rem 0 1rem 0;

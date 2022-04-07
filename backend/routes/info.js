@@ -20,7 +20,6 @@ router.route("/add").post((req, res) => {
     phone1,
     phone2,
     Address,
-    PageLikes,
   } = req.body;
 
   const newInfo = new Info({
@@ -35,7 +34,6 @@ router.route("/add").post((req, res) => {
     phone1,
     phone2,
     Address,
-    PageLikes,
   });
 
   newInfo

@@ -6,10 +6,14 @@ import ContactItem from "../components/ContactItem";
 import dataContactInfo from "../data/dataContactInfo";
 import emailjs from "emailjs-com";
 import { MainLayout, InnerLayout } from "../styles/Layout";
+import { Button } from "react-bootstrap";
 import { init } from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import TitleComponent from "../components/TitleComponent";
+import emailImage from "../images/emailImage.png";
 
+//INITIATION EMAILJS
 init("user_dvXegxEb11cRFMAuFpf6J");
 
 const ContactScreen = () => {
@@ -25,6 +29,7 @@ const ContactScreen = () => {
     formState: { errors },
   } = useForm({ mode: "onBlur", reValidateMode: "onBlur" });
 
+  //TEMPLATE PARAMETERS EMAILJS => CAN BE CHANGED TO PREFERANCE
   const templateParams = {
     from_name: emailsender,
     name: name,
@@ -60,6 +65,7 @@ const ContactScreen = () => {
         }
       );
   };
+  //END EMAILJS
 
   return (
     <MainLayout>
@@ -68,9 +74,11 @@ const ContactScreen = () => {
       <ContactPageStyled>
         <InnerLayout className="contact-section">
           <div className="left-content">
-            <div className="contact-title">
-              <h4>Get in touch </h4>
-            </div>
+            <TitleComponent
+              title={"Get In Touch"}
+              img={emailImage}
+              margin={"5%"}
+            />
 
             <form
               className="form"
@@ -174,7 +182,12 @@ const ContactScreen = () => {
                   Clear Errors
                 </button>
               ) : null}
-              <input type="submit"></input>
+              <Button
+                type="submit"
+                className="py-2 bg-danger mt-4 rounded text-center btn-block"
+              >
+                Submit
+              </Button>
             </form>
           </div>
 

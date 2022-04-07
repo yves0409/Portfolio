@@ -11,12 +11,13 @@ import Spinners from "./Spinners";
 const AboutReviewSection = () => {
   const dispatch = useDispatch();
 
+  //STATE ACCESS
   const reviewList = useSelector((state) => state.reviewList);
   const { loading, reviews } = reviewList;
 
   useEffect(() => {
     dispatch(getreview());
-  }, [getreview]);
+  }, []);
 
   return (
     <AboutReviewSectionStyled>
