@@ -19,14 +19,14 @@ const dataContactInfo = [
     id: 2,
     icon: email,
     title: "Email",
-    contact1: "yves.loeys@gmail.com",
-    contact2: "yloeys@gmail.com",
+    contact1: `${process.env.REACT_APP_PRIMARY_EMAIL}`,
+    contact2: `${process.env.REACT_APP_SECONDARY_EMAIL}`,
   },
   {
     id: 3,
     icon: location,
     title: "Address",
-    contact1: "Los Angeles California",
+    contact1: "Los Angeles, California",
     contact2: "USA",
   },
 ];

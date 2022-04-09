@@ -1,24 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ServiceCard from "./ServiceCard";
-import dataServices from "../data/dataServices";
 import { InnerLayout } from "../styles/Layout";
+import { getServices } from "../redux/actions/serviceActions";
+import { useSelector, useDispatch } from "react-redux";
+import Spinners from "./Spinners";
 
 const ServiceSection = () => {
+  const dispatch = useDispatch();
+
+  //STATE ACCESS
+  const serviceList = useSelector((state) => state.serviceList);
+  const { loading, services } = serviceList;
+
+  useEffect(() => {
+    dispatch(getServices());
+  }, [getServices]);
+
+  console.log("redux fetched => ", services);
+
   return (
     <InnerLayout>
       <ServiceSectionStyled>
         <div className="services">
-          {dataServices.map((service) => (
-            <ServiceCard
-              className="imcard"
-              key={service.id}
-              image={service.image}
-              title={service.title}
-              paragraph={service.paragraph}
-              url={service.url}
-            />
-          ))}
+          {loading && !services ? (
+            <Spinners />
+          ) : (
+            services.map((service) => (
+              <ServiceCard
+                className="imcard"
+                key={service._id}
+                image={service.image}
+                title={service.title}
+                paragraph={service.paragraph}
+                url={service.url}
+              />
+            ))
+          )}
         </div>
       </ServiceSectionStyled>
     </InnerLayout>

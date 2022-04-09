@@ -43,8 +43,8 @@ const ServiceBackgroundItemStyled = styled.div`
       border-radius: 50%;
       border: 2px solid var(--border-color);
       background-color: var(--background-dark-color);
-      background-color: #92ebb4;
-      box-shadow: 2px 0px 15px 2px #92ebb4;
+      background-color: var(--icon-green-color);
+      box-shadow: 2px 0px 15px 2px var(--icon-green-color);
     }
     p {
       display: inline-block;

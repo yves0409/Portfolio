@@ -10,6 +10,7 @@ import Spinners from "../components/Spinners";
 
 const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
   const [blur, setBlur] = useState(false);
+  //ATTNTION
 
   const dispatch = useDispatch();
 
@@ -33,7 +34,6 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
   return (
     <MainLayout>
       <Title title={"Portfolios"} span={"Portfolios"} />
-
       <BlurStyled>
         <Container className={`${blur ? "blurred" : "unblurred"}`}>
           <h3 className="title">

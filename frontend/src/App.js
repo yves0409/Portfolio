@@ -3,8 +3,6 @@ import { Route, Switch as Switching, withRouter } from "react-router";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import styled from "styled-components";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
-import Switch from "@material-ui/core/Switch";
 import MenuIcon from "@material-ui/icons/Menu";
 import ReactGA from "react-ga";
 import PublishSharpIcon from "@mui/icons-material/PublishSharp";
@@ -13,6 +11,7 @@ import { IconButton } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { logout } from "../src/redux/actions/userActions";
+import ToggleButton from "./components/ToggleButton";
 
 //COMPONENT IMPORTS USING REACT LAZY
 const HomeScreen = React.lazy(() => import("./pages/HomeScreen"));
@@ -21,15 +20,9 @@ const ServiceScreen = React.lazy(() => import("./pages/ServiceScreen"));
 const PortfolioScreen = React.lazy(() => import("./pages/PortfolioScreen"));
 const TrendingScreen = React.lazy(() => import("./pages/TrendingScreen"));
 const ContactScreen = React.lazy(() => import("./pages/ContactScreen"));
-const WebDevelopmentScreen = React.lazy(() =>
-  import("./pages/WebDevelopmentScreen")
-);
-const ArtificialIntelligenceScreen = React.lazy(() =>
-  import("./pages/ArtificialIntelligenceScreen")
-);
-const MobileDevelopmentScreen = React.lazy(() =>
-  import("./pages/MobileDevelopmentScreen")
-);
+const WebDevScreen = React.lazy(() => import("./pages/WebDevScreen"));
+const ArtIntScreen = React.lazy(() => import("./pages/ArtIntScreen"));
+const MobDevScreen = React.lazy(() => import("./pages/MobDevScreen"));
 const Loginscreen = React.lazy(() => import("./pages/Loginscreen"));
 const Registerscreen = React.lazy(() => import("./pages/Registerscreen"));
 
@@ -38,7 +31,6 @@ ReactGA.initialize("UA-208270591-1");
 
 function App() {
   const [theme, setTheme] = useState("dark-theme");
-  const [checked, setChecked] = useState(false);
   const [burgerToggle, setBurgerToggle] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [landing, setLanding] = useState(true);
@@ -82,23 +74,15 @@ function App() {
   const ThemeTogglerHandler = () => {
     if (theme === "light-theme") {
       setTheme("dark-theme");
-      setChecked(false);
     } else {
       setTheme("light-theme");
-      setChecked(true);
     }
   };
 
   return (
     <div className="App">
       {landing ? (
-        <Suspense
-          fallback={
-            <div>
-              <LinearProgress color="primary" />
-            </div>
-          }
-        >
+        <Suspense fallback={<LinearProgress color="primary" />}>
           <HomeScreen landing={landing} setLanding={setLanding} />
         </Suspense>
       ) : (
@@ -112,19 +96,7 @@ function App() {
           {/* light / Dark mode */}
           <div className="theme">
             <div className="light-dark-mode">
-              <div className="left-content">
-                <Brightness4Icon />
-              </div>
-              <div className="right-content">
-                <Switch
-                  value=""
-                  checked={checked}
-                  inputProps={{ "aria-label": "" }}
-                  onChange={ThemeTogglerHandler}
-                  color="default"
-                  size="small"
-                />
-              </div>
+              <ToggleButton click={ThemeTogglerHandler} />
             </div>
           </div>
           {/* TODO */}
@@ -156,13 +128,7 @@ function App() {
             </div>
 
             <Switching>
-              <Suspense
-                fallback={
-                  <div>
-                    <LinearProgress color="primary" />
-                  </div>
-                }
-              >
+              <Suspense fallback={<LinearProgress color="primary" />}>
                 <Route path="/about" component={AboutScreen}></Route>
                 <Route path="/trending" component={TrendingScreen}></Route>
                 <Route path="/contact" component={ContactScreen}></Route>
@@ -170,21 +136,9 @@ function App() {
                 <Route path="/services" component={ServiceScreen}></Route>
                 <Route path="/login" component={Loginscreen} />
                 <Route path="/register" component={Registerscreen} />
-                <Route
-                  path="/webdevelopment"
-                  exact
-                  component={WebDevelopmentScreen}
-                />
-                <Route
-                  path="/artificialintelligence"
-                  exact
-                  component={ArtificialIntelligenceScreen}
-                />
-                <Route
-                  path="/mobiledevelopment"
-                  exact
-                  component={MobileDevelopmentScreen}
-                />
+                <Route path="/webdev" exact component={WebDevScreen} />
+                <Route path="/artifintell" exact component={ArtIntScreen} />
+                <Route path="/mobiledev" exact component={MobDevScreen} />
               </Suspense>
             </Switching>
 

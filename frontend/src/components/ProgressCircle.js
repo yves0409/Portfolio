@@ -14,9 +14,9 @@ const ProgressCircle = ({ title, percentage, img }) => {
         value={percentage}
         strokeWidth={7}
         styles={buildStyles({
-          textColor: "#82AB92",
-          pathColor: "#82AB92",
-          trailColor: "#fcfafa",
+          //textColor: "#82AB92",
+          pathColor: "var(--icon-green-color)",
+          //trailColor: "#fcfafa",
           strokeLinecap: "round",
         })}
       >

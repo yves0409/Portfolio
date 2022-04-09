@@ -2,7 +2,7 @@ import React from "react";
 import Title from "../components/Title";
 import { MainLayout } from "../styles/Layout";
 
-const ArtificialIntelligenceScreen = () => {
+const ArtIntScreen = () => {
   return (
     <MainLayout>
       <div>
@@ -16,4 +16,4 @@ const ArtificialIntelligenceScreen = () => {
   );
 };
 
-export default ArtificialIntelligenceScreen;
+export default ArtIntScreen;

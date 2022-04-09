@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import coding from "../images/codingresize.jpeg";
 import downloadCV from "../images/download.png";
 import cv from "../../src/data/cv.pdf";
 import axios from "axios";
@@ -40,8 +39,7 @@ const ImageSection = () => {
   return aboutInfo ? (
     <ImageSectionStyled>
       <div className="left-content">
-        <img src={coding} alt="res" />
-
+        <img src={aboutInfo.image} alt="res" />
         <p className="about-paragraph">{aboutInfo.bio}</p>
       </div>
       <div className="right-content">

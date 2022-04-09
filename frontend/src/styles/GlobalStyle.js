@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
-//Color Schemes
+//COLOR SCHEMES
 .light-theme{
     --primary-color:#007bff;
     --primary-color-light:#057bff;
@@ -24,7 +24,8 @@ const GlobalStyle = createGlobalStyle`
     --scrollbar-bg-color:#383838;
     --scrollbar-thump-color:#6b6b6b;
     --scrollbar-track-color:#383838;
-    --icon-green-color:#2d533e;
+    //--icon-green-color:#2d533e;
+    --icon-green-color:#2e2d53;
     --span-color:#474545;
     
 }
@@ -54,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
     --span-color:#eee5e5;
 }
  
-//Body
+//BODY
 *{
      padding:0;
      margin:0;
@@ -71,7 +72,7 @@ body{
      color:var(--font-light-color)
  }
 
- //Scroll
+ //SCROLL TO TOP
  body::-webkit-scrollbar{
  width:9px;
  background-color:#383838;
@@ -88,7 +89,7 @@ body{
  }
 
  
-//Global
+//GLOBAL STYLES
  a{
      font-family :inherit;
      color:inherit; 
@@ -113,33 +114,23 @@ body{
        }
     }
 
-//Utility class
+//UTILITY CLASS
  .u-margin-bottom{
     margin-bottom:4rem; 
  }
 
- //Floating toggler
+ //LIGHT-DARK THEME TOGGLER
  .light-dark-mode{
       position:absolute;  
       right:0;
-      top:13%;
-      transition: top 0.3s;
-      background-color:transparent;
+      top:10%;
       width:6rem;
       height:2rem;
       z-index:15;
       display: flex;
       align-items:center;
       justify-content:center;
- svg{
-        display: flex;
-        align-items:center;
-        font-size:1.5rem;
-        color:var(---white-color-2) 
-        
-      
-       }
-    }
+ }
 
 @media screen and (max-width:850px) and (orientation:landscape){
     .light-dark-mode{
@@ -150,7 +141,7 @@ body{
     }
    };
 
-//Navtoggler
+//MOBILE NAV TOGGLER
 .hamburgerMenu{
         position: absolute;
         display: none;
@@ -163,7 +154,7 @@ body{
         }
     }
  
-//User that is logged in
+//CURRENT LOGGED IN USER
 .loggedInUser{
         position:absolute;  
         right:2%;
@@ -192,69 +183,39 @@ body{
 
   
 
-//Global mediaQueries
+//GLOBAL MEDIA QUERYS
  @media screen and (max-width:1000px){
 .hamburgerMenu{
         display: block;
         }
     };
 
-//Modal Portfolio (Carrousel)
-.custom-modal-style {
-      width: 160%;
-      height:auto;
-      background-color: transparent;
-      margin-top: 25%;
-      margin-left: -6%;
-       text-align:center; 
-       border:none; 
+//MODAL PORTFOLIO (CAROUSEL)
+.modal-dialog {
+  display: flex;
+  justify-content:center;
+}
+ .custom-modal-style {
+     width:90vw;
+     background-color: transparent;
+     margin-top: 35%;
+     text-align:center; 
+     border:none; 
     }
 
-@media (max-width: 1023px) {
-  .custom-modal-style .slider img {
-    width: 100%;
-    height: auto;
-   }
-}
-
-.custom-modal-style .btn {
-  font-size: 1rem;
-  margin-top: -10px;
-  border:none;
-}
-
-.custom-modal-style .btn:hover {
-  background-color: #689473;
-  border-radius: 4px;
-  outline: none;
-}
-
-@media screen and (max-width:576px){
-  .custom-modal-style .modal-title.h4 {
-    margin-right: 33%;
-    }
-  .custom-modal-style .btn {
-     margin-right: 33%;
-     font-size:.7rem;
-    }
-  .modal-title  {
-  font-size:1rem;
-  }
-}
-
+ 
 .modal-content {
  background-color: #EFF3EB;
  border-radius: 8px;
- 
 }
 
-// Modal Subscription/Please Login
+// MODAL SUBSCRIBE/PLEASE LOGIN
 .subscribeForm p {
     color: white;
     margin-top: 3rem;
     }
 
-    .subscribeForm input {
+.subscribeForm input {
     margin-right: 16px;
     font-size: 1rem;
     padding: 0px 5px;
@@ -307,28 +268,7 @@ body{
     color:black;
    }
 
-  .closeBtnModal{
-    background-color: #EFF3EB;
-    border-radius: 8px;
-    color:black;
-    .text1{
-      display:none
-    }
-   }
-
-  .closeBtnModal:hover{
-    background-color: #EFF3EB;
-    border-radius: 8px;
-    color:black;
-    .text1{
-      display:block
-    }
-    .text2{
-      display:none;
-    }
-   }
-
-   .reviewFormContainer {
+.reviewFormContainer {
      width: 90%;
      margin: 4rem  auto;
    }

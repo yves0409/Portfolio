@@ -19,52 +19,28 @@ const CarrouselPortfolio = ({ thumbs }) => {
 };
 
 const CarrouselStyled = styled.div`
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  width: 100%;
+
+  .sliders {
+    width: 100%;
+    height: auto;
   }
 
-  @media (max-width: 1000px) {
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      width: 100vw;
-      padding-right: 40%;
-    }
-  }
-
-  @media (max-width: 792px) {
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      width: 100vw;
-      padding-right: 20%;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      width: 100vw;
-      padding-right: 0px;
-    }
+  .sliders img {
+    width: 100%;
+    height: auto;
   }
 
   .control-dots {
     position: relative;
-    top: 0;
+    top: 92%;
   }
 
   .carousel .slide .legend {
     position: relative;
     top: 0px;
     color: black;
-    padding: 10px;
+    padding: 2px;
     font-size: 1rem;
     background-color: transparent;
     opacity: 0.9;

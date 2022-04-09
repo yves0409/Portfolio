@@ -2,15 +2,15 @@ import React from "react";
 import Title from "../components/Title";
 import { MainLayout } from "../styles/Layout";
 
-const MobileDevelopmentScreen = () => {
+const WebDevScreen = () => {
   return (
     <MainLayout>
       <div>
-        <Title title={"Mobile Development"} span={"Mobile Development"} />
+        <Title title={"Web Development"} span={"Web Development"} />
         <h1 style={{ marginTop: "6rem" }}>Coming soon ...</h1>
       </div>
     </MainLayout>
   );
 };
 
-export default MobileDevelopmentScreen;
+export default WebDevScreen;

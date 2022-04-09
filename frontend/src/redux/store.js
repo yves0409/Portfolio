@@ -6,12 +6,14 @@ import { postReviewReducer, getReviewReducer } from "./reducers/reviewReducers";
 import { getPortfolioReducer } from "./reducers/portfolioReducers";
 import { getBackgroundReducer } from "./reducers/backgroundReducers";
 import { getTrendingReducer } from "./reducers/trendingReducers";
+import { getServiceReducer } from "./reducers/serviceReducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   reviewsAdded: postReviewReducer,
   reviewList: getReviewReducer,
+  serviceList: getServiceReducer,
   portfolioList: getPortfolioReducer,
   backgroundList: getBackgroundReducer,
   trendingList: getTrendingReducer,

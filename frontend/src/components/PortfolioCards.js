@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ModalCarrouselComponents from "./ModalCarrouselComponents";
+import ModalCarrouselComponent from "./ModalCarrouselComponent";
 import gitImage from "../images/gitdesign.png";
 import { Card, Tooltip, OverlayTrigger } from "react-bootstrap";
 
@@ -32,29 +32,32 @@ const PortfolioCard = ({
   );
 
   return (
-    <CardStyled>
-      <Card className="card">
-        <Card.Header className="header">
-          <Card.Title>{title}</Card.Title>
-          <Card.Title>
-            <OverlayTrigger
-              placement="top"
-              delay={{ show: 250, hide: 400 }}
-              overlay={renderTooltip}
-            >
-              <a href={git} target="_blank" rel="noopener noreferrer">
-                <img className="git" src={gitImage} alt="" />
-              </a>
-            </OverlayTrigger>
-          </Card.Title>
-        </Card.Header>
+    <>
+      <CardStyled>
+        <Card className="card">
+          <Card.Header className="header">
+            <Card.Title>{title}</Card.Title>
+            <Card.Title>
+              <OverlayTrigger
+                placement="top"
+                delay={{ show: 250, hide: 400 }}
+                overlay={renderTooltip}
+              >
+                <a href={git} target="_blank" rel="noopener noreferrer">
+                  <img className="git" src={gitImage} alt="" />
+                </a>
+              </OverlayTrigger>
+            </Card.Title>
+          </Card.Header>
 
-        <Card.Body onClick={showModalHandler}>
-          <Card.Img variant="top" src={image} className="cardImg" />
-        </Card.Body>
-      </Card>
+          <Card.Body onClick={showModalHandler}>
+            <Card.Img variant="top" src={image} className="cardImg" />
+          </Card.Body>
+        </Card>
+      </CardStyled>
+
       {show && (
-        <ModalCarrouselComponents
+        <ModalCarrouselComponent
           show={show}
           setShow={setShow}
           onCloseModalUnblur={closeModalHandler}
@@ -62,7 +65,7 @@ const PortfolioCard = ({
           thumbs={thumbs}
         />
       )}
-    </CardStyled>
+    </>
   );
 };
 
@@ -74,7 +77,7 @@ const CardStyled = styled.div`
   .card {
     width: 22rem;
     height: auto;
-    background-color: #689473;
+    background-color: var(--icon-green-color);
     border-radius: 6px;
     color: white;
   }
@@ -97,7 +100,7 @@ const CardStyled = styled.div`
 
   .card:hover {
     transition: background-color 0.3s ease;
-    background-color: #689473;
+    background-color: var(--icon-green-color);
     transform: scale(1.1);
     opacity: 1;
   }
