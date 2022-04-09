@@ -4,6 +4,13 @@ const cors = require("cors");
 const morgan = require("morgan");
 const path = require("path");
 const userRoutes = require("./routes/userRoutes.js");
+const background = require("./routes/background");
+const contact = require("./routes/contact");
+const info = require("./routes/info");
+const portfolio = require("./routes/portfolio");
+const trending = require("./routes/trending");
+const review = require("./routes/review");
+const service = require("./routes/service");
 const notFound = require("./middleware/errorMiddleware.js");
 const errorHandler = require("./middleware/errorMiddleware.js");
 const compression = require("compression");
@@ -59,23 +66,13 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //SERVERROUTES
-const backgroundRouter = require("./routes/background.js");
-app.use("/api/background", backgroundRouter);
-
-const portfolioRouter = require("./routes/portfolio.js");
-app.use("/api/portfolio", portfolioRouter);
-
-const trendingRouter = require("./routes/trending.js");
-app.use("/api/trending", trendingRouter);
-
-const infoRouter = require("./routes/info.js");
-app.use("/api/info", infoRouter);
-
-const contactRouter = require("./routes/contact.js");
-app.use("/api/contact", contactRouter);
-
-const reviewRouter = require("./routes/review.js");
-app.use("/api/review", reviewRouter);
+app.use("/api/background", background);
+app.use("/api/portfolio", portfolio);
+app.use("/api/trending", trending);
+app.use("/api/info", info);
+app.use("/api/contact", contact);
+app.use("/api/review", review);
+app.use("/api/service", service);
 
 //REGISTER + LOGIN
 app.use("/api/users", userRoutes);

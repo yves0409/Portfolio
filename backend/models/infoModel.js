@@ -14,6 +14,10 @@ const infoSchema = mongoose.Schema(
       type: String,
       required: false,
     },
+    image: {
+      type: String,
+      required: true,
+    },
     location: {
       type: String,
       required: false,

@@ -1,45 +1,55 @@
-const router = require("express").Router();
-let Info = require("../models/infoModel");
+const express = require("express");
+const router = express.Router();
+const info = require("../controllers/infoController");
 
-router.route("/").get((req, res) => {
-  Info.find()
-    .then((info) => res.json(info))
-    .catch((err) => res.status(400).json("Error: " + err));
-});
+router.route("/").get(info);
 
-router.route("/add").post((req, res) => {
-  const {
-    first_name,
-    last_name,
-    languages,
-    location,
-    services,
-    bio,
-    email1,
-    email2,
-    phone1,
-    phone2,
-    Address,
-  } = req.body;
+module.exports = router;
 
-  const newInfo = new Info({
-    first_name,
-    last_name,
-    languages,
-    location,
-    services,
-    bio,
-    email1,
-    email2,
-    phone1,
-    phone2,
-    Address,
-  });
+// const router = require("express").Router();
+// let Info = require("../models/infoModel");
 
-  newInfo
-    .save()
-    .then(() => res.json("info added"))
-    .catch((err) => res.status(400).json("Error: " + err));
-});
+// router.route("/").get((req, res) => {
+//   Info.find()
+//     .then((info) => res.json(info))
+//     .catch((err) => res.status(400).json("Error: " + err));
+// });
+
+// router.route("/add").post((req, res) => {
+//   const {
+//     first_name,
+//     last_name,
+//     languages,
+//     image,
+//     location,
+//     services,
+//     bio,
+//     email1,
+//     email2,
+//     phone1,
+//     phone2,
+//     Address,
+//   } = req.body;
+
+//   const newInfo = new Info({
+//     first_name,
+//     last_name,
+//     languages,
+//     image,
+//     location,
+//     services,
+//     bio,
+//     email1,
+//     email2,
+//     phone1,
+//     phone2,
+//     Address,
+//   });
+
+//   newInfo
+//     .save()
+//     .then(() => res.json("info added"))
+//     .catch((err) => res.status(400).json("Error: " + err));
+// });
 
 module.exports = router;
