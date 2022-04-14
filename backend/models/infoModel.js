@@ -16,13 +16,17 @@ const infoSchema = mongoose.Schema(
     },
     image: {
       type: String,
-      required: true,
+      required: false,
+    },
+    profilepicture: {
+      type: String,
+      required: false,
     },
     location: {
       type: String,
       required: false,
     },
-    services: {
+    contract: {
       type: String,
       required: false,
     },
@@ -46,10 +50,46 @@ const infoSchema = mongoose.Schema(
       type: String,
       required: false,
     },
-    Address: {
+    address: {
       type: String,
       required: false,
     },
+    services: [
+      {
+        serviceimage: {
+          type: String,
+          required: false,
+        },
+        title: {
+          type: String,
+          required: false,
+        },
+        url: {
+          type: String,
+          required: false,
+        },
+        paragraph: {
+          type: String,
+          required: false,
+        },
+      },
+    ],
+    skills: [
+      {
+        title: {
+          type: String,
+          required: false,
+        },
+        percentage: {
+          type: String,
+          required: false,
+        },
+        img: {
+          type: String,
+          required: false,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
