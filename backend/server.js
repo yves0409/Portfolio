@@ -10,7 +10,6 @@ const info = require("./routes/info");
 const portfolio = require("./routes/portfolio");
 const trending = require("./routes/trending");
 const review = require("./routes/review");
-const service = require("./routes/service");
 const notFound = require("./middleware/errorMiddleware.js");
 const errorHandler = require("./middleware/errorMiddleware.js");
 const compression = require("compression");
@@ -72,7 +71,9 @@ app.use("/api/trending", trending);
 app.use("/api/info", info);
 app.use("/api/contact", contact);
 app.use("/api/review", review);
-app.use("/api/service", service);
+//app.use("/api/service", service);
+// const infoRouter = require("./routes/addInfoRoutes.js");
+// app.use("/api/info", infoRouter);
 
 //REGISTER + LOGIN
 app.use("/api/users", userRoutes);
