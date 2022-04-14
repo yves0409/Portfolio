@@ -24,7 +24,6 @@ const GlobalStyle = createGlobalStyle`
     --scrollbar-bg-color:#383838;
     --scrollbar-thump-color:#6b6b6b;
     --scrollbar-track-color:#383838;
-    //--icon-green-color:#2d533e;
     --icon-green-color:#2e2d53;
     --span-color:#474545;
     
@@ -278,6 +277,17 @@ body{
       background-color:white;
       padding: 10px;
     }
+
+    .errorstatus {
+    display: flex;
+    margin-top: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      color: red;
+    }
+  }
 `;
 
 export default GlobalStyle;
