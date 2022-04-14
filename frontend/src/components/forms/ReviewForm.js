@@ -10,7 +10,7 @@ import ModalSubscribeComponent from "../modals/ModalSubscribeComponent";
 import Success from "../alerts/Success";
 import Spinners from "../loaders/Spinners";
 import Alert from "@material-ui/lab/Alert";
-import writeReview from "../../images/writereview.png";
+import writeReview from "../../images/writeReview.png";
 import TitleComponent from "../titles/TitleComponent";
 
 const ReviewForm = () => {
