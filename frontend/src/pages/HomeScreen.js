@@ -4,6 +4,7 @@ import landingPage from "../images/landingpage.jpeg";
 import "react-toastify/dist/ReactToastify.min.css";
 import CustomButton from "../components/buttons/CustomButton";
 import { useHistory } from "react-router-dom";
+import Audio from "../components/Audio";
 
 const HomeScreen = ({ landing, setLanding }) => {
   let history = useHistory();
@@ -24,6 +25,7 @@ const HomeScreen = ({ landing, setLanding }) => {
           {"<"}Front-End Web Development{"/>"}
         </h1>
         <div className="text-typing">
+          <Audio />
           <p>Every Pixel Matters</p>
         </div>
         <div className="enterBtn">

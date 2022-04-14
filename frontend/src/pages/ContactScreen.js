@@ -10,6 +10,7 @@ import emailIcon from "../images/question.png";
 import ContactForm from "../components/forms/ContactForm";
 import { getContact } from "../redux/actions/contactActions";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../components/loaders/Loader";
 
 const ContactScreen = () => {
   const dispatch = useDispatch();
@@ -20,8 +21,6 @@ const ContactScreen = () => {
   useEffect(() => {
     dispatch(getContact());
   }, [dispatch]);
-
-  console.log(contacts);
 
   return (
     <MainLayout>
@@ -38,17 +37,29 @@ const ContactScreen = () => {
             />
             <ContactForm />
           </div>
-          <div className="right-content">
-            {contacts.map((item) => (
-              <ContactItem
-                key={item._id}
-                icon={item.icon}
-                title={item.title}
-                contact1={item.contact1}
-                contact2={item.contact2}
-              />
-            ))}
-          </div>
+          {loading ? (
+            <div className="right-content">
+              <Loader />
+            </div>
+          ) : success ? (
+            <div className="right-content">
+              {contacts.map((item) => (
+                <ContactItem
+                  key={item._id}
+                  icon={item.icon}
+                  title={item.title}
+                  contact1={item.contact1}
+                  contact2={item.contact2}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="errorstatus">
+              {" "}
+              <h1>Contact information not found : {error}</h1>
+              <p>Please try again later</p>
+            </div>
+          )}
         </InnerLayout>
       </ContactPageStyled>
     </MainLayout>
