@@ -44,7 +44,7 @@ const Registerscreen = ({ location, history }) => {
     <FormContainer>
       <TitleComponent
         title={"Sign Up"}
-        img={registerKeys}
+        icon={registerKeys}
         margin={"20%"}
         attribute={"by-webiconset.com"}
       />

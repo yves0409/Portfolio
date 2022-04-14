@@ -10,7 +10,7 @@ import ModalSubscribeComponent from "../modals/ModalSubscribeComponent";
 import Success from "../alerts/Success";
 import Spinners from "../loaders/Spinners";
 import Alert from "@material-ui/lab/Alert";
-// import writeReview from "../../images/writereview.png";
+import writeReview from "../../images/writereview.png";
 import TitleComponent from "../titles/TitleComponent";
 
 const ReviewForm = () => {
@@ -65,7 +65,7 @@ const ReviewForm = () => {
         <Col sm={12} md={10} lg={8}>
           <TitleComponent
             title={"Write a review"}
-            // img={writeReview}
+            icon={writeReview}
             margin={"20%"}
             attribute={"Made by kidaubis"}
           />

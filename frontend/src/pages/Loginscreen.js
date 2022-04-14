@@ -50,7 +50,7 @@ const Loginscreen = ({ location, history }) => {
       ) : (
         <TitleComponent
           title={"Sign In"}
-          img={loginLock}
+          icon={loginLock}
           margin={"40%"}
           attribute={"icons-by-iconshock"}
         />

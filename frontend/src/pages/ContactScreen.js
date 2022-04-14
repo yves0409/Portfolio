@@ -32,7 +32,7 @@ const ContactScreen = () => {
           <div className="left-content">
             <TitleComponent
               title={"Get In Touch"}
-              img={emailIcon}
+              icon={emailIcon}
               margin={"8%"}
               attribute={"Made by Marz-gallery"}
             />
