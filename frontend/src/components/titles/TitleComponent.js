@@ -5,7 +5,7 @@ const TitleComponent = ({ title, img, margin, attribute }) => {
   return (
     <>
       <TitleComponentStyled style={{ marginTop: `${margin}` }}>
-        <img src={img} alt="descriptive icon" attribute={attribute} />
+        <img src={img} alt="descriptive icon" />
         <h1>{title}</h1>
       </TitleComponentStyled>
     </>
