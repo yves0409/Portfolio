@@ -1,7 +1,7 @@
 import React from "react";
 import AboutImageSection from "../components/AboutImageSection";
 import AboutReviewSection from "../components/AboutReviewSection";
-import Title from "../components/Title";
+import Title from "../components/titles/Title";
 import { MainLayout } from "../styles/Layout";
 
 const AboutScreen = () => {

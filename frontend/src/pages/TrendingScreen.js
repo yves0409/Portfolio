@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Title from "../components/Title";
-import MediaPlayer from "../components/MediaPlayer";
+import Title from "../components/titles/Title";
+import MediaPlayer from "../components/mediaplayer/MediaPlayer";
 import { MainLayout } from "../styles/Layout";
 import { getTrendingTopics } from "../redux/actions/trendingActions";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,7 +11,7 @@ const TrendingScreen = () => {
 
   //STATE ACCESS
   const trendingList = useSelector((state) => state.trendingList);
-  const { trendings } = trendingList;
+  const { trendings, error, success } = trendingList;
 
   useEffect(() => {
     dispatch(getTrendingTopics());
@@ -26,7 +26,7 @@ const TrendingScreen = () => {
           Javascript and examples of how to use them.{" "}
         </p>
         <div>
-          <MediaPlayer trendings={trendings} />
+          <MediaPlayer trendings={trendings} error={error} success={success} />
         </div>
       </TrendingScreenStyled>
     </MainLayout>

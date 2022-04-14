@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import img from "../images/HomeScreenImageresize.jpeg";
+import landingPage from "../images/landingpage.jpeg";
 import "react-toastify/dist/ReactToastify.min.css";
-import CustomButton from "../components/CustomButton";
+import CustomButton from "../components/buttons/CustomButton";
 import { useHistory } from "react-router-dom";
 
 const HomeScreen = ({ landing, setLanding }) => {
@@ -17,7 +17,7 @@ const HomeScreen = ({ landing, setLanding }) => {
   return (
     <HomePageStyled>
       <div className="backgroundImage">
-        <img src={img} alt="Landingpage desert" />
+        <img src={landingPage} alt="Landingpage desert" />
       </div>
       <div className="HomeScreenTypography">
         <h1>

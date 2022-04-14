@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
-import Title from "../components/Title";
+import Title from "../components/titles/Title";
 import styled from "styled-components";
 import { getPortfolio } from "../redux/actions/portfolioActions";
 import { useSelector, useDispatch } from "react-redux";
 import PortfolioCards from "../components/PortfolioCards";
 import { Container, Row, Col } from "react-bootstrap";
 import { MainLayout } from "../styles/Layout";
-import Spinners from "../components/Spinners";
+import Loader from "../components/loaders/Loader";
 
 const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
   const [blur, setBlur] = useState(false);
+
   //ATTNTION
 
   const dispatch = useDispatch();
 
   //STATE ACCESS
   const portfolioList = useSelector((state) => state.portfolioList);
-  const { loading, portfolios } = portfolioList;
+  const { loading, portfolios, success, error } = portfolioList;
 
   useEffect(() => {
     dispatch(getPortfolio());
@@ -41,11 +42,12 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
             create engaging online experiences for users. It’s a fine balance of
             applying technology, design, research, and experimentation.
           </h3>
-          <Row className="row">
-            {loading ? (
-              <Spinners />
-            ) : (
-              portfolios.map((item) => (
+
+          {loading ? (
+            <Loader />
+          ) : success ? (
+            <Row className="row">
+              {portfolios.map((item) => (
                 <Col className="col" key={item._id}>
                   <PortfolioCards
                     image={item.image}
@@ -56,9 +58,15 @@ const PortfolioScreen = ({ setBurgerToggle, burgerToggle }) => {
                     closeModalClicked={unBlurred}
                   />{" "}
                 </Col>
-              ))
-            )}
-          </Row>
+              ))}{" "}
+            </Row>
+          ) : (
+            <div className="errorstatus">
+              {" "}
+              <h1>Portflios not found : {error}</h1>
+              <p>Please try again later</p>
+            </div>
+          )}
         </Container>
       </BlurStyled>
     </MainLayout>

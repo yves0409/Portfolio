@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../redux/actions/userActions";
-import Spinners from "../components/Spinners";
-import FormContainer from "../components/FormContainer";
+import Spinners from "../components/loaders/Spinners";
+import FormContainer from "../components/forms/FormContainer";
 import Alert from "@material-ui/lab/Alert";
-import Success from "../components/Success";
+import Success from "../components/alerts/Success";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { LockOutlined, UnlockOutlined } from "@ant-design/icons";
-import loginImage from "../images/user_login.ico";
-import TitleComponent from "../components/TitleComponent";
+import loginLock from "../images/loginlock.ico";
+import TitleComponent from "../components/titles/TitleComponent";
 
 const Loginscreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
@@ -48,7 +48,12 @@ const Loginscreen = ({ location, history }) => {
       {userInfo ? (
         <h1>Sign In</h1>
       ) : (
-        <TitleComponent title={"Sign In"} img={loginImage} margin={"40%"} />
+        <TitleComponent
+          title={"Sign In"}
+          img={loginLock}
+          margin={"40%"}
+          attribute={"icons-by-iconshock"}
+        />
       )}
 
       {userInfo && <Success name={"WELCOME " + userInfo.name} />}

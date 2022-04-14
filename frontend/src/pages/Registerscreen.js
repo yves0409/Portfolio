@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Notification from "../components/Notification";
-import Spinners from "../components/Spinners";
-import FormContainer from "../components/FormContainer";
+import Notification from "../components/alerts/Notification";
+import Spinners from "../components/loaders/Spinners";
+import FormContainer from "../components/forms/FormContainer";
 import { Link } from "react-router-dom";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../redux/actions/userActions";
-import Success from "../components/Success";
-import registerImage from "../images/Register.png";
-import TitleComponent from "../components/TitleComponent";
+import Success from "../components/alerts/Success";
+import registerKeys from "../images/registerkeys.png";
+import TitleComponent from "../components/titles/TitleComponent";
 
 const Registerscreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -42,7 +42,12 @@ const Registerscreen = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <TitleComponent title={"Sign Up"} img={registerImage} margin={"20%"} />
+      <TitleComponent
+        title={"Sign Up"}
+        img={registerKeys}
+        margin={"20%"}
+        attribute={"by-webiconset.com"}
+      />
 
       {userInfo && <Success name={"WELCOME " + userInfo.name} />}
       {message && <Notification variant="danger">{message}</Notification>}
