@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Title from "./Title";
-import SmallTitle from "./SmallTitle";
+import Title from "./titles/Title";
+import SmallTitle from "./titles/SmallTitle";
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter";
 import BackgroundItem from "./ServiceBackgroundItem";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,7 +16,7 @@ const ServiceBackGroundSection = () => {
 
   //STATE ACCESS
   const backgroundList = useSelector((state) => state.backgroundList);
-  const { loading, backgrounds } = backgroundList;
+  const { loading, backgrounds, success, error } = backgroundList;
 
   useEffect(() => {
     dispatch(getBackground());
@@ -29,12 +29,12 @@ const ServiceBackGroundSection = () => {
         <div className="small-title">
           <SmallTitle icon={briefcase} title={"Working Experience"} />
         </div>
-        <div className="Background-content">
-          {loading ? (
-            <LinearProgress color="primary" />
-          ) : (
-            backgrounds &&
-            backgrounds.map((item) => (
+
+        {loading ? (
+          <LinearProgress color="primary" />
+        ) : success ? (
+          <div className="Background-content">
+            {backgrounds.map((item) => (
               <BackgroundItem
                 key={item._id}
                 year={item.year}
@@ -42,9 +42,15 @@ const ServiceBackGroundSection = () => {
                 subtitle={item.subtitle}
                 text={item.text}
               />
-            ))
-          )}
-        </div>
+            ))}{" "}
+          </div>
+        ) : (
+          <div className="errorstatus">
+            {" "}
+            <h1>Background not found : {error}</h1>
+            <p>Please try again later</p>
+          </div>
+        )}
       </InnerLayout>
     </BackGroundSectionStyled>
   );

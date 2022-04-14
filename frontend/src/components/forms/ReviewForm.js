@@ -4,14 +4,14 @@ import { Form } from "react-bootstrap";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { IoEnterOutline } from "react-icons/io5";
-import { review } from "../redux/actions/reviewActions";
+import { review } from "../../redux/actions/reviewActions";
 import { useSelector, useDispatch } from "react-redux";
-import ModalSubscribeComponent from "./ModalSubscribeComponent";
-import Success from "../components/Success";
-import Spinners from "../components/Spinners";
+import ModalSubscribeComponent from "../modals/ModalSubscribeComponent";
+import Success from "../alerts/Success";
+import Spinners from "../loaders/Spinners";
 import Alert from "@material-ui/lab/Alert";
-import writeReview from "../images/writeReview.png";
-import TitleComponent from "./TitleComponent";
+import writeReview from "../../images/writereview.png";
+import TitleComponent from "../titles/TitleComponent";
 
 const ReviewForm = () => {
   const [name, setName] = useState("");
@@ -67,6 +67,7 @@ const ReviewForm = () => {
             title={"Write a review"}
             img={writeReview}
             margin={"20%"}
+            attribute={"Made by kidaubis"}
           />
 
           {loading && <Spinners />}

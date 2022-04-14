@@ -6,7 +6,7 @@ import {
   CircularProgressbarWithChildren,
 } from "react-circular-progressbar";
 
-const ProgressCircle = ({ title, percentage, img }) => {
+const ServiceProgressCircle = ({ title, percentage, img }) => {
   return (
     <ProgressCircleStyled>
       <h6>{title}</h6>
@@ -14,17 +14,11 @@ const ProgressCircle = ({ title, percentage, img }) => {
         value={percentage}
         strokeWidth={7}
         styles={buildStyles({
-          //textColor: "#82AB92",
           pathColor: "var(--icon-green-color)",
-          //trailColor: "#fcfafa",
           strokeLinecap: "round",
         })}
       >
-        <img
-          style={{ width: 40, marginTop: -5 }}
-          src={img}
-          alt="Freepik,Pixel Perfect"
-        />
+        <img src={img} alt="Freepik,Pixel Perfect" />
         <div>
           <strong>{percentage}%</strong>
         </div>
@@ -49,6 +43,10 @@ const ProgressCircleStyled = styled.section`
     padding: 0.2rem;
     color: var(--icon-green-color);
   }
+  img {
+    width: 40px;
+    margin-top: -5px;
+  }
 `;
 
-export default ProgressCircle;
+export default ServiceProgressCircle;

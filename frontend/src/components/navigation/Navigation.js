@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import avatar from "../images/avatarResize.jpg";
-import instagram from "../images/instagramResize.png";
-import linkedin from "../images/linkedinResize.png";
-import github from "../images/Github-icon.png";
+import avatar from "../../images/avatar.jpg";
+import instagram from "../../images/instagram.png";
+import linkedin from "../../images/linkedin.png";
+import github from "../../images/github.png";
 import HighlightOffSharpIcon from "@material-ui/icons/HighlightOffSharp";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import CustomButton from "../components/CustomButton";
-import ModalSubscribeComponent from "../components/ModalSubscribeComponent";
+import CustomButton from "../buttons/CustomButton";
+import ModalSubscribeComponent from "../modals/ModalSubscribeComponent";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../redux/actions/userActions";
+import { logout } from "../../redux/actions/userActions";
 
 const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
   const dispatch = useDispatch();
@@ -42,16 +42,15 @@ const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
 
   return (
     <NavigationStyled>
-      {/* CloseNavButton */}
       <div className="closeBtn" onClick={() => hideSidebarOnItemClick()}>
         <HighlightOffSharpIcon />
       </div>
-      {/* Avatar */}
+
       <div className="avatar">
         <img src={avatar} alt="avatar" />
         <h2 className="avatarTxt">Yves Loeys</h2>
       </div>
-      {/* Socialmedia */}
+
       <div className="social">
         <a
           href="https://www.github.com/yves0409"
@@ -76,7 +75,6 @@ const Navigation = ({ hideSidebarOnItemClick, landing, setLanding }) => {
         </a>
       </div>
 
-      {/* Navlinks */}
       <ul className="nav-items" onClick={() => hideSidebarOnItemClick()}>
         <li className="nav-item">
           <NavLink to="/" activeClassName="active-class" exact onClick={goHome}>

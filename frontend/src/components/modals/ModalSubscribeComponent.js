@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import styled from "styled-components";
-import ModalCloseButton from "./ModalCloseButton";
+import ModalCloseButton from "../buttons/ModalCloseButton";
 
 const ModalSubscribeComponent = ({ title, body, closebtnTxt, body2 }) => {
   const [show, setShow] = useState(true);

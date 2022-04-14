@@ -6,10 +6,7 @@ const ServiceCard = ({ image, title, paragraph, url }) => {
   return (
     <ServiceCardStyled>
       <div className="container">
-        <Link
-          to={`${url}`}
-          style={{ color: "inherit", textDecoration: "inherit" }}
-        >
+        <Link className="cardLink" to={`${url}`}>
           <img src={image} alt="Smashicons,surang,good ware,icongeek26" />
           <h4>{title}</h4>
           <p>{paragraph}</p>
@@ -28,8 +25,13 @@ const ServiceCardStyled = styled.div`
   transition: all 0.4s ease-in-out;
 
   &:hover {
-    border-top: 7px solid var(--primary-color);
+    border-top: 7px solid var(--icon-green-color);
     transform: translateY(-3px);
+
+    .cardLink {
+      color: inherit;
+      text-decoration: inherit;
+    }
 
     img {
       background-size: 20px;

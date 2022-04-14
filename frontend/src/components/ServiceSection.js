@@ -1,43 +1,46 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import ServiceCard from "./ServiceCard";
 import { InnerLayout } from "../styles/Layout";
-import { getServices } from "../redux/actions/serviceActions";
+import { getInfo } from "../redux/actions/infoActions";
 import { useSelector, useDispatch } from "react-redux";
-import Spinners from "./Spinners";
 
 const ServiceSection = () => {
   const dispatch = useDispatch();
 
   //STATE ACCESS
-  const serviceList = useSelector((state) => state.serviceList);
-  const { loading, services } = serviceList;
+  const infoList = useSelector((state) => state.infoList);
+  const { loading, success, error, infos } = infoList;
 
   useEffect(() => {
-    dispatch(getServices());
-  }, [getServices]);
-
-  console.log("redux fetched => ", services);
+    dispatch(getInfo());
+  }, [getInfo]);
 
   return (
     <InnerLayout>
       <ServiceSectionStyled>
-        <div className="services">
-          {loading && !services ? (
-            <Spinners />
-          ) : (
-            services.map((service) => (
+        {loading ? (
+          <LinearProgress color="primary" />
+        ) : success ? (
+          <div className="services">
+            {infos[0].services.map((service) => (
               <ServiceCard
-                className="imcard"
                 key={service._id}
-                image={service.image}
+                image={service.serviceimage}
                 title={service.title}
                 paragraph={service.paragraph}
                 url={service.url}
               />
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="errorstatus">
+            {" "}
+            <h1>Services not found : {error}</h1>
+            <p>Please try again later</p>
+          </div>
+        )}
       </ServiceSectionStyled>
     </InnerLayout>
   );

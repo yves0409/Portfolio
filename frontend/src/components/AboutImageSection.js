@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import downloadCV from "../images/download.png";
+import resume from "../images/download.png";
 import cv from "../../src/data/cv.pdf";
-import axios from "axios";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import ModalSubscribeComponent from "./ModalSubscribeComponent";
+import ModalSubscribeComponent from "./modals/ModalSubscribeComponent";
+import { getInfo } from "../redux/actions/infoActions";
 import { Link } from "react-router-dom";
 import { IoEnterOutline } from "react-icons/io5";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const ImageSection = () => {
-  const [aboutInfo, setAboutInfo] = useState("");
   const [showSubscribe, setShowSubscribe] = useState(false);
+
+  const dispatch = useDispatch();
 
   //STATE ACCESS
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const infoList = useSelector((state) => state.infoList);
+  const { loading, infos, success, error } = infoList;
 
   const loginLink = (
     <Link to="/login">
@@ -24,60 +28,68 @@ const ImageSection = () => {
   );
 
   //MODAL TO ASK FOR LOGIN
-  const showPleaseLoginModal = () => {
+  const showLoginModal = () => {
     setShowSubscribe(!showSubscribe);
   };
 
   useEffect(() => {
-    async function getResults() {
-      const results = await axios.get("/api/info");
-      setAboutInfo(results.data[0]);
-    }
-    getResults();
-  }, []);
+    dispatch(getInfo());
+  }, [dispatch]);
 
-  return aboutInfo ? (
+  return (
     <ImageSectionStyled>
-      <div className="left-content">
-        <img src={aboutInfo.image} alt="res" />
-        <p className="about-paragraph">{aboutInfo.bio}</p>
-      </div>
-      <div className="right-content">
-        <div className="about-info">
-          <div className="info-title">
-            <p>
-              Full Name :{" "}
-              <span>
-                {aboutInfo.first_name} {aboutInfo.last_name}
-              </span>
-            </p>
-            <p>
-              Languages : <span>{aboutInfo.languages}</span>
-            </p>
-            <p>
-              Location : <span>{aboutInfo.location}</span>
-            </p>
-            <p>
-              Service : <span>{aboutInfo.services}</span>
-            </p>
-          </div>
-        </div>
+      {success ? (
+        infos.map((info) => (
+          <div className="content" key={info._id}>
+            <div className="left-content">
+              <img src={info.image} alt="work setup" />
 
-        <div className="downloadResume">
-          {userInfo ? (
-            <Link to={cv} target="_blank" download>
-              <img src={downloadCV} alt="Freepic" />
-            </Link>
-          ) : (
-            <img
-              src={downloadCV}
-              alt="Freepic"
-              onClick={showPleaseLoginModal}
-            />
-          )}
-          <p className="downloadResumeText">Resume</p>
+              <p className="about-paragraph">{info.bio}</p>
+            </div>{" "}
+            <div className="right-content">
+              <div className="about-info">
+                <div className="info-title">
+                  <p>
+                    Name :{" "}
+                    <span>
+                      {info.first_name} {info.last_name}
+                    </span>
+                  </p>
+                  <p>
+                    Languages : <span>{info.languages}</span>
+                  </p>
+                  <p>
+                    Location : <span>{info.location}</span>
+                  </p>
+                  <p>
+                    Service : <span>{info.contract}</span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="downloadResume">
+                {userInfo ? (
+                  <Link to={cv} target="_blank" download>
+                    <img src={resume} alt="Freepic" />
+                  </Link>
+                ) : (
+                  <img src={resume} alt="Freepic" onClick={showLoginModal} />
+                )}
+                <p className="downloadResumeText">Resume</p>
+              </div>
+            </div>
+          </div>
+        ))
+      ) : loading ? (
+        <LinearProgress />
+      ) : (
+        <div className="errorstatus">
+          {" "}
+          <h1>Could not get information : {error}</h1>
+          <p>Please try again later</p>
         </div>
-      </div>
+      )}
+
       {showSubscribe && (
         <ModalSubscribeComponent
           title={"Please Login to download my resume !"}
@@ -86,18 +98,21 @@ const ImageSection = () => {
         />
       )}
     </ImageSectionStyled>
-  ) : (
-    <LinearProgress color="primary" />
   );
 };
 
 const ImageSectionStyled = styled.div`
-  margin-top: 4rem;
-  display: flex;
-  justify-content: space-around;
+  .content {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-around;
+  }
 
   @media screen and (max-width: 1400px) {
-    flex-direction: column;
+    .content {
+      flex-direction: column;
+    }
+
     .left-content {
       margin-bottom: 2rem;
     }

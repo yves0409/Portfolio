@@ -1,8 +1,8 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import CarrouselPortfolio from "./CarrouselPortfolio";
-import ModalCloseButton from "./ModalCloseButton";
-import { InnerLayout } from "../styles/Layout";
+import CarrouselPortfolio from "../carousel/CarrouselPortfolio";
+import ModalCloseButton from "../buttons/ModalCloseButton";
+import { InnerLayout } from "../../styles/Layout";
 
 const ModalCarrouselComponent = ({
   show,

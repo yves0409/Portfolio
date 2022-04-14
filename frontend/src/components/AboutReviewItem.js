@@ -10,7 +10,7 @@ const AboutReviewItem = ({ name, reviewText, initial }) => {
         <Avatar>{initial}</Avatar>
         <h6>{name}</h6>
       </div>
-      <div style={{ display: "flex", marginTop: "1rem" }}>
+      <div className="reviewText">
         <FormatQuoteIcon />
         <p>{reviewText}</p>
       </div>
@@ -34,8 +34,11 @@ const AboutReviewItemStyled = styled.div`
     padding: 1rem 0.2rem;
     font-size: 0.8rem;
   }
+
   .reviewText {
-    margin-top: 20px;
+    display: flex;
+    margin-top: 1rem;
+    color: var(--font-light-color);
   }
 `;
 export default AboutReviewItem;

@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const TitleComponent = ({ title, img, margin }) => {
+const TitleComponent = ({ title, img, margin, attribute }) => {
   return (
     <>
       <TitleComponentStyled style={{ marginTop: `${margin}` }}>
-        <img src={img} alt="descriptive icon" />
+        <img src={img} alt="descriptive icon" attribute={attribute} />
         <h1>{title}</h1>
       </TitleComponentStyled>
     </>

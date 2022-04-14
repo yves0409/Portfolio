@@ -1,24 +1,46 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import Title from "./Title";
-import ProgressCircle from "./ProgressCircle";
-import dataSkillsProgress from "../data/dataSkillsProgress";
+import Title from "./titles/Title";
+import ServiceProgressCircle from "./ServiceProgressCircle";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import { InnerLayout } from "../styles/Layout";
+import { getInfo } from "../redux/actions/infoActions";
+import { useSelector, useDispatch } from "react-redux";
 
 const ServiceSkillsSection = () => {
+  const dispatch = useDispatch();
+
+  const infoList = useSelector((state) => state.infoList);
+  const { loading, infos, success, error } = infoList;
+
+  useEffect(async () => {
+    dispatch(getInfo());
+  }, [dispatch]);
+
   return (
     <SkillsStyled>
       <Title title={"Languages/ markup"} span={"Languages/ markup"} />
+
       <InnerLayout>
         <div className="skills">
-          {dataSkillsProgress.map((skill) => (
-            <ProgressCircle
-              key={skill.id}
-              title={skill.title}
-              percentage={skill.percentage}
-              img={skill.img}
-            />
-          ))}
+          {success ? (
+            infos[0].skills.map((info) => (
+              <ServiceProgressCircle
+                key={info._id}
+                title={info.title}
+                percentage={info.percentage}
+                img={info.img}
+              />
+            ))
+          ) : loading ? (
+            <LinearProgress />
+          ) : (
+            <div className="errorstatus">
+              {" "}
+              <h1>Could not get information : {error}</h1>
+              <p>Please try again later</p>
+            </div>
+          )}
         </div>
       </InnerLayout>
     </SkillsStyled>

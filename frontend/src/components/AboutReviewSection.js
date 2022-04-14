@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import ReviewItem from "./AboutReviewItem";
-import Title from "./Title";
+import Title from "./titles/Title";
 import { InnerLayout } from "../styles/Layout";
-import ReviewForm from "./ReviewForm";
+import ReviewForm from "../components/forms/ReviewForm";
 import { getreview } from "../redux/actions/reviewActions";
 import { useSelector, useDispatch } from "react-redux";
-import Spinners from "./Spinners";
+import Loader from "./loaders/Loader";
 
 const AboutReviewSection = () => {
   const dispatch = useDispatch();
 
   //STATE ACCESS
   const reviewList = useSelector((state) => state.reviewList);
-  const { loading, reviews } = reviewList;
+  const { loading, reviews, success, error } = reviewList;
 
   useEffect(() => {
     dispatch(getreview());
@@ -23,12 +23,12 @@ const AboutReviewSection = () => {
     <AboutReviewSectionStyled>
       <Title title={"Reviews"} span={"Reviews"} />
       <InnerLayout>
-        {loading && <Spinners />}
-        <div className="reviews">
-          {reviews && reviews.length > 0 ? (
-            reviews
-              .slice(0, 4)
-              .map((item) => (
+        {loading ? (
+          <Loader />
+        ) : success ? (
+          <div className="reviews">
+            {reviews ? (
+              reviews.map((item) => (
                 <ReviewItem
                   key={item._id}
                   name={item.name}
@@ -38,10 +38,18 @@ const AboutReviewSection = () => {
                   }`}
                 />
               ))
-          ) : (
-            <h3 className="noReviewText">No reviews yet</h3>
-          )}
-        </div>
+            ) : (
+              <h3 className="noReviewText">No reviews yet</h3>
+            )}
+          </div>
+        ) : (
+          <div className="errorstatus">
+            {" "}
+            <h3>Could not get reviews : {error}</h3>
+            <p>Please try again later</p>
+          </div>
+        )}
+
         <ReviewForm />
       </InnerLayout>
     </AboutReviewSectionStyled>
@@ -50,22 +58,17 @@ const AboutReviewSection = () => {
 
 const AboutReviewSectionStyled = styled.section`
   padding-top: 3.5rem;
-  transform: translateY(100px);
-  animation: slideUp 0.8s ease forwards 1s;
 
   .noReviewText {
     color: var(--white-color);
   }
 
-  @keyframes slideUp {
-    0% {
-      transform: translateY(500px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
   .reviews {
+    background-color: var(--background-dark-color-2);
+    height: 400px;
+    overflow-y: scroll;
+    scrollbar-color: red yellow;
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1.5rem;
