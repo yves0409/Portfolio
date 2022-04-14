@@ -57,21 +57,29 @@ const ContactScreen = () => {
 
 const ContactPageStyled = styled.section`
   .contact-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 2rem;
-
-    @media screen and (max-width: 1200px) {
-      grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .left-content {
+      width: 50%;
+      margin: 20px;
     }
     .right-content {
-      margin-top: 2rem;
+      width: 50%;
+      margin: 20px;
     }
-    .contact-title {
-      h4 {
-        color: var(--white-color);
-        padding: 1rem 0;
-        font-size: 1.8rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .contact-section {
+      flex-direction: column;
+      .left-content {
+        width: 100%;
+      }
+
+      .right-content {
+        margin-top: 2.8rem;
+        width: 100%;
       }
     }
   }

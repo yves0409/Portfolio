@@ -175,7 +175,7 @@ const ContactForm = () => {
 
 const ContactFormStyled = styled.section`
   .form {
-    width: 90%;
+    width: 100%;
     .form-field {
       margin-top: 0.2rem;
       position: relative;
