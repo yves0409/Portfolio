@@ -20,7 +20,7 @@ export const postReviewReducer = (state = {}, action) => {
         loading: false,
         success: true,
         error: false,
-        postedReviews: action.payload, //See userController (userInfo: _id,name,email,isAdmin)
+        postedReviews: [...state, action.payload], //TODO
       };
     case POST_REVIEW_FAIL:
       return {
@@ -40,16 +40,19 @@ export const getReviewReducer = (state = { reviews: [] }, action) => {
     case GET_REVIEW_REQUEST:
       return {
         loading: true,
+        success: false,
         reviews: [],
       };
     case GET_REVIEW_SUCCESS:
       return {
         loading: false,
+        success: true,
         reviews: action.payload,
       };
     case GET_REVIEW_FAIL:
       return {
         loading: false,
+        success: false,
         error: action.payload,
       };
     default:

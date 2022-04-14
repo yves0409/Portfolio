@@ -1,25 +1,25 @@
 import {
-  GET_PORTFOLIO_REQUEST,
-  GET_PORTFOLIO_SUCCESS,
-  GET_PORTFOLIO_FAIL,
+  GET_CONTACT_REQUEST,
+  GET_CONTACT_SUCCESS,
+  GET_CONTACT_FAIL,
 } from "../types";
 
-//GET PORTFOLIOS
-export const getPortfolioReducer = (state = { portfolios: [] }, action) => {
+//GET CONTACT
+export const getContactReducer = (state = { contacts: [] }, action) => {
   switch (action.type) {
-    case GET_PORTFOLIO_REQUEST:
+    case GET_CONTACT_REQUEST:
       return {
         loading: true,
         success: false,
-        portfolios: [],
+        contacts: [],
       };
-    case GET_PORTFOLIO_SUCCESS:
+    case GET_CONTACT_SUCCESS:
       return {
         loading: false,
         success: true,
-        portfolios: action.payload,
+        contacts: action.payload,
       };
-    case GET_PORTFOLIO_FAIL:
+    case GET_CONTACT_FAIL:
       return {
         loading: false,
         success: false,

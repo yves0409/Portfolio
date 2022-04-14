@@ -6,17 +6,19 @@ import { postReviewReducer, getReviewReducer } from "./reducers/reviewReducers";
 import { getPortfolioReducer } from "./reducers/portfolioReducers";
 import { getBackgroundReducer } from "./reducers/backgroundReducers";
 import { getTrendingReducer } from "./reducers/trendingReducers";
-import { getServiceReducer } from "./reducers/serviceReducers";
+import { getContactReducer } from "./reducers/contactReducer";
+import { getInfoReducer } from "./reducers/infoReducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   reviewsAdded: postReviewReducer,
   reviewList: getReviewReducer,
-  serviceList: getServiceReducer,
+  contactList: getContactReducer,
   portfolioList: getPortfolioReducer,
   backgroundList: getBackgroundReducer,
   trendingList: getTrendingReducer,
+  infoList: getInfoReducer,
 });
 
 //if userInfo is in localStorage , set it to the userInfoFromStorage variable

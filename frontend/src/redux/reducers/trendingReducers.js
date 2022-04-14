@@ -10,16 +10,19 @@ export const getTrendingReducer = (state = { trendings: [] }, action) => {
     case GET_TRENDING_REQUEST:
       return {
         loading: true,
+        success: false,
         trendings: [],
       };
     case GET_TRENDING_SUCCESS:
       return {
         loading: false,
+        success: true,
         trendings: action.payload,
       };
     case GET_TRENDING_FAIL:
       return {
         loading: false,
+        success: false,
         error: action.payload,
       };
     default:
