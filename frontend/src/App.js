@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Route, Switch as Switching, withRouter } from "react-router";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/navigation/Sidebar";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
 import ReactGA from "react-ga";
@@ -11,7 +11,7 @@ import { IconButton } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { logout } from "../src/redux/actions/userActions";
-import ToggleButton from "./components/ToggleButton";
+import ToggleButton from "./components/buttons/ToggleButton";
 
 //COMPONENT IMPORTS USING REACT LAZY
 const HomeScreen = React.lazy(() => import("./pages/HomeScreen"));
