@@ -13,6 +13,7 @@ const Title = ({ title, span }) => {
 
 const TitleStyled = styled.header`
   position: relative;
+  margin-bottom: 100px; //TODO CHANGE MB?
 
   h2 {
     color: var(--white-color);

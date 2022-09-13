@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
     --background-light-color:#f1f1f1;
     --background-light-color-2:rgba(3,127,255,.3);
     --background-light-color-3:#0b48854a;
-    --white-color:#fff;
+    --white-color:#ffffff;
     --white-color-2:#a09a9a;
     --font-light-color:#a4acc4;
     --font-dark-color:#313131;
@@ -59,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
      padding:0;
      margin:0;
      box-sizing:border-box;
-     list-style:none;
+     //list-style:none;
      text-decoration:none;
      font-family: 'Nunito', sans-serif;
      font-size:1rem;
